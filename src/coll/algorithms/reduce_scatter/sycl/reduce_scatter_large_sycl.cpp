@@ -135,10 +135,9 @@ ccl::event reduce_scatter_large(const void *send_buf,
         delete exchange_entry;
         delete sched;
 
-        coll_init(comm, global_stream);
+        //        coll_init(comm, global_stream);
     }
     else {
-        coll_init(comm, global_stream);
         // 0 index is used for tmp work buffer and
         // 1 index is used to copy input data
         sycl_ptrs.xelink_ptrs_rd = get_remote_even_tmp_buf(1, comm);

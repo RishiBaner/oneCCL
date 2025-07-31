@@ -72,6 +72,9 @@
 #include "coll/algorithms/reduce_scatter/sycl/reduce_scatter_sycl.hpp"
 #include "coll/algorithms/allgatherv/sycl/allgatherv_sycl.hpp"
 #include "coll/algorithms/alltoall/sycl/alltoall_sycl.hpp"
+#include "coll/algorithms/broadcast/sycl/broadcast_sycl.hpp"
+#include "coll/algorithms/recv/sycl/recv_sycl.hpp"
+#include "coll/algorithms/send/sycl/send_sycl.hpp"
 #endif // CCL_ENABLE_SYCL && CCL_ENABLE_ZE
 
 #if defined(CCL_ENABLE_SYCL) && defined(CCL_ENABLE_ZE)
@@ -1823,11 +1826,56 @@ ccl::event ccl_recv(void* recv_buf,
                     ccl_comm* comm,
                     const ccl_stream* stream,
                     const std::vector<ccl::event>& deps) {
-    auto recv_operation =
+    std::function<ccl::event()> recv_operation =
         [recv_buf, count, dtype, peer, attr, comm, stream, &deps]() -> ccl::event {
         auto req = ccl_recv_impl(recv_buf, count, dtype, peer, attr, comm, stream, deps);
         return std::unique_ptr<ccl::event_impl>(new ccl::host_event_impl(req));
     };
+
+#if defined(CCL_ENABLE_SYCL) && defined(CCL_ENABLE_ZE)
+    ccl_selector_param param = ccl_selector_param::create(ccl_coll_recv,
+                                                          count,
+                                                          dtype,
+                                                          comm,
+                                                          const_cast<ccl_stream*>(stream),
+                                                          recv_buf,
+                                                          ccl::reduction::custom,
+                                                          false, // is_vector_buf
+                                                          false, // is_sycl_buf
+                                                          peer, // peer_rank
+                                                          {}, // hint_algo
+                                                          false); // is_scaleout
+    if (can_use_sycl_kernels(param)) {
+        if (!group_impl::is_group_active) {
+            LOG_DEBUG(
+                "|CCL_SYCL| recv selects sycl-kernels recv_count: ", count, ", datatype: ", dtype);
+            ccl_stream* op_stream = const_cast<ccl_stream*>(stream);
+            auto q = op_stream->get_native_stream();
+            auto dummy_unused_attr = ccl::create_operation_attr<ccl::pt2pt_attr>();
+
+            recv_operation = [=, &q, &deps]() -> ccl::event {
+                bool done = false;
+                ccl::event ccl_event = recv_sycl(q,
+                                                 recv_buf,
+                                                 count,
+                                                 dtype,
+                                                 peer,
+                                                 comm,
+                                                 const_cast<ccl_stream*>(stream),
+                                                 dummy_unused_attr,
+                                                 deps,
+                                                 done);
+                if (done) {
+                    if (ccl::global_data::env().enable_op_sync) {
+                        ccl_event.wait();
+                    }
+                    return ccl_event;
+                }
+                return recv_operation();
+            };
+        }
+    }
+#endif // CCL_ENABLE_SYCL && CCL_ENABLE_ZE
     ccl_request* req{};
     ccl::event event = std::unique_ptr<ccl::event_impl>(
         new ccl::host_event_impl(req, group_impl::is_group_active));
@@ -1872,12 +1920,58 @@ ccl::event ccl_send(const void* send_buf,
                     ccl_comm* comm,
                     const ccl_stream* stream,
                     const std::vector<ccl::event>& deps) {
-    auto send_operation =
+    std::function<ccl::event()> send_operation =
         [send_buf, send_count, dtype, peer_rank, attr, comm, stream, &deps]() -> ccl::event {
         auto req = ccl_send_impl(send_buf, send_count, dtype, peer_rank, attr, comm, stream, deps);
         return std::unique_ptr<ccl::event_impl>(new ccl::host_event_impl(req));
     };
+#if defined(CCL_ENABLE_SYCL) && defined(CCL_ENABLE_ZE)
+    ccl_selector_param param = ccl_selector_param::create(ccl_coll_send,
+                                                          send_count,
+                                                          dtype,
+                                                          comm,
+                                                          const_cast<ccl_stream*>(stream),
+                                                          const_cast<void*>(send_buf),
+                                                          ccl::reduction::custom,
+                                                          false, // is_vector_buf
+                                                          false, // is_sycl_buf
+                                                          peer_rank, // peer_rank
+                                                          {}, // hint_algo
+                                                          false); // is_scaleout
+    if (can_use_sycl_kernels(param)) {
+        if (!group_impl::is_group_active) {
+            LOG_DEBUG("|CCL_SYCL| send selects sycl-kernels send_count: ",
+                      send_count,
+                      ", datatype: ",
+                      dtype);
 
+            ccl_stream* op_stream = const_cast<ccl_stream*>(stream);
+            auto q = op_stream->get_native_stream();
+
+            auto dummy_unused_attr = ccl::create_operation_attr<ccl::pt2pt_attr>();
+            send_operation = [=, &q, &deps]() -> ccl::event {
+                bool done = false;
+                ccl::event ccl_event = send_sycl(q,
+                                                 send_buf,
+                                                 send_count,
+                                                 dtype,
+                                                 peer_rank,
+                                                 comm,
+                                                 const_cast<ccl_stream*>(stream),
+                                                 dummy_unused_attr,
+                                                 deps,
+                                                 done);
+                if (done) {
+                    if (ccl::global_data::env().enable_op_sync) {
+                        ccl_event.wait();
+                    }
+                    return ccl_event;
+                }
+                return send_operation();
+            };
+        }
+    }
+#endif // CCL_ENABLE_SYCL && CCL_ENABLE_ZE
     ccl_request* req{};
     ccl::event event = std::unique_ptr<ccl::event_impl>(
         new ccl::host_event_impl(req, group_impl::is_group_active));

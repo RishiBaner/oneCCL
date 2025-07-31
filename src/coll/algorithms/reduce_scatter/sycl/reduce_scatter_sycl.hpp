@@ -91,3 +91,13 @@ ccl::event reduce_scatter_large(const void* send_buf,
                                 ccl_comm* comm,
                                 ccl_stream* global_stream,
                                 const ccl::vector_class<ccl::event>& deps);
+
+// ring with RT protocols
+ccl::event reduce_scatter_rt_ring(const void* src,
+                                  void* dst,
+                                  size_t recv_count,
+                                  ccl::datatype dtype,
+                                  ccl::reduction reduction,
+                                  ccl_comm* comm,
+                                  ccl_stream* global_stream,
+                                  bool& done);

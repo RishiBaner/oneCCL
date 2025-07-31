@@ -45,6 +45,8 @@
 #include "topology/topo_manager.hpp"
 #include "unordered_coll/unordered_coll.hpp"
 
+enum class pattern_type { collective, send, recv };
+
 // index = local_rank, value = global_rank
 using ccl_rank2rank_map = std::vector<int>;
 
@@ -700,6 +702,33 @@ public:
         return enable_multi_thread_instance;
     }
 
+    // pattern: XYYY xxxx xxxx xxxx
+    // X: 1 is collective, 0 is pt2pt
+    // YYY: is the source rank of the pt2pt
+    uint32_t get_rt_pattern(pattern_type type, int peer_rank) {
+        uint16_t counter;
+        if (type == pattern_type::collective) {
+            counter = pattern_counter[8];
+            counter = counter & 0x0FFF | 0x8000;
+        }
+        else if (type == pattern_type::send || type == pattern_type::recv) {
+            counter = pattern_counter[peer_rank];
+            int src_rank = type == pattern_type::send ? comm_rank : peer_rank;
+            counter = counter & 0x0FFF | src_rank << 12;
+        }
+
+        return global_current_id << 16 | counter;
+    }
+
+    void update_rt_pattern(pattern_type type, int peer_rank, uint32_t pattern) {
+        uint16_t counter = pattern & 0x0FFF;
+        if (type == pattern_type::collective) {
+            pattern_counter[8] = counter;
+        }
+        else if (type == pattern_type::send || type == pattern_type::recv) {
+            pattern_counter[peer_rank] = counter;
+        }
+    }
 #endif // CCL_ENABLE_SYCL
 
     // collectives operation declarations
@@ -751,9 +780,12 @@ private:
 #if defined(CCL_ENABLE_SYCL) && defined(CCL_ENABLE_ZE)
     std::shared_ptr<ccl::ze::fd_manager> fd_manager;
     void init_ipc_exchange_mode(std::shared_ptr<ccl_comm> comm);
+    uint16_t pattern_counter[9];
 #endif // CCL_ENABLE_SYCL && CCL_ENABLE_ZE
 
     ccl_sched_id_t next_sched_id_internal{};
     ccl_sched_id_t next_sched_id_external{};
 
 }; // class ccl_comm
+
+void coll_init(ccl_comm* comm, ccl_stream* stream);

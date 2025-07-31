@@ -141,8 +141,8 @@ env_data::env_data()
           enable_strict_order(0),
           staging_buffer(ccl_staging_regular),
           enable_op_sync(0),
-          enable_hostname_sharing(0),
-          enable_init_hostname_sharing(0),
+          enable_hostname_sharing(1),
+          enable_init_hostname_sharing(1),
 
           chunk_count(1),
           min_chunk_size(65536),
@@ -187,6 +187,7 @@ env_data::env_data()
           sycl_reduce_scatter_medium_threshold(67108864),
           sycl_reduce_scatter_scaleout_threshold(4294967296),
           sycl_reduce_scatter_scaleout_algo("auto"),
+          sycl_reduce_scatter_ll_threshold(512),
 
           sycl_allgatherv_tmp_buf(0),
           sycl_allgatherv_small_threshold(131072),
@@ -209,6 +210,7 @@ env_data::env_data()
           sycl_scaleout_device_buf_size(1024 * 1024 * 1024),
           sycl_kernels_line_size(128),
           sycl_scaleout_buf_alloc_mode(ccl::utils::alloc_mode::hwloc),
+          sycl_pt2pt_read(0),
           sycl_max_pipeline_chunk_size(32 * 1024 * 1024),
           sycl_pipeline_chunk_size(CCL_ENV_SIZET_NOT_SPECIFIED),
           sycl_enable_pipeline_gpu_rdma(0),
@@ -541,6 +543,7 @@ void env_data::parse() {
     p.env_2_type(CCL_SYCL_REDUCE_SCATTER_MEDIUM_THRESHOLD, sycl_reduce_scatter_medium_threshold);
     p.env_2_type(CCL_SYCL_REDUCE_SCATTER_SCALEOUT_THRESHOLD, sycl_reduce_scatter_scaleout_threshold);
     p.env_2_type(CCL_SYCL_REDUCE_SCATTER_SCALEOUT, sycl_reduce_scatter_scaleout_algo);
+    p.env_2_type(CCL_SYCL_REDUCE_SCATTER_LL_THRESHOLD, sycl_reduce_scatter_ll_threshold);
 
     p.env_2_type(CCL_SYCL_ALLGATHERV_TMP_BUF, sycl_allgatherv_tmp_buf);
     p.env_2_type(CCL_SYCL_ALLGATHERV_SMALL_THRESHOLD, sycl_allgatherv_small_threshold);
@@ -563,6 +566,7 @@ void env_data::parse() {
     p.env_2_type(CCL_SYCL_SCALEOUT_DEVICE_BUF_SIZE, sycl_scaleout_device_buf_size);
     p.env_2_type(CCL_SYCL_KERNELS_LINE_SIZE, sycl_kernels_line_size);
     p.env_2_enum(CCL_SYCL_SCALEOUT_BUF_ALLOC_MODE, ccl::utils::alloc_mode_names, sycl_scaleout_buf_alloc_mode);
+    p.env_2_type(CCL_SYCL_PT2PT_READ, sycl_pt2pt_read);
     p.env_2_type(CCL_SYCL_MAX_PIPELINE_CHUNK_SIZE, sycl_max_pipeline_chunk_size);
     p.env_2_type(CCL_SYCL_PIPELINE_CHUNK_SIZE, (size_t&)sycl_pipeline_chunk_size);
     p.env_2_type(CCL_SYCL_ENABLE_PIPELINE_GPU_RDMA, sycl_enable_pipeline_gpu_rdma);
@@ -986,6 +990,7 @@ void env_data::print(int rank, bool is_mt_enabled) {
     LOG_INFO(CCL_SYCL_REDUCE_SCATTER_MEDIUM_THRESHOLD, ": ", sycl_reduce_scatter_medium_threshold);
     LOG_INFO(CCL_SYCL_REDUCE_SCATTER_SCALEOUT_THRESHOLD, ": ", sycl_reduce_scatter_scaleout_threshold);
     LOG_INFO(CCL_SYCL_REDUCE_SCATTER_SCALEOUT, ": ", (!sycl_reduce_scatter_scaleout_algo.empty()) ? sycl_reduce_scatter_scaleout_algo : CCL_ENV_STR_NOT_SPECIFIED);
+    LOG_INFO(CCL_SYCL_REDUCE_SCATTER_LL_THRESHOLD, ": ", sycl_reduce_scatter_ll_threshold);
 
     LOG_INFO(CCL_SYCL_ALLGATHERV_TMP_BUF, ": ", sycl_allgatherv_tmp_buf);
     LOG_INFO(CCL_SYCL_ALLGATHERV_SMALL_THRESHOLD, ": ", sycl_allgatherv_small_threshold);
@@ -1008,6 +1013,7 @@ void env_data::print(int rank, bool is_mt_enabled) {
     LOG_INFO(CCL_SYCL_SCALEOUT_DEVICE_BUF_SIZE, ": ", sycl_scaleout_device_buf_size);
     LOG_INFO(CCL_SYCL_KERNELS_LINE_SIZE, ": ", sycl_kernels_line_size);
     LOG_INFO(CCL_SYCL_SCALEOUT_BUF_ALLOC_MODE, ": ", str_by_enum(ccl::utils::alloc_mode_names, sycl_scaleout_buf_alloc_mode));
+    LOG_INFO(CCL_SYCL_PT2PT_READ, ": ", sycl_pt2pt_read);
     LOG_INFO(CCL_SYCL_MAX_PIPELINE_CHUNK_SIZE, ": ", sycl_max_pipeline_chunk_size);
     LOG_INFO(CCL_SYCL_PIPELINE_CHUNK_SIZE, ": ", (sycl_pipeline_chunk_size != CCL_ENV_SIZET_NOT_SPECIFIED) ? std::to_string(sycl_pipeline_chunk_size) : CCL_ENV_STR_NOT_SPECIFIED);
     LOG_INFO(CCL_SYCL_ENABLE_PIPELINE_GPU_RDMA, ": ", sycl_enable_pipeline_gpu_rdma);

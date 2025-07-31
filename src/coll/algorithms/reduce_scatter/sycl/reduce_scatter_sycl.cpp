@@ -62,6 +62,22 @@ ccl::event reduce_scatter_sycl_single_node(sycl::queue& q,
     const bool has_all_vertices_connected = comm->get_topo_manager().has_all_vertices_connected();
     LOG_DEBUG("|CCL_SYCL| has_all_vertices_connected", has_all_vertices_connected);
 
+    // for ARC GPUs to do ring RT256
+    if (is_arc_card(ccl::ze::get_device_family(global_stream->get_ze_device()))) {
+        if (!is_aligned(send_buf, recv_buf, recv_count * ccl_dtype.size(), 4) ||
+            ccl::global_data::env().sycl_enable_arc_allreduce) {
+            done = false;
+            return e;
+        }
+        LOG_DEBUG("invoking reduce_scatter RT256 kernel reduce_scatter_rt_ring, recv_count:",
+                  recv_count,
+                  " datatype: ",
+                  dtype);
+        e = reduce_scatter_rt_ring(send_buf, recv_buf, recv_count, dtype, reduction, comm, global_stream, done);
+        LOG_DEBUG("invoking reduce_scatter RT256 kernel, recv_count:", recv_count, " datatype: ", dtype, " done");
+        return e;
+    }
+
     if (!ccl::global_data::env().sycl_esimd) {
         if (recv_count * world * ccl_dtype.size() <= ccl::global_data::env().sycl_reduce_scatter_small_threshold) {
 #ifdef CCL_ENABLE_ITT
