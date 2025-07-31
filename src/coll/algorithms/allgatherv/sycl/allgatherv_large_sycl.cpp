@@ -92,10 +92,9 @@ ccl::event allgatherv_large(const void* send_buf,
         delete exchange_entry;
         delete sched;
 
-        coll_init(comm, global_stream);
+        //        coll_init(comm, global_stream);
     }
     else {
-        coll_init(comm, global_stream);
         sycl_ptrs.xelink_ptrs_rd = get_remote_even_tmp_buf(0, comm);
         if (pair_comm->size() > 1) {
             assert(pair_comm->size() == MAX_TILES);

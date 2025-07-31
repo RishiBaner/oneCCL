@@ -78,8 +78,6 @@ ccl::event allgatherv_small(const void* send_buf,
                             ccl_stream* global_stream,
                             const ccl::vector_class<ccl::event>& deps) {
     LOG_DEBUG("invoking allgatherv_small");
-    coll_init(comm, global_stream);
-
     auto lambda = [&]<typename T, int NE, int NP>() {
         return allgatherv_small_impl<T, NE, NP>(
             send_buf, send_count, recv_buf, recv_counts, offsets, dtype, comm, global_stream, deps);

@@ -17,19 +17,17 @@
 
 #if defined(CCL_ENABLE_ZE) || defined(CCL_ENABLE_SYCL)
 #include "coll/algorithms/utils/sycl_coll_base.hpp"
-#include "coll/algorithms/allgatherv/sycl/allgatherv_pcie.hpp"
+#include "coll/algorithms/reduce_scatter/sycl/reduce_scatter_pcie.hpp"
 #endif // CCL_ENABLE_SYCL
 
-ccl::event allgatherv_ll_ring(const void *send_buf,
-                              size_t send_count,
-                              void *recv_buf,
-                              const ccl::vector_class<size_t> &recv_counts,
-                              const ccl::vector_class<size_t> &offsets,
-                              ccl::datatype dtype,
-                              ccl_comm *comm,
-                              ccl_stream *global_stream,
-                              const ccl::vector_class<ccl::event> &deps,
-                              bool &done) {
+ccl::event reduce_scatter_rt_ring(const void *src,
+                                  void *dst,
+                                  size_t recv_count,
+                                  ccl::datatype dtype,
+                                  ccl::reduction reduction,
+                                  ccl_comm *comm,
+                                  ccl_stream *global_stream,
+                                  bool &done) {
     sycl::event sycl_e;
     sycl::queue q = global_stream->get_native_stream();
     std::shared_ptr<ccl_comm> node_comm = comm->get_node_comm();
@@ -40,7 +38,6 @@ ccl::event allgatherv_ll_ring(const void *send_buf,
 
     auto ccl_dtype = ccl::global_data::get().dtypes->get(dtype);
     size_t dt_sz = ccl_dtype.size();
-    size_t send_size = send_count * ccl_dtype.size();
 
     bool p2p = node_comm->get_topo_manager().has_p2p_access();
     uint32_t pattern = comm->get_rt_pattern(pattern_type::collective, -1);
@@ -54,30 +51,34 @@ ccl::event allgatherv_ll_ring(const void *send_buf,
         }
         T *ipcbuf0 = (T *)get_tmp_buf(0, comm);
         T *ipcbuf1 = (T *)get_tmp_buf(1, comm);
-        sycl::event e = AllGather<T, NRanks, Proto, RingTransmit>::launch((T *)send_buf,
-                                                                          (T *)recv_buf,
-                                                                          ipcbuf0,
-                                                                          ipcbuf1,
-                                                                          peerbuf0,
-                                                                          peerbuf1,
-                                                                          send_count,
-                                                                          comm_rank,
-                                                                          pattern,
-                                                                          q,
-                                                                          p2p,
-                                                                          done);
-        // update pattern
+        sycl::event e = ReduceScatter<T, NRanks, Proto, RingTransmit>::launch((T *)src,
+                                                                              (T *)dst,
+                                                                              ipcbuf0,
+                                                                              ipcbuf1,
+                                                                              peerbuf0,
+                                                                              peerbuf1,
+                                                                              recv_count,
+                                                                              comm_rank,
+                                                                              pattern,
+                                                                              q,
+                                                                              p2p,
+                                                                              done);
         comm->update_rt_pattern(pattern_type::collective, -1, pattern);
         return e;
     };
 
-    if (send_size <= ccl::global_data::env().sycl_allgatherv_ll_threshold) {
+    if (recv_count * dt_sz <= ccl::global_data::env().sycl_reduce_scatter_ll_threshold) {
         // small ring with LL
         sycl_e = invoke_pcie<Rt64_PCIE>(lambda, comm, dtype);
     }
     else {
-        // simple ring with LL256
         sycl_e = invoke_pcie<Rt64_128_PCIE>(lambda, comm, dtype);
+    }
+
+    if (reduction == ccl::reduction::avg) {
+        std::vector<sycl::event> evs;
+        evs.push_back(sycl_e);
+        sycl_e = sycl_average(q, dst, recv_count, comm_size, dtype, evs);
     }
 
     return ccl::event::create_from_native(sycl_e);

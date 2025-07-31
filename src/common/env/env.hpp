@@ -238,6 +238,7 @@ public:
     size_t sycl_reduce_scatter_medium_threshold;
     size_t sycl_reduce_scatter_scaleout_threshold;
     std::string sycl_reduce_scatter_scaleout_algo;
+    size_t sycl_reduce_scatter_ll_threshold;
 
     bool sycl_allgatherv_tmp_buf;
     size_t sycl_allgatherv_small_threshold;
@@ -266,6 +267,7 @@ public:
     bool sycl_sub_communicator;
     bool sycl_force_pcie;
     ccl::utils::alloc_mode sycl_scaleout_buf_alloc_mode;
+    bool sycl_pt2pt_read;
 #endif // CCL_ENABLE_SYCL
 
     bool allreduce_nreduce_buffering;

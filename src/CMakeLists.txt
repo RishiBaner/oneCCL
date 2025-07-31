@@ -93,9 +93,15 @@ if (CCL_ENABLE_SYCL AND CCL_ENABLE_ZE)
         coll/algorithms/reduce_scatter/sycl/reduce_scatter_large_sycl_fp16.cpp
         coll/algorithms/reduce_scatter/sycl/reduce_scatter_large_sycl_bf16.cpp
         coll/algorithms/reduce_scatter/sycl/reduce_scatter_scaleout_sycl.cpp
+        coll/algorithms/reduce_scatter/sycl/reduce_scatter_pcie.cpp
 
         coll/algorithms/broadcast/sycl/broadcast_sycl.cpp
         coll/algorithms/broadcast/sycl/broadcast_small_sycl.cpp
+
+        coll/algorithms/recv/sycl/recv_sycl.cpp
+        coll/algorithms/recv/sycl/recv_pcie.cpp
+        coll/algorithms/send/sycl/send_sycl.cpp
+        coll/algorithms/send/sycl/send_pcie.cpp
 
         coll/algorithms/utils/sycl_coll_base.cpp
         coll/algorithms/utils/sycl_pipe_send.cpp
@@ -154,10 +160,10 @@ set(CCL_SRC
     coll/algorithms/broadcast/bcast.cpp
     coll/algorithms/broadcast/broadcast.cpp
     coll/algorithms/double_tree_ops.cpp
-    coll/algorithms/recv.cpp
+    coll/algorithms/recv/recv.cpp
     coll/algorithms/reduce.cpp
     coll/algorithms/reduce_scatter/reduce_scatter.cpp
-    coll/algorithms/send.cpp
+    coll/algorithms/send/send.cpp
     coll/coll.cpp
     coll/coll_check.cpp
     coll/group/group.cpp

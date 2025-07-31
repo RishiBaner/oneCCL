@@ -98,7 +98,7 @@ ccl::event allreduce_small(const void *send_buf,
     }
     else {
         LOG_DEBUG("invoking allreduce_small");
-        coll_init(comm, global_stream);
+        //        coll_init(comm, global_stream);
     }
 
     auto lambda = [&]<typename T, int NE, int NP>() {

@@ -325,7 +325,7 @@ void coll_init(ccl_comm *comm, ccl_stream *global_stream) {
 
         // add tmp buf pointers of large buffers
         const int large_buf_ipc_idx = ipc_ptrs.size();
-        ipc_ptrs.insert(std::end(ipc_ptrs), std::begin(tmp_bufs), std::end(tmp_bufs));
+        ipc_ptrs.push_back(tmp_bufs[0]);
 
 #ifdef CCL_ENABLE_UMF
         if (ccl::global_data::env().umf_enable) {
@@ -376,13 +376,51 @@ void coll_init(ccl_comm *comm, ccl_stream *global_stream) {
                 node_comm->set_remote_tmp_bufs(remote_ptrs, i);
             }
             // get ipc pointers for large tmp_buffers
-            for (size_t i = 0, j = large_buf_ipc_idx; i < tmp_bufs.size(); i++, j++) {
-                comm_large_tmp_bufs.remote_tmp_bufs[i] = get_ipc_ptrs<void, MAX_NODE_RANKS>(
-                    node_comm, j, ipc_ptrs[j], sched, q_worker, 1, false /* to_cache */);
-                comm_large_tmp_bufs.remote_even_tmp_bufs[i] = get_ipc_ptrs<void, MAX_GPUS>(
-                    even_comm, j, ipc_ptrs[j], sched, q_worker, 1, false /* to_cache */);
-                comm_large_tmp_bufs.remote_pair_tmp_bufs[i] = get_ipc_ptrs<void, MAX_TILES>(
-                    pair_comm, j, ipc_ptrs[j], sched, q_worker, 1, false /* to_cache */);
+            const size_t tmp_buf_size = ccl::global_data::env().sycl_tmp_buf_size / tmp_bufs_count;
+            // node_comm
+            comm_large_tmp_bufs.remote_tmp_bufs[0] =
+                get_ipc_ptrs<void, MAX_NODE_RANKS>(node_comm,
+                                                   large_buf_ipc_idx,
+                                                   ipc_ptrs[large_buf_ipc_idx],
+                                                   sched,
+                                                   q_worker,
+                                                   1,
+                                                   false /* to_cache */);
+            for (int i = 0; i < node_comm->size(); i++) {
+                comm_large_tmp_bufs.remote_tmp_bufs[1][i] =
+                    (char *)(comm_large_tmp_bufs.remote_tmp_bufs[0][i]) + tmp_buf_size;
+                comm_large_tmp_bufs.remote_tmp_bufs[2][i] =
+                    (char *)comm_large_tmp_bufs.remote_tmp_bufs[1][i] + tmp_buf_size;
+            }
+            // even_comm
+            comm_large_tmp_bufs.remote_even_tmp_bufs[0] =
+                get_ipc_ptrs<void, MAX_GPUS>(even_comm,
+                                             large_buf_ipc_idx,
+                                             ipc_ptrs[large_buf_ipc_idx],
+                                             sched,
+                                             q_worker,
+                                             1,
+                                             false /* to_cache */);
+            for (int i = 0; i < even_comm->size(); i++) {
+                comm_large_tmp_bufs.remote_even_tmp_bufs[1][i] =
+                    (char *)(comm_large_tmp_bufs.remote_even_tmp_bufs[0][i]) + tmp_buf_size;
+                comm_large_tmp_bufs.remote_even_tmp_bufs[2][i] =
+                    (char *)comm_large_tmp_bufs.remote_even_tmp_bufs[1][i] + tmp_buf_size;
+            }
+            // pair_comm
+            comm_large_tmp_bufs.remote_pair_tmp_bufs[0] =
+                get_ipc_ptrs<void, MAX_TILES>(pair_comm,
+                                              large_buf_ipc_idx,
+                                              ipc_ptrs[large_buf_ipc_idx],
+                                              sched,
+                                              q_worker,
+                                              1,
+                                              false /* to_cache */);
+            for (int i = 0; i < pair_comm->size(); i++) {
+                comm_large_tmp_bufs.remote_pair_tmp_bufs[1][i] =
+                    (char *)(comm_large_tmp_bufs.remote_pair_tmp_bufs[0][i]) + tmp_buf_size;
+                comm_large_tmp_bufs.remote_even_tmp_bufs[2][i] =
+                    (char *)comm_large_tmp_bufs.remote_pair_tmp_bufs[1][i] + tmp_buf_size;
             }
 
             q_worker.wait();
@@ -660,4 +698,126 @@ sycl::event sycl_average(sycl::queue &q,
         }
     };
     return invoke_scaleout(lambda, dtype);
+}
+
+sycl::event pt2pt_pre_sync(sycl::queue &q,
+                           const std::vector<sycl::event> &deps,
+                           ccl_comm *comm,
+                           bool do_send,
+                           int peer_rank,
+                           uint64_t tag) {
+    auto init_fn = [=](atl_req_t &req) -> bool {
+        int ep_idx = 0;
+        char data[1] = { 1 };
+        size_t n = sizeof(data);
+        auto atl = comm->get_atl_comm();
+
+        if (do_send) {
+            ATL_CALL_THROW_IF_ERROR(atl->send(ep_idx, data, n, peer_rank, tag, req));
+            LOG_DEBUG("pt2pt pre-sync SEND init, tag=", tag);
+        }
+        else {
+            LOG_DEBUG("pt2pt pre-sync RECV init, tag=", tag);
+            ATL_CALL_THROW_IF_ERROR(atl->recv(ep_idx, data, n, peer_rank, tag, req));
+            if (group_impl::is_group_active) {
+                ATL_CALL_THROW_IF_ERROR(atl->wait(ep_idx, req));
+            }
+        }
+
+        if (!group_impl::is_group_active) {
+            ATL_CALL_THROW_IF_ERROR(atl->check(ep_idx, req));
+            if (!req.is_completed) {
+                ATL_CALL_THROW_IF_ERROR(atl->wait(ep_idx, req));
+            }
+        }
+        return true;
+    };
+
+    // wait_fn: performs the blocking wait
+    auto wait_fn = [=](atl_req_t &req) {
+        if (req.is_completed) {
+            return;
+        }
+        int ep_idx = 0;
+        auto atl = comm->get_atl_comm();
+        ATL_CALL_THROW_IF_ERROR(atl->wait(ep_idx, req));
+        LOG_DEBUG("pt2pt pre-sync wait done, tag=", tag);
+    };
+
+    if (group_impl::is_group_active) {
+        return q.submit([=](sycl::handler &h) {
+            h.depends_on(deps);
+            h.host_task([=]() {
+                atl_req_t req{};
+                init_fn(req);
+            });
+        });
+    }
+
+    atl_req_t req{};
+    sycl::event e = q.submit([&](sycl::handler &h) {
+        h.depends_on(deps);
+        h.host_task([=, &req]() {
+            init_fn(req);
+        });
+    });
+
+    // Wait for the host_task to post the send/recv
+    e.wait();
+    // then do the final blocking wait here
+    wait_fn(req);
+    return e;
+}
+
+sycl::event post_host_task_ack(sycl::queue &q,
+                               const std::vector<sycl::event> &deps,
+                               ccl_comm *comm,
+                               bool do_send,
+                               int peer_rank,
+                               uint64_t ack_tag) {
+    auto ack_driver = [=](atl_req_t &req, bool init) -> bool {
+        int ep_idx = 0;
+        char data[1] = { 1 };
+        size_t n = sizeof(data);
+        auto atl = comm->get_atl_comm();
+        if (req.is_completed) {
+            return true;
+        }
+        if (init) {
+            if (do_send)
+                ATL_CALL_THROW_IF_ERROR(atl->send(ep_idx, data, n, peer_rank, ack_tag, req));
+            else
+                ATL_CALL_THROW_IF_ERROR(atl->recv(ep_idx, data, n, peer_rank, ack_tag, req));
+        }
+
+        ATL_CALL_THROW_IF_ERROR(atl->check(ep_idx, req));
+        if (!req.is_completed) {
+            ATL_CALL_THROW_IF_ERROR(atl->wait(ep_idx, req));
+        }
+
+        LOG_DEBUG("post_host_task_ack: ", (do_send ? "send" : "recv"), ", tag=", ack_tag);
+        return true;
+    };
+    if (group_impl::is_group_active) {
+        group_impl::add_post_processing_step(ack_driver);
+        group_impl::set_sycl_queue(q);
+    }
+
+    sycl::event e;
+    if (!group_impl::is_group_active) {
+        atl_req_t req{};
+        e = q.submit([&](sycl::handler &h) {
+            h.depends_on(deps);
+            h.host_task([=, &req]() {
+                ack_driver(req, /*init=*/true);
+            });
+        });
+        e.wait();
+        ack_driver(req, /*init=*/false);
+    }
+    else {
+        e = submit_wait_on_events(q, deps);
+        e.wait();
+    }
+    return e;
 }

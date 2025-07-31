@@ -37,6 +37,19 @@
 #include "common/utils/sycl_utils.hpp"
 #endif // CCL_ENABLE_SYCL
 
+namespace ccl {
+namespace v1 {
+
+struct impl_dispatch {
+    template <class Object>
+    const typename Object::impl_value_t& operator()(const Object& obj) {
+        return obj.get_impl();
+    }
+};
+
+}; // namespace v1
+}; // namespace ccl
+
 // ccl_comm_env
 
 ccl_comm_env::ccl_comm_env(std::shared_ptr<ccl::device> device) : device(device) {
@@ -160,6 +173,19 @@ void ccl_comm::init(int comm_id,
     if (comm_rank == 0) {
         LOG_DEBUG(to_string_ext());
     }
+
+#if defined(CCL_ENABLE_SYCL) && defined(CCL_ENABLE_ZE)
+    for (int i = 0; i < 9; i++)
+        pattern_counter[i] = 0xa770;
+
+    if (device_ptr != NULL) {
+        sycl::queue q(device_ptr->get_native());
+        ccl::stream op_stream = ccl::create_stream(q);
+        ccl::impl_dispatch disp;
+        ccl_stream* cclstream = get_stream_ptr(disp(op_stream));
+        coll_init(this, cclstream);
+    }
+#endif
 }
 
 ccl_comm::ccl_comm(int comm_id,

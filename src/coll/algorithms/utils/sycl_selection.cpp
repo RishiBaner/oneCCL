@@ -23,18 +23,18 @@ bool can_use_sycl_kernels(const ccl_selector_param& param) {
 #else // CCL_ENABLE_SYCL
     return false;
 #endif // CCL_ENABLE_SYCL
-    auto supported_colls = { ccl_coll_allgather,
-                             ccl_coll_allgatherv,
-                             ccl_coll_alltoall,
-                             ccl_coll_allreduce,
-                             ccl_coll_reduce_scatter };
+    auto supported_colls = { ccl_coll_allgather, ccl_coll_allgatherv, ccl_coll_alltoall,
+                             ccl_coll_allreduce, ccl_coll_broadcast,  ccl_coll_reduce_scatter,
+                             ccl_coll_send,      ccl_coll_recv };
     RETURN_FALSE_IF(!checkers::is_coll_supported(supported_colls, param.ctype),
                     "coll is not supported");
 
     // these fields are not expected to be set for sycl kernels
     CCL_THROW_IF_NOT(!param.is_vector_buf, "unexpected is_vector_buf value");
     CCL_THROW_IF_NOT(!param.is_sycl_buf, "unexpected is_sycl_buf value");
-    CCL_THROW_IF_NOT(param.peer_rank == CCL_INVALID_PEER_RANK_IDX, "unexpected peer_rank value");
+    CCL_THROW_IF_NOT((param.ctype == ccl_coll_send || param.ctype == ccl_coll_recv) ||
+                         (param.peer_rank == CCL_INVALID_PEER_RANK_IDX),
+                     "unexpected peer_rank value");
     CCL_THROW_IF_NOT(!param.is_scaleout, "unexpected is_scaleout value");
 
     // TODO: it is incorrect and should be revisited
@@ -92,7 +92,9 @@ bool can_use_sycl_kernels(const ccl_selector_param& param) {
     bool is_dtype_supported =
         (param.dtype.idx() == ccl::datatype::float16 ||
          param.dtype.idx() == ccl::datatype::bfloat16 ||
-         param.dtype.idx() == ccl::datatype::float32 || param.dtype.idx() == ccl::datatype::int32);
+         param.dtype.idx() == ccl::datatype::float32 || param.dtype.idx() == ccl::datatype::int32 ||
+         ((param.dtype.idx() == ccl::datatype::int8 || param.dtype.idx() == ccl::datatype::uint8) &&
+          is_arc_card(ccl::ze::get_device_family(param.stream->get_ze_device()))));
 
     // Common conditions for all collective operations
     RETURN_FALSE_IF(!ccl::global_data::env().enable_sycl_kernels, "SYCL kernels are not enabled");
@@ -100,7 +102,9 @@ bool can_use_sycl_kernels(const ccl_selector_param& param) {
     RETURN_FALSE_IF(!is_dtype_supported, "Data type is not supported");
     RETURN_FALSE_IF(is_oversubscription, "Oversubscription is not allowed");
 
-    if (param.ctype != ccl_coll_allreduce && param.ctype != ccl_coll_allgatherv) {
+    if (param.ctype != ccl_coll_allreduce && param.ctype != ccl_coll_allgatherv &&
+        param.ctype != ccl_coll_reduce_scatter && param.ctype != ccl_coll_recv &&
+        param.ctype != ccl_coll_send) {
         RETURN_FALSE_IF(!param.comm->get_topo_manager().has_p2p_access(),
                         "no p2p access between devices");
     }
@@ -218,7 +222,37 @@ bool can_use_sycl_kernels(const ccl_selector_param& param) {
     }
 
 #endif // CCL_ENABLE_SYCL
+    if (param.ctype == ccl_coll_recv || param.ctype == ccl_coll_send) {
+        auto node_comm = param.comm->get_node_comm().get();
+        bool peer_rank_in_node_comm = node_comm->try_get_rank_from_global(param.peer_rank);
+        bool rank_in_node_comm = node_comm->try_get_rank_from_global(param.comm->rank());
 
+        RETURN_FALSE_IF(!(rank_in_node_comm && peer_rank_in_node_comm),
+                        "peer_rank must be on the same node as own rank is: comm_rank: ",
+                        param.comm->rank(),
+                        ", peer_rank: ",
+                        param.peer_rank,
+                        ", rank_in_node_comm: ",
+                        rank_in_node_comm,
+                        ", peer_rank_in_node_comm: ",
+                        peer_rank_in_node_comm,
+                        ", node_comm_size: ",
+                        node_comm->size());
+
+        if (ccl::global_data::env().recv_algo_raw.length() != 0 &&
+            ccl::global_data::env().send_algo_raw.length() != 0) {
+            auto recv_algo = ccl_algorithm_selector_helper<ccl_coll_recv_algo>::algo_from_str(
+                ccl::global_data::env().recv_algo_raw);
+            auto send_algo = ccl_algorithm_selector_helper<ccl_coll_send_algo>::algo_from_str(
+                ccl::global_data::env().send_algo_raw);
+            RETURN_FALSE_IF(
+                (recv_algo == ccl_coll_recv_direct) || (send_algo == ccl_coll_send_direct),
+                " pt2pt operations algo must be the same: CCL_SEND=",
+                ccl::global_data::env().send_algo_raw,
+                ", CCL_RECV=",
+                ccl::global_data::env().recv_algo_raw);
+        }
+    }
     LOG_DEBUG("selected algo: coll ", ccl_coll_type_to_str(param.ctype), ", algo ", "topo sycl");
 
     return true;

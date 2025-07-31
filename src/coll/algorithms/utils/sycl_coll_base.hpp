@@ -644,6 +644,8 @@ template <int NRanks, template <typename, int> class Proto, typename L>
 sycl::event invoke_pcie_type(L lambda, ccl::datatype dtype) {
     sycl::event e;
     switch (dtype) {
+        case ccl::datatype::int8: e = lambda.template operator()<int8_t, NRanks, Proto>(); break;
+        case ccl::datatype::uint8: e = lambda.template operator()<uint8_t, NRanks, Proto>(); break;
         case ccl::datatype::int16: e = lambda.template operator()<short, NRanks, Proto>(); break;
         case ccl::datatype::float16:
 #ifdef CCL_SYCL_VEC_SUPPORT_FP16
@@ -682,7 +684,9 @@ sycl::event invoke_pcie(L lambda, ccl_comm *comm, ccl::datatype dtype) {
     switch (comm->size()) {
         case 1: e = invoke_pcie_type<1, Proto>(lambda, dtype); break;
         case 2: e = invoke_pcie_type<2, Proto>(lambda, dtype); break;
+        case 3: e = invoke_pcie_type<3, Proto>(lambda, dtype); break;
         case 4: e = invoke_pcie_type<4, Proto>(lambda, dtype); break;
+        case 6: e = invoke_pcie_type<6, Proto>(lambda, dtype); break;
         case 8: e = invoke_pcie_type<8, Proto>(lambda, dtype); break;
         default: CCL_THROW("unsupported comm size ", comm->size()); break;
     }
@@ -760,3 +764,17 @@ sycl::event sycl_average(sycl::queue &q,
                          const size_t total_ranks,
                          ccl::datatype dtype,
                          std::vector<sycl::event> &dep_events);
+
+sycl::event pt2pt_pre_sync(sycl::queue &q,
+                           const std::vector<sycl::event> &deps,
+                           ccl_comm *comm,
+                           bool do_send,
+                           int peer_rank,
+                           uint64_t tag);
+
+sycl::event post_host_task_ack(sycl::queue &q,
+                               const std::vector<sycl::event> &deps,
+                               ccl_comm *comm,
+                               bool do_send,
+                               int peer_rank,
+                               uint64_t ack_tag);

@@ -35,7 +35,6 @@ ccl::event alltoall_large(const void* send_buf,
 
     // no constraints on rank reordering - performance should not be affected
     // end-to-end transfers are performed
-    coll_init(comm, global_stream);
 
     auto lambda = [&]<typename T, int NE, int NP>() {
         return alltoall_large_impl<T, NE * NP>(

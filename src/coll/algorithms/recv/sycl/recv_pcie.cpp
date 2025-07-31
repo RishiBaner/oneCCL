@@ -17,19 +17,17 @@
 
 #if defined(CCL_ENABLE_ZE) || defined(CCL_ENABLE_SYCL)
 #include "coll/algorithms/utils/sycl_coll_base.hpp"
-#include "coll/algorithms/allgatherv/sycl/allgatherv_pcie.hpp"
+#include "coll/algorithms/recv/sycl/recv_pcie.hpp"
 #endif // CCL_ENABLE_SYCL
 
-ccl::event allgatherv_ll_ring(const void *send_buf,
-                              size_t send_count,
-                              void *recv_buf,
-                              const ccl::vector_class<size_t> &recv_counts,
-                              const ccl::vector_class<size_t> &offsets,
-                              ccl::datatype dtype,
-                              ccl_comm *comm,
-                              ccl_stream *global_stream,
-                              const ccl::vector_class<ccl::event> &deps,
-                              bool &done) {
+ccl::event recv_ll(const void *recv_buf,
+                   size_t recv_count,
+                   ccl::datatype dtype,
+                   int peer_rank,
+                   ccl_comm *comm,
+                   ccl_stream *global_stream,
+                   const ccl::vector_class<ccl::event> &deps,
+                   bool &done) {
     sycl::event sycl_e;
     sycl::queue q = global_stream->get_native_stream();
     std::shared_ptr<ccl_comm> node_comm = comm->get_node_comm();
@@ -40,10 +38,12 @@ ccl::event allgatherv_ll_ring(const void *send_buf,
 
     auto ccl_dtype = ccl::global_data::get().dtypes->get(dtype);
     size_t dt_sz = ccl_dtype.size();
-    size_t send_size = send_count * ccl_dtype.size();
+    size_t recv_size = recv_count * ccl_dtype.size();
 
     bool p2p = node_comm->get_topo_manager().has_p2p_access();
-    uint32_t pattern = comm->get_rt_pattern(pattern_type::collective, -1);
+    uint32_t pattern = comm->get_rt_pattern(pattern_type::recv, peer_rank);
+
+    std::vector<sycl::event> dep_events = get_sycl_events(deps);
 
     auto lambda = [&]<typename T, int NRanks, template <typename, int> class Proto>() {
         T *peerbuf0[NRanks];
@@ -54,24 +54,24 @@ ccl::event allgatherv_ll_ring(const void *send_buf,
         }
         T *ipcbuf0 = (T *)get_tmp_buf(0, comm);
         T *ipcbuf1 = (T *)get_tmp_buf(1, comm);
-        sycl::event e = AllGather<T, NRanks, Proto, RingTransmit>::launch((T *)send_buf,
-                                                                          (T *)recv_buf,
-                                                                          ipcbuf0,
-                                                                          ipcbuf1,
-                                                                          peerbuf0,
-                                                                          peerbuf1,
-                                                                          send_count,
-                                                                          comm_rank,
-                                                                          pattern,
-                                                                          q,
-                                                                          p2p,
-                                                                          done);
+        sycl::event e = Recv<T, NRanks, Proto, RingTransmit>::launch((T *)recv_buf,
+                                                                     ipcbuf0,
+                                                                     ipcbuf1,
+                                                                     peerbuf0,
+                                                                     peerbuf1,
+                                                                     recv_count,
+                                                                     peer_rank - 1,
+                                                                     pattern,
+                                                                     q,
+                                                                     dep_events,
+                                                                     p2p,
+                                                                     done);
         // update pattern
-        comm->update_rt_pattern(pattern_type::collective, -1, pattern);
+        comm->update_rt_pattern(pattern_type::recv, peer_rank, pattern);
         return e;
     };
 
-    if (send_size <= ccl::global_data::env().sycl_allgatherv_ll_threshold) {
+    if (recv_size <= ccl::global_data::env().sycl_allgatherv_ll_threshold) {
         // small ring with LL
         sycl_e = invoke_pcie<Rt64_PCIE>(lambda, comm, dtype);
     }
