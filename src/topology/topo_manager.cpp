@@ -1021,6 +1021,24 @@ fabric_ports_t topo_manager::get_fabric_ports() {
         use_all_ports = true;
     }
 
+    // enable use_all_ports if executed only for single tiles of all GPUs
+    // If all local_proc_idx values are either odd or even,
+    // then we are executed only on one tile per GPU,
+    // skip single process case
+    if (comm_size > 1 && !use_all_ports) {
+        bool only_one_tile = true;
+        int parity = rank_info_vec[0].local_proc_idx % 2;
+        for (const auto& info : rank_info_vec) {
+            if ((info.local_proc_idx % 2) != parity) {
+                only_one_tile = false;
+                break;
+            }
+        }
+        if (only_one_tile) {
+            use_all_ports = true;
+        }
+    }
+
     LOG_DEBUG("use all fabric ports: ", use_all_ports);
 
     std::vector<topo_ze_port_info> my_ports;

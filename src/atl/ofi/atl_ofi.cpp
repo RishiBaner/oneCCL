@@ -82,6 +82,8 @@ atl_status_t atl_ofi::init(int* argc,
     coord.global_count = pmi->get_size();
     coord.global_idx = pmi->get_rank();
 
+    ccl_logger::set_global_idx(coord.global_idx);
+
     ret = atl_ofi_get_local_proc_coord(coord, pmi);
     if (ret) {
         LOG_ERROR("atl_ofi_get_local_proc_coord error");
@@ -101,6 +103,7 @@ atl_status_t atl_ofi::init(int* argc,
     base_hints->domain_attr->data_progress = FI_PROGRESS_MANUAL;
     base_hints->caps = FI_TAGGED;
     base_hints->rx_attr->msg_order = FI_ORDER_SAS;
+    base_hints->tx_attr->msg_order = FI_ORDER_SAS;
     base_hints->caps |= FI_DIRECTED_RECV;
 
     prov_env = getenv("FI_PROVIDER");

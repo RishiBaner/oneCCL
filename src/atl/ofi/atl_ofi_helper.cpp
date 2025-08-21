@@ -1514,6 +1514,20 @@ atl_status_t atl_ofi_open_nw_provs(atl_ofi_ctx_t& ctx,
     /* 2. filter out by names */
     prov_iter = prov_list;
     while (prov_iter) {
+        std::string full_name = atl_ofi_get_nic_name(prov_iter);
+        std::string short_name = atl_ofi_get_short_nic_name(prov_iter);
+        LOG_DEBUG("name filter: check nic ", full_name);
+
+        // Skip docker interfaces unless explicitly selected via FI_TCP_IFACE
+        const char* iface_env = std::getenv("FI_TCP_IFACE");
+        if (short_name.rfind("docker", 0) == 0) {
+            if (!(iface_env && short_name == iface_env)) {
+                LOG_DEBUG("name filter: skipping Docker iface ", full_name);
+                prov_iter = prov_iter->next;
+                continue;
+            }
+        }
+
         LOG_DEBUG("name filter: check nic ", atl_ofi_get_nic_name(prov_iter));
         if (atl_ofi_is_nic_down(prov_iter)) {
             LOG_DEBUG("nic ", atl_ofi_get_nic_name(prov_iter), " is in down state, skip");

@@ -51,7 +51,8 @@ static ccl::event send_sycl_single_node(sycl::queue& q,
     uint64_t tag_ready = tagc->create(node_peer_rank, comm_id, sync_ready);
     uint64_t tag_done = tagc->create(node_peer_rank, comm_id, sync_done);
 
-    if (send_count == 0) {
+    if (send_count == 0 || comm->size() == 1) {
+        LOG_DEBUG("send_sycl_single_node: count is 0 or comm size is 1, skipping send");
         auto sycl_deps = get_sycl_events(deps);
         sycl::event barrier = submit_wait_on_events(sycl_queue, sycl_deps);
 

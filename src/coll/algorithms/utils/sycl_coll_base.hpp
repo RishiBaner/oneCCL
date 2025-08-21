@@ -364,7 +364,8 @@ private:
 
 std::pair<ccl_sched *, ze_handle_exchange_entry *> do_ipc_exchange(ccl_comm *comm,
                                                                    ccl_stream *stream,
-                                                                   std::vector<void *> ptrs);
+                                                                   std::vector<void *> ptrs,
+                                                                   bool to_cache = true);
 
 void coll_init(ccl_comm *comm, ccl_stream *stream);
 void coll_initExt(ccl_comm *comm,
