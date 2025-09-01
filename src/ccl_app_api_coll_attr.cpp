@@ -28,8 +28,6 @@ namespace ccl {
 
 namespace v1 {
 
-#define COMMA ,
-
 #define API_FORCE_INSTANTIATION_SET(class_name, IN_attrType, IN_attrId, IN_Value) \
     template CCL_API \
         typename detail::ccl_api_type_attr_traits<IN_attrType, IN_attrId>::return_type \

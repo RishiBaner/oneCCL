@@ -384,6 +384,10 @@ else()
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${SRC_C_FLAGS}")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${SRC_CXX_FLAGS}")
 endif()
+if(MSVC)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4251")
+    add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+endif()
 set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${SRC_SHARED_LINKER_FLAGS}")
 
 # special library that holds objects only
@@ -400,8 +404,8 @@ endif()
 add_library(ccl SHARED $<TARGET_OBJECTS:ccl-objects>)
 target_include_directories(ccl PUBLIC ${SRC_INCLUDE_DIRS})
 if(MSVC)
-    # Define CCL_DLL_EXPORTS when building the shared library on Windows
-    target_compile_definitions(ccl PRIVATE CCL_DLL_EXPORTS)
+    # Define CCL_EXPORTS when building the shared library on Windows
+    target_compile_definitions(ccl PRIVATE CCL_EXPORTS)
 endif()
 target_link_libraries(ccl PRIVATE ${SRC_LINK_LIBS})
 

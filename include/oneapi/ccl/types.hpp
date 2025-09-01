@@ -15,11 +15,11 @@
 */
 #pragma once
 
-#include <stdint.h>
-#include <stdlib.h>
 #include "oneapi/ccl/config.h"
 
 #include <bitset>
+#include <cstdint>
+#include <cstdlib>
 #include <iostream>
 #include <limits>
 #include <map>
@@ -27,7 +27,6 @@
 #include <set>
 #include <stdexcept>
 #include <vector>
-
 #include "oneapi/ccl/aliases.hpp"
 #include "oneapi/ccl/exception.hpp"
 

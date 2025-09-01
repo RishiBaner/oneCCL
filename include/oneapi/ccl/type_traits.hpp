@@ -61,12 +61,6 @@ struct native_type_info {
         } \
     };
 
-#define COMMA ,
-
-/**
- * Enumeration of supported CCL API data types
- */
-
 CCL_TYPE_TRAITS(ccl::datatype::int8, int8_t, sizeof(int8_t), int8)
 CCL_TYPE_TRAITS(ccl::datatype::uint8, uint8_t, sizeof(uint8_t), uint8)
 CCL_TYPE_TRAITS(ccl::datatype::int16, int16_t, sizeof(int16_t), int16)
