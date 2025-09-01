@@ -29,7 +29,7 @@ namespace ccl {
 /**
  * Base type-trait helpers for "unknown" types
  */
-template <ccl::datatype type>
+template <ccl::datatype dtype>
 struct type_info {
     static constexpr bool is_supported = false;
     static constexpr bool is_class = false;

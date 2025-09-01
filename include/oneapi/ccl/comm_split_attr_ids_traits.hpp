@@ -26,16 +26,19 @@ namespace detail {
 template <>
 struct ccl_api_type_attr_traits<comm_split_attr_id, comm_split_attr_id::version> {
     using type = ccl::library_version;
+    using return_type = type;
 };
 
 template <>
 struct ccl_api_type_attr_traits<comm_split_attr_id, comm_split_attr_id::color> {
     using type = int;
+    using return_type = type;
 };
 
 template <>
 struct ccl_api_type_attr_traits<comm_split_attr_id, comm_split_attr_id::group> {
     using type = split_group;
+    using return_type = type;
 };
 
 } // namespace detail

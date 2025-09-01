@@ -25,14 +25,14 @@ namespace ccl {
 
 template <class native_stream>
 constexpr bool is_stream_supported() {
-    return api_type_info</*typename std::remove_pointer<typename std::remove_cv<*/
-                         native_stream /*>::type>::type*/>::is_supported();
+    return api_type_info<typename std::remove_pointer<typename std::remove_cv<
+        typename std::remove_reference<native_stream>::type>::type>::type>::is_supported();
 }
 
 template <class native_event>
 constexpr bool is_event_supported() {
-    return api_type_info</*typename std::remove_pointer<typename std::remove_cv<*/
-                         native_event /*>::type>::type*/>::is_supported();
+    return api_type_info<typename std::remove_pointer<typename std::remove_cv<
+        typename std::remove_reference<native_event>::type>::type>::type>::is_supported();
 }
 
 template <class native_device>

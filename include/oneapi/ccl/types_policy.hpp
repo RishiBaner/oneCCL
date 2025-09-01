@@ -219,7 +219,7 @@ struct attr_value_triple {
     }
 
     explicit attr_value_triple(value_t val) : m_val(val) {}
-    const value_type& val() {
+    const value_type& val() const {
         return m_val;
     }
 

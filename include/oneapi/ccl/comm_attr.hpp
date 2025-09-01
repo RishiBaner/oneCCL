@@ -69,7 +69,8 @@ public:
      * Get specific attribute value by @attrId
      */
     template <comm_attr_id attrId>
-    const typename detail::ccl_api_type_attr_traits<comm_attr_id, attrId>::type& get() const;
+    const typename detail::ccl_api_type_attr_traits<comm_attr_id, attrId>::return_type& get()
+        const;
 
     template <comm_attr_id attrId>
     bool is_valid() const noexcept;

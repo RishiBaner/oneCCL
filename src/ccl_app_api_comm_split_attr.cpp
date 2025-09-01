@@ -31,7 +31,7 @@ namespace v1 {
 #define API_FORCE_INSTANTIATION(class_name, IN_attrId, IN_Value, OUT_Traits_Value) \
     template CCL_API IN_Value class_name::set<IN_attrId, IN_Value>(const IN_Value& v); \
 \
-    template CCL_API const typename OUT_Traits_Value<comm_split_attr_id, IN_attrId>::type& \
+    template CCL_API const typename OUT_T_Value<comm_split_attr_id, IN_attrId>::return_type& \
     class_name::get<IN_attrId>() const; \
 \
     template CCL_API bool class_name::is_valid<IN_attrId>() const noexcept;
