@@ -82,7 +82,6 @@ events:
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\vcpkg"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2"
       ENV{INCLUDE}:
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\include"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Auxiliary\\VS\\include"
@@ -108,7 +107,7 @@ events:
       The output was:
       0
       MSBuild version 17.14.19+164abd434 for .NET Framework
-      Build started 9/2/2025 3:29:27 AM.
+      Build started 9/2/2025 3:57:04 AM.
       
       Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\4.1.1\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -137,7 +136,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.69
+      Time Elapsed 00:00:00.51
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -263,7 +262,6 @@ events:
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\vcpkg"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2"
   -
     kind: "find-v1"
     backtrace:
@@ -404,7 +402,6 @@ events:
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\vcpkg"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2"
   -
     kind: "find-v1"
     backtrace:
@@ -519,7 +516,6 @@ events:
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\vcpkg"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2"
   -
     kind: "find-v1"
     backtrace:
@@ -661,7 +657,6 @@ events:
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\vcpkg"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2"
   -
     kind: "find-v1"
     backtrace:
@@ -776,7 +771,6 @@ events:
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\vcpkg"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2"
   -
     kind: "find-v1"
     backtrace:
@@ -851,7 +845,6 @@ events:
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\vcpkg"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2"
       ENV{INCLUDE}:
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\include"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Auxiliary\\VS\\include"
@@ -877,7 +870,7 @@ events:
       The output was:
       0
       MSBuild version 17.14.19+164abd434 for .NET Framework
-      Build started 9/2/2025 3:29:28 AM.
+      Build started 9/2/2025 3:57:05 AM.
       
       Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\4.1.1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -906,7 +899,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.52
+      Time Elapsed 00:00:00.51
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -990,9 +983,9 @@ events:
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/CMake/sbin/"
       - "C:/Program Files/CMake/"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/bin/"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/sbin/"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/"
+      - "C:/Program Files/oneCCL/bin/"
+      - "C:/Program Files/oneCCL/sbin/"
+      - "C:/Program Files/oneCCL/"
     searched_directories:
       - "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.42.34433/bin/HostX64/x64/rc.com"
       - "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.42.34433/bin/HostX64/x64/rc.exe"
@@ -1072,12 +1065,12 @@ events:
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\vcpkg"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/oneCCL"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
         - "C:/Program Files (x86)"
         - "C:/Program Files/CMake"
-        - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2"
+        - "C:/Program Files/oneCCL"
   -
     kind: "try_compile-v1"
     backtrace:
@@ -1087,8 +1080,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-wzy2cv"
-      binary: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-wzy2cv"
+      source: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-02n47o"
+      binary: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-02n47o"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -1097,40 +1090,40 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-wzy2cv'
+        Change Dir: 'C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-02n47o'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_6fab4.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_ea5d5.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.19+164abd434 for .NET Framework
-        Build started 9/2/2025 3:29:29 AM.
+        Build started 9/2/2025 3:57:05 AM.
         
-        Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wzy2cv\\cmTC_6fab4.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-02n47o\\cmTC_ea5d5.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_6fab4.dir\\Debug\\".
+          Creating directory "cmTC_ea5d5.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wzy2cv\\Debug\\".
-          Creating directory "cmTC_6fab4.dir\\Debug\\cmTC_6fab4.tlog\\".
+          Creating directory "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-02n47o\\Debug\\".
+          Creating directory "cmTC_ea5d5.dir\\Debug\\cmTC_ea5d5.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_6fab4.dir\\Debug\\cmTC_6fab4.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_6fab4.dir\\Debug\\cmTC_6fab4.tlog\\unsuccessfulbuild".
+          Creating "cmTC_ea5d5.dir\\Debug\\cmTC_ea5d5.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_ea5d5.dir\\Debug\\cmTC_ea5d5.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /Fo"cmTC_6fab4.dir\\Debug\\\\" /Fd"cmTC_6fab4.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /Fo"cmTC_ea5d5.dir\\Debug\\\\" /Fd"cmTC_ea5d5.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.42.34444 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /Fo"cmTC_6fab4.dir\\Debug\\\\" /Fd"cmTC_6fab4.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /Fo"cmTC_ea5d5.dir\\Debug\\\\" /Fd"cmTC_ea5d5.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wzy2cv\\Debug\\cmTC_6fab4.exe" /INCREMENTAL /ILK:"cmTC_6fab4.dir\\Debug\\cmTC_6fab4.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-wzy2cv/Debug/cmTC_6fab4.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-wzy2cv/Debug/cmTC_6fab4.lib" /MACHINE:X64  /machine:x64 cmTC_6fab4.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_6fab4.vcxproj -> C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wzy2cv\\Debug\\cmTC_6fab4.exe
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-02n47o\\Debug\\cmTC_ea5d5.exe" /INCREMENTAL /ILK:"cmTC_ea5d5.dir\\Debug\\cmTC_ea5d5.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-02n47o/Debug/cmTC_ea5d5.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-02n47o/Debug/cmTC_ea5d5.lib" /MACHINE:X64  /machine:x64 cmTC_ea5d5.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_ea5d5.vcxproj -> C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-02n47o\\Debug\\cmTC_ea5d5.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_6fab4.dir\\Debug\\cmTC_6fab4.tlog\\unsuccessfulbuild".
-          Touching "cmTC_6fab4.dir\\Debug\\cmTC_6fab4.tlog\\cmTC_6fab4.lastbuildstate".
-        Done Building Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-wzy2cv\\cmTC_6fab4.vcxproj" (default targets).
+          Deleting file "cmTC_ea5d5.dir\\Debug\\cmTC_ea5d5.tlog\\unsuccessfulbuild".
+          Touching "cmTC_ea5d5.dir\\Debug\\cmTC_ea5d5.tlog\\cmTC_ea5d5.lastbuildstate".
+        Done Building Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-02n47o\\cmTC_ea5d5.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.51
+        Time Elapsed 00:00:00.47
         
       exitCode: 0
   -
@@ -1170,8 +1163,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-l5ctfo"
-      binary: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-l5ctfo"
+      source: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-x65r70"
+      binary: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-x65r70"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -1181,40 +1174,40 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-l5ctfo'
+        Change Dir: 'C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-x65r70'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_09ac8.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_8707c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.19+164abd434 for .NET Framework
-        Build started 9/2/2025 3:29:29 AM.
+        Build started 9/2/2025 3:57:06 AM.
         
-        Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-l5ctfo\\cmTC_09ac8.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-x65r70\\cmTC_8707c.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_09ac8.dir\\Debug\\".
+          Creating directory "cmTC_8707c.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-l5ctfo\\Debug\\".
-          Creating directory "cmTC_09ac8.dir\\Debug\\cmTC_09ac8.tlog\\".
+          Creating directory "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-x65r70\\Debug\\".
+          Creating directory "cmTC_8707c.dir\\Debug\\cmTC_8707c.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_09ac8.dir\\Debug\\cmTC_09ac8.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_09ac8.dir\\Debug\\cmTC_09ac8.tlog\\unsuccessfulbuild".
+          Creating "cmTC_8707c.dir\\Debug\\cmTC_8707c.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_8707c.dir\\Debug\\cmTC_8707c.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /Fo"cmTC_09ac8.dir\\Debug\\\\" /Fd"cmTC_09ac8.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /Fo"cmTC_8707c.dir\\Debug\\\\" /Fd"cmTC_8707c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.42.34444 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /Fo"cmTC_09ac8.dir\\Debug\\\\" /Fd"cmTC_09ac8.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /Fo"cmTC_8707c.dir\\Debug\\\\" /Fd"cmTC_8707c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-l5ctfo\\Debug\\cmTC_09ac8.exe" /INCREMENTAL /ILK:"cmTC_09ac8.dir\\Debug\\cmTC_09ac8.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-l5ctfo/Debug/cmTC_09ac8.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-l5ctfo/Debug/cmTC_09ac8.lib" /MACHINE:X64  /machine:x64 cmTC_09ac8.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_09ac8.vcxproj -> C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-l5ctfo\\Debug\\cmTC_09ac8.exe
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-x65r70\\Debug\\cmTC_8707c.exe" /INCREMENTAL /ILK:"cmTC_8707c.dir\\Debug\\cmTC_8707c.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-x65r70/Debug/cmTC_8707c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-x65r70/Debug/cmTC_8707c.lib" /MACHINE:X64  /machine:x64 cmTC_8707c.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_8707c.vcxproj -> C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-x65r70\\Debug\\cmTC_8707c.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_09ac8.dir\\Debug\\cmTC_09ac8.tlog\\unsuccessfulbuild".
-          Touching "cmTC_09ac8.dir\\Debug\\cmTC_09ac8.tlog\\cmTC_09ac8.lastbuildstate".
-        Done Building Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-l5ctfo\\cmTC_09ac8.vcxproj" (default targets).
+          Deleting file "cmTC_8707c.dir\\Debug\\cmTC_8707c.tlog\\unsuccessfulbuild".
+          Touching "cmTC_8707c.dir\\Debug\\cmTC_8707c.tlog\\cmTC_8707c.lastbuildstate".
+        Done Building Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-x65r70\\cmTC_8707c.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.53
+        Time Elapsed 00:00:00.50
         
       exitCode: 0
   -
@@ -1431,12 +1424,12 @@ events:
       - "C:/Program Files/CMake/drm/"
       - "C:/Program Files/CMake/libdrm/"
       - "C:/Program Files/CMake/"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/include/drm/"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/include/libdrm/"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/include/"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/drm/"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/libdrm/"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/"
+      - "C:/Program Files/oneCCL/include/drm/"
+      - "C:/Program Files/oneCCL/include/libdrm/"
+      - "C:/Program Files/oneCCL/include/"
+      - "C:/Program Files/oneCCL/drm/"
+      - "C:/Program Files/oneCCL/libdrm/"
+      - "C:/Program Files/oneCCL/"
     searched_directories:
       - "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.42.34433/include/drm/i915_drm.h"
       - "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.42.34433/include/libdrm/i915_drm.h"
@@ -1606,12 +1599,12 @@ events:
       - "C:/Program Files/CMake/drm/i915_drm.h"
       - "C:/Program Files/CMake/libdrm/i915_drm.h"
       - "C:/Program Files/CMake/i915_drm.h"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/include/drm/i915_drm.h"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/include/libdrm/i915_drm.h"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/include/i915_drm.h"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/drm/i915_drm.h"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/libdrm/i915_drm.h"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/i915_drm.h"
+      - "C:/Program Files/oneCCL/include/drm/i915_drm.h"
+      - "C:/Program Files/oneCCL/include/libdrm/i915_drm.h"
+      - "C:/Program Files/oneCCL/include/i915_drm.h"
+      - "C:/Program Files/oneCCL/drm/i915_drm.h"
+      - "C:/Program Files/oneCCL/libdrm/i915_drm.h"
+      - "C:/Program Files/oneCCL/i915_drm.h"
     found: false
     search_context:
       ENV{PATH}:
@@ -1662,12 +1655,12 @@ events:
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\vcpkg"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files/oneCCL"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
         - "C:/Program Files (x86)"
         - "C:/Program Files/CMake"
-        - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2"
+        - "C:/Program Files/oneCCL"
       ENV{INCLUDE}:
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\include"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Auxiliary\\VS\\include"
@@ -1685,8 +1678,8 @@ events:
       - "CMakeLists.txt:287 (find_package)"
     description: "Detecting C OpenMP compiler info"
     directories:
-      source: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-xmtrfw"
-      binary: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-xmtrfw"
+      source: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-1hjonv"
+      binary: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-1hjonv"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W4 /wd4668 /wd4996"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1 /DENABLE_DEBUG"
@@ -1695,40 +1688,40 @@ events:
       variable: "OpenMP_COMPILE_RESULT_C_openmp"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-xmtrfw'
+        Change Dir: 'C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-1hjonv'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_e3251.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_39a2f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.19+164abd434 for .NET Framework
-        Build started 9/2/2025 3:29:30 AM.
+        Build started 9/2/2025 3:57:07 AM.
         
-        Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xmtrfw\\cmTC_e3251.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1hjonv\\cmTC_39a2f.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_e3251.dir\\Debug\\".
+          Creating directory "cmTC_39a2f.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xmtrfw\\Debug\\".
-          Creating directory "cmTC_e3251.dir\\Debug\\cmTC_e3251.tlog\\".
+          Creating directory "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1hjonv\\Debug\\".
+          Creating directory "cmTC_39a2f.dir\\Debug\\cmTC_39a2f.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_e3251.dir\\Debug\\cmTC_e3251.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_e3251.dir\\Debug\\cmTC_e3251.tlog\\unsuccessfulbuild".
+          Creating "cmTC_39a2f.dir\\Debug\\cmTC_39a2f.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_39a2f.dir\\Debug\\cmTC_39a2f.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /openmp /Fo"cmTC_e3251.dir\\Debug\\\\" /Fd"cmTC_e3251.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TC /wd4668 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xmtrfw\\OpenMPTryFlag.c"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /openmp /Fo"cmTC_39a2f.dir\\Debug\\\\" /Fd"cmTC_39a2f.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TC /wd4668 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1hjonv\\OpenMPTryFlag.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.42.34444 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /openmp /Fo"cmTC_e3251.dir\\Debug\\\\" /Fd"cmTC_e3251.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TC /wd4668 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xmtrfw\\OpenMPTryFlag.c"
+          cl /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /openmp /Fo"cmTC_39a2f.dir\\Debug\\\\" /Fd"cmTC_39a2f.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TC /wd4668 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1hjonv\\OpenMPTryFlag.c"
           OpenMPTryFlag.c
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xmtrfw\\Debug\\cmTC_e3251.exe" /INCREMENTAL /ILK:"cmTC_e3251.dir\\Debug\\cmTC_e3251.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-xmtrfw/Debug/cmTC_e3251.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-xmtrfw/Debug/cmTC_e3251.lib" /MACHINE:X64  /machine:x64 cmTC_e3251.dir\\Debug\\OpenMPTryFlag.obj
-          cmTC_e3251.vcxproj -> C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xmtrfw\\Debug\\cmTC_e3251.exe
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1hjonv\\Debug\\cmTC_39a2f.exe" /INCREMENTAL /ILK:"cmTC_39a2f.dir\\Debug\\cmTC_39a2f.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-1hjonv/Debug/cmTC_39a2f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-1hjonv/Debug/cmTC_39a2f.lib" /MACHINE:X64  /machine:x64 cmTC_39a2f.dir\\Debug\\OpenMPTryFlag.obj
+          cmTC_39a2f.vcxproj -> C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1hjonv\\Debug\\cmTC_39a2f.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_e3251.dir\\Debug\\cmTC_e3251.tlog\\unsuccessfulbuild".
-          Touching "cmTC_e3251.dir\\Debug\\cmTC_e3251.tlog\\cmTC_e3251.lastbuildstate".
-        Done Building Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xmtrfw\\cmTC_e3251.vcxproj" (default targets).
+          Deleting file "cmTC_39a2f.dir\\Debug\\cmTC_39a2f.tlog\\unsuccessfulbuild".
+          Touching "cmTC_39a2f.dir\\Debug\\cmTC_39a2f.tlog\\cmTC_39a2f.lastbuildstate".
+        Done Building Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1hjonv\\cmTC_39a2f.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.55
+        Time Elapsed 00:00:00.49
         
       exitCode: 0
   -
@@ -1739,8 +1732,8 @@ events:
       - "CMakeLists.txt:287 (find_package)"
     description: "Detecting CXX OpenMP compiler info"
     directories:
-      source: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-mukepg"
-      binary: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-mukepg"
+      source: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-p02rlg"
+      binary: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-p02rlg"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc /W4 /wd4668 /wd4251 /wd4275 /wd4996 -DCCL_ENABLE_ITT=1 -DCCL_ENABLE_PROFILING=1 -DCCL_ENABLE_PMIX=1 -DCCL_ENABLE_UMF=1 -DCCL_ENABLE_STUB_BACKEND=1"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1 /DENABLE_DEBUG"
@@ -1749,40 +1742,40 @@ events:
       variable: "OpenMP_COMPILE_RESULT_CXX_openmp"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-mukepg'
+        Change Dir: 'C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-p02rlg'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_e1380.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_b8c46.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.19+164abd434 for .NET Framework
-        Build started 9/2/2025 3:29:31 AM.
+        Build started 9/2/2025 3:57:07 AM.
         
-        Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mukepg\\cmTC_e1380.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-p02rlg\\cmTC_b8c46.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_e1380.dir\\Debug\\".
+          Creating directory "cmTC_b8c46.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mukepg\\Debug\\".
-          Creating directory "cmTC_e1380.dir\\Debug\\cmTC_e1380.tlog\\".
+          Creating directory "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-p02rlg\\Debug\\".
+          Creating directory "cmTC_b8c46.dir\\Debug\\cmTC_b8c46.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_e1380.dir\\Debug\\cmTC_e1380.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_e1380.dir\\Debug\\cmTC_e1380.tlog\\unsuccessfulbuild".
+          Creating "cmTC_b8c46.dir\\Debug\\cmTC_b8c46.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_b8c46.dir\\Debug\\cmTC_b8c46.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CCL_ENABLE_ITT=1 /D CCL_ENABLE_PROFILING=1 /D CCL_ENABLE_PMIX=1 /D CCL_ENABLE_UMF=1 /D CCL_ENABLE_STUB_BACKEND=1 /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /openmp /Fo"cmTC_e1380.dir\\Debug\\\\" /Fd"cmTC_e1380.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TP /wd4668 /wd4251 /wd4275 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mukepg\\OpenMPTryFlag.cpp"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CCL_ENABLE_ITT=1 /D CCL_ENABLE_PROFILING=1 /D CCL_ENABLE_PMIX=1 /D CCL_ENABLE_UMF=1 /D CCL_ENABLE_STUB_BACKEND=1 /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /openmp /Fo"cmTC_b8c46.dir\\Debug\\\\" /Fd"cmTC_b8c46.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TP /wd4668 /wd4251 /wd4275 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-p02rlg\\OpenMPTryFlag.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.42.34444 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CCL_ENABLE_ITT=1 /D CCL_ENABLE_PROFILING=1 /D CCL_ENABLE_PMIX=1 /D CCL_ENABLE_UMF=1 /D CCL_ENABLE_STUB_BACKEND=1 /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /openmp /Fo"cmTC_e1380.dir\\Debug\\\\" /Fd"cmTC_e1380.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TP /wd4668 /wd4251 /wd4275 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mukepg\\OpenMPTryFlag.cpp"
+          cl /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CCL_ENABLE_ITT=1 /D CCL_ENABLE_PROFILING=1 /D CCL_ENABLE_PMIX=1 /D CCL_ENABLE_UMF=1 /D CCL_ENABLE_STUB_BACKEND=1 /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /openmp /Fo"cmTC_b8c46.dir\\Debug\\\\" /Fd"cmTC_b8c46.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TP /wd4668 /wd4251 /wd4275 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-p02rlg\\OpenMPTryFlag.cpp"
           OpenMPTryFlag.cpp
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mukepg\\Debug\\cmTC_e1380.exe" /INCREMENTAL /ILK:"cmTC_e1380.dir\\Debug\\cmTC_e1380.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-mukepg/Debug/cmTC_e1380.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-mukepg/Debug/cmTC_e1380.lib" /MACHINE:X64  /machine:x64 cmTC_e1380.dir\\Debug\\OpenMPTryFlag.obj
-          cmTC_e1380.vcxproj -> C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mukepg\\Debug\\cmTC_e1380.exe
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-p02rlg\\Debug\\cmTC_b8c46.exe" /INCREMENTAL /ILK:"cmTC_b8c46.dir\\Debug\\cmTC_b8c46.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-p02rlg/Debug/cmTC_b8c46.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-p02rlg/Debug/cmTC_b8c46.lib" /MACHINE:X64  /machine:x64 cmTC_b8c46.dir\\Debug\\OpenMPTryFlag.obj
+          cmTC_b8c46.vcxproj -> C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-p02rlg\\Debug\\cmTC_b8c46.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_e1380.dir\\Debug\\cmTC_e1380.tlog\\unsuccessfulbuild".
-          Touching "cmTC_e1380.dir\\Debug\\cmTC_e1380.tlog\\cmTC_e1380.lastbuildstate".
-        Done Building Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-mukepg\\cmTC_e1380.vcxproj" (default targets).
+          Deleting file "cmTC_b8c46.dir\\Debug\\cmTC_b8c46.tlog\\unsuccessfulbuild".
+          Touching "cmTC_b8c46.dir\\Debug\\cmTC_b8c46.tlog\\cmTC_b8c46.lastbuildstate".
+        Done Building Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-p02rlg\\cmTC_b8c46.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.53
+        Time Elapsed 00:00:00.52
         
       exitCode: 0
   -
@@ -1793,8 +1786,8 @@ events:
       - "CMakeLists.txt:287 (find_package)"
     description: "Detecting C OpenMP version"
     directories:
-      source: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-omojla"
-      binary: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-omojla"
+      source: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-udqi90"
+      binary: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-udqi90"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W4 /wd4668 /wd4996"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1 /DENABLE_DEBUG"
@@ -1803,40 +1796,40 @@ events:
       variable: "OpenMP_SPECTEST_C_"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-omojla'
+        Change Dir: 'C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-udqi90'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_3ce9d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_5a3af.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.19+164abd434 for .NET Framework
-        Build started 9/2/2025 3:29:32 AM.
+        Build started 9/2/2025 3:57:08 AM.
         
-        Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-omojla\\cmTC_3ce9d.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-udqi90\\cmTC_5a3af.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_3ce9d.dir\\Debug\\".
+          Creating directory "cmTC_5a3af.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-omojla\\Debug\\".
-          Creating directory "cmTC_3ce9d.dir\\Debug\\cmTC_3ce9d.tlog\\".
+          Creating directory "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-udqi90\\Debug\\".
+          Creating directory "cmTC_5a3af.dir\\Debug\\cmTC_5a3af.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_3ce9d.dir\\Debug\\cmTC_3ce9d.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_3ce9d.dir\\Debug\\cmTC_3ce9d.tlog\\unsuccessfulbuild".
+          Creating "cmTC_5a3af.dir\\Debug\\cmTC_5a3af.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_5a3af.dir\\Debug\\cmTC_5a3af.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /openmp /Fo"cmTC_3ce9d.dir\\Debug\\\\" /Fd"cmTC_3ce9d.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TC /wd4668 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-omojla\\OpenMPCheckVersion.c"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /openmp /Fo"cmTC_5a3af.dir\\Debug\\\\" /Fd"cmTC_5a3af.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TC /wd4668 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-udqi90\\OpenMPCheckVersion.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.42.34444 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /openmp /Fo"cmTC_3ce9d.dir\\Debug\\\\" /Fd"cmTC_3ce9d.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TC /wd4668 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-omojla\\OpenMPCheckVersion.c"
+          cl /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /openmp /Fo"cmTC_5a3af.dir\\Debug\\\\" /Fd"cmTC_5a3af.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TC /wd4668 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-udqi90\\OpenMPCheckVersion.c"
           OpenMPCheckVersion.c
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-omojla\\Debug\\cmTC_3ce9d.exe" /INCREMENTAL /ILK:"cmTC_3ce9d.dir\\Debug\\cmTC_3ce9d.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-omojla/Debug/cmTC_3ce9d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-omojla/Debug/cmTC_3ce9d.lib" /MACHINE:X64  /machine:x64 cmTC_3ce9d.dir\\Debug\\OpenMPCheckVersion.obj
-          cmTC_3ce9d.vcxproj -> C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-omojla\\Debug\\cmTC_3ce9d.exe
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-udqi90\\Debug\\cmTC_5a3af.exe" /INCREMENTAL /ILK:"cmTC_5a3af.dir\\Debug\\cmTC_5a3af.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-udqi90/Debug/cmTC_5a3af.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-udqi90/Debug/cmTC_5a3af.lib" /MACHINE:X64  /machine:x64 cmTC_5a3af.dir\\Debug\\OpenMPCheckVersion.obj
+          cmTC_5a3af.vcxproj -> C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-udqi90\\Debug\\cmTC_5a3af.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_3ce9d.dir\\Debug\\cmTC_3ce9d.tlog\\unsuccessfulbuild".
-          Touching "cmTC_3ce9d.dir\\Debug\\cmTC_3ce9d.tlog\\cmTC_3ce9d.lastbuildstate".
-        Done Building Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-omojla\\cmTC_3ce9d.vcxproj" (default targets).
+          Deleting file "cmTC_5a3af.dir\\Debug\\cmTC_5a3af.tlog\\unsuccessfulbuild".
+          Touching "cmTC_5a3af.dir\\Debug\\cmTC_5a3af.tlog\\cmTC_5a3af.lastbuildstate".
+        Done Building Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-udqi90\\cmTC_5a3af.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.54
+        Time Elapsed 00:00:00.51
         
       exitCode: 0
   -
@@ -1847,8 +1840,8 @@ events:
       - "CMakeLists.txt:287 (find_package)"
     description: "Detecting CXX OpenMP version"
     directories:
-      source: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-7abf8x"
-      binary: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-7abf8x"
+      source: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-ofvh9q"
+      binary: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-ofvh9q"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc /W4 /wd4668 /wd4251 /wd4275 /wd4996 -DCCL_ENABLE_ITT=1 -DCCL_ENABLE_PROFILING=1 -DCCL_ENABLE_PMIX=1 -DCCL_ENABLE_UMF=1 -DCCL_ENABLE_STUB_BACKEND=1"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1 /DENABLE_DEBUG"
@@ -1857,40 +1850,40 @@ events:
       variable: "OpenMP_SPECTEST_CXX_"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-7abf8x'
+        Change Dir: 'C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-ofvh9q'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_e9334.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_35c94.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.19+164abd434 for .NET Framework
-        Build started 9/2/2025 3:29:32 AM.
+        Build started 9/2/2025 3:57:09 AM.
         
-        Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7abf8x\\cmTC_e9334.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ofvh9q\\cmTC_35c94.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_e9334.dir\\Debug\\".
+          Creating directory "cmTC_35c94.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7abf8x\\Debug\\".
-          Creating directory "cmTC_e9334.dir\\Debug\\cmTC_e9334.tlog\\".
+          Creating directory "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ofvh9q\\Debug\\".
+          Creating directory "cmTC_35c94.dir\\Debug\\cmTC_35c94.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_e9334.dir\\Debug\\cmTC_e9334.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_e9334.dir\\Debug\\cmTC_e9334.tlog\\unsuccessfulbuild".
+          Creating "cmTC_35c94.dir\\Debug\\cmTC_35c94.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_35c94.dir\\Debug\\cmTC_35c94.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CCL_ENABLE_ITT=1 /D CCL_ENABLE_PROFILING=1 /D CCL_ENABLE_PMIX=1 /D CCL_ENABLE_UMF=1 /D CCL_ENABLE_STUB_BACKEND=1 /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /openmp /Fo"cmTC_e9334.dir\\Debug\\\\" /Fd"cmTC_e9334.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TP /wd4668 /wd4251 /wd4275 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7abf8x\\OpenMPCheckVersion.cpp"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CCL_ENABLE_ITT=1 /D CCL_ENABLE_PROFILING=1 /D CCL_ENABLE_PMIX=1 /D CCL_ENABLE_UMF=1 /D CCL_ENABLE_STUB_BACKEND=1 /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /openmp /Fo"cmTC_35c94.dir\\Debug\\\\" /Fd"cmTC_35c94.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TP /wd4668 /wd4251 /wd4275 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ofvh9q\\OpenMPCheckVersion.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.42.34444 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CCL_ENABLE_ITT=1 /D CCL_ENABLE_PROFILING=1 /D CCL_ENABLE_PMIX=1 /D CCL_ENABLE_UMF=1 /D CCL_ENABLE_STUB_BACKEND=1 /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /openmp /Fo"cmTC_e9334.dir\\Debug\\\\" /Fd"cmTC_e9334.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TP /wd4668 /wd4251 /wd4275 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7abf8x\\OpenMPCheckVersion.cpp"
+          cl /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CCL_ENABLE_ITT=1 /D CCL_ENABLE_PROFILING=1 /D CCL_ENABLE_PMIX=1 /D CCL_ENABLE_UMF=1 /D CCL_ENABLE_STUB_BACKEND=1 /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /openmp /Fo"cmTC_35c94.dir\\Debug\\\\" /Fd"cmTC_35c94.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TP /wd4668 /wd4251 /wd4275 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ofvh9q\\OpenMPCheckVersion.cpp"
           OpenMPCheckVersion.cpp
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7abf8x\\Debug\\cmTC_e9334.exe" /INCREMENTAL /ILK:"cmTC_e9334.dir\\Debug\\cmTC_e9334.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-7abf8x/Debug/cmTC_e9334.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-7abf8x/Debug/cmTC_e9334.lib" /MACHINE:X64  /machine:x64 cmTC_e9334.dir\\Debug\\OpenMPCheckVersion.obj
-          cmTC_e9334.vcxproj -> C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7abf8x\\Debug\\cmTC_e9334.exe
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ofvh9q\\Debug\\cmTC_35c94.exe" /INCREMENTAL /ILK:"cmTC_35c94.dir\\Debug\\cmTC_35c94.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-ofvh9q/Debug/cmTC_35c94.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-ofvh9q/Debug/cmTC_35c94.lib" /MACHINE:X64  /machine:x64 cmTC_35c94.dir\\Debug\\OpenMPCheckVersion.obj
+          cmTC_35c94.vcxproj -> C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ofvh9q\\Debug\\cmTC_35c94.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_e9334.dir\\Debug\\cmTC_e9334.tlog\\unsuccessfulbuild".
-          Touching "cmTC_e9334.dir\\Debug\\cmTC_e9334.tlog\\cmTC_e9334.lastbuildstate".
-        Done Building Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7abf8x\\cmTC_e9334.vcxproj" (default targets).
+          Deleting file "cmTC_35c94.dir\\Debug\\cmTC_35c94.tlog\\unsuccessfulbuild".
+          Touching "cmTC_35c94.dir\\Debug\\cmTC_35c94.tlog\\cmTC_35c94.lastbuildstate".
+        Done Building Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ofvh9q\\cmTC_35c94.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.54
+        Time Elapsed 00:00:00.51
         
       exitCode: 0
   -
@@ -1970,8 +1963,8 @@ events:
       - "C:/Program Files (x86)/"
       - "C:/Program Files/CMake/include/"
       - "C:/Program Files/CMake/"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/include/"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/"
+      - "C:/Program Files/oneCCL/include/"
+      - "C:/Program Files/oneCCL/"
     searched_directories:
       - "/include/numa.h"
       - "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.42.34433/include/numa.h"
@@ -2030,8 +2023,8 @@ events:
       - "C:/Program Files (x86)/numa.h"
       - "C:/Program Files/CMake/include/numa.h"
       - "C:/Program Files/CMake/numa.h"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/include/numa.h"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/numa.h"
+      - "C:/Program Files/oneCCL/include/numa.h"
+      - "C:/Program Files/oneCCL/numa.h"
       - "/include/numaif.h"
       - "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.42.34433/include/numaif.h"
       - "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Auxiliary/VS/include/numaif.h"
@@ -2089,8 +2082,8 @@ events:
       - "C:/Program Files (x86)/numaif.h"
       - "C:/Program Files/CMake/include/numaif.h"
       - "C:/Program Files/CMake/numaif.h"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/include/numaif.h"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/numaif.h"
+      - "C:/Program Files/oneCCL/include/numaif.h"
+      - "C:/Program Files/oneCCL/numaif.h"
     found: false
     search_context:
       ENV{PATH}:
@@ -2141,12 +2134,12 @@ events:
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\vcpkg"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2"
+      CMAKE_INSTALL_PREFIX: "C:/Users/sapta/oneCCL/build/_install"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
         - "C:/Program Files (x86)"
         - "C:/Program Files/CMake"
-        - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2"
+        - "C:/Program Files/oneCCL"
       ENV{INCLUDE}:
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\include"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Auxiliary\\VS\\include"
@@ -2228,9 +2221,9 @@ events:
       - "C:/Program Files (x86)/"
       - "C:/Program Files/CMake/lib/"
       - "C:/Program Files/CMake/"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/lib/"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/bin/"
+      - "C:/Program Files/oneCCL/lib/"
+      - "C:/Program Files/oneCCL/"
+      - "C:/Program Files/oneCCL/bin/"
       - "/bin/"
     searched_directories:
       - "/lib/"
@@ -2286,9 +2279,9 @@ events:
       - "C:/Program Files (x86)/"
       - "C:/Program Files/CMake/lib/"
       - "C:/Program Files/CMake/"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/lib/"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/"
-      - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/bin/"
+      - "C:/Program Files/oneCCL/lib/"
+      - "C:/Program Files/oneCCL/"
+      - "C:/Program Files/oneCCL/bin/"
       - "/bin/"
     found: false
     search_context:
@@ -2340,14 +2333,14 @@ events:
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\vcpkg"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2"
+      CMAKE_INSTALL_PREFIX: "C:/Users/sapta/oneCCL/build/_install"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
         - "C:/Program Files (x86)"
         - "C:/Program Files/CMake"
-        - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2"
+        - "C:/Program Files/oneCCL"
       CMAKE_SYSTEM_LIBRARY_PATH:
-        - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2/bin"
+        - "C:/Program Files/oneCCL/bin"
         - "C:/Program Files/CMake/bin"
         - "/bin"
       ENV{LIB}:
@@ -6842,12 +6835,12 @@ events:
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\vcpkg"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2"
+      CMAKE_INSTALL_PREFIX: "C:/Users/sapta/oneCCL/build/_install"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
         - "C:/Program Files (x86)"
         - "C:/Program Files/CMake"
-        - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2"
+        - "C:/Program Files/oneCCL"
   -
     kind: "find-v1"
     backtrace:
@@ -6932,12 +6925,12 @@ events:
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\Ninja"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\Common7\\IDE\\VC\\Linux\\bin\\ConnectionManagerExe"
         - "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\vcpkg"
-      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2"
+      CMAKE_INSTALL_PREFIX: "C:/Users/sapta/oneCCL/build/_install"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
         - "C:/Program Files (x86)"
         - "C:/Program Files/CMake"
-        - "C:/Program Files (x86)/Intel/oneAPI/ccl/2025.2"
+        - "C:/Program Files/oneCCL"
   -
     kind: "try_compile-v1"
     backtrace:
@@ -6950,8 +6943,8 @@ events:
     checks:
       - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
     directories:
-      source: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-eky7nd"
-      binary: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-eky7nd"
+      source: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-lw4g4g"
+      binary: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-lw4g4g"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W4 /wd4668 /wd4996 -openmp"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1 /DENABLE_DEBUG"
@@ -6960,40 +6953,40 @@ events:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-eky7nd'
+        Change Dir: 'C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-lw4g4g'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_7e9e1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_7d742.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.19+164abd434 for .NET Framework
-        Build started 9/2/2025 3:29:34 AM.
+        Build started 9/2/2025 3:57:10 AM.
         
-        Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eky7nd\\cmTC_7e9e1.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lw4g4g\\cmTC_7d742.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_7e9e1.dir\\Debug\\".
+          Creating directory "cmTC_7d742.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eky7nd\\Debug\\".
-          Creating directory "cmTC_7e9e1.dir\\Debug\\cmTC_7e9e1.tlog\\".
+          Creating directory "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lw4g4g\\Debug\\".
+          Creating directory "cmTC_7d742.dir\\Debug\\cmTC_7d742.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_7e9e1.dir\\Debug\\cmTC_7e9e1.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_7e9e1.dir\\Debug\\cmTC_7e9e1.tlog\\unsuccessfulbuild".
+          Creating "cmTC_7d742.dir\\Debug\\cmTC_7d742.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_7d742.dir\\Debug\\cmTC_7d742.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ENABLE_DEBUG /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /openmp /Fo"cmTC_7e9e1.dir\\Debug\\\\" /Fd"cmTC_7e9e1.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TC /wd4668 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eky7nd\\src.c"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ENABLE_DEBUG /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /openmp /Fo"cmTC_7d742.dir\\Debug\\\\" /Fd"cmTC_7d742.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TC /wd4668 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lw4g4g\\src.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.42.34444 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ENABLE_DEBUG /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /openmp /Fo"cmTC_7e9e1.dir\\Debug\\\\" /Fd"cmTC_7e9e1.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TC /wd4668 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eky7nd\\src.c"
+          cl /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D ENABLE_DEBUG /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /openmp /Fo"cmTC_7d742.dir\\Debug\\\\" /Fd"cmTC_7d742.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TC /wd4668 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lw4g4g\\src.c"
           src.c
-        C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eky7nd\\src.c(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eky7nd\\cmTC_7e9e1.vcxproj]
-        Done Building Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eky7nd\\cmTC_7e9e1.vcxproj" (default targets) -- FAILED.
+        C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lw4g4g\\src.c(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lw4g4g\\cmTC_7d742.vcxproj]
+        Done Building Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lw4g4g\\cmTC_7d742.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eky7nd\\cmTC_7e9e1.vcxproj" (default target) (1) ->
+        "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lw4g4g\\cmTC_7d742.vcxproj" (default target) (1) ->
         (ClCompile target) -> 
-          C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eky7nd\\src.c(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-eky7nd\\cmTC_7e9e1.vcxproj]
+          C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lw4g4g\\src.c(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lw4g4g\\cmTC_7d742.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.32
+        Time Elapsed 00:00:00.30
         
       exitCode: 1
   -
@@ -7007,8 +7000,8 @@ events:
     checks:
       - "Looking for pthread_create in pthreads"
     directories:
-      source: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-nc0goy"
-      binary: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-nc0goy"
+      source: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-3iowcn"
+      binary: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-3iowcn"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W4 /wd4668 /wd4996 -openmp"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1 /DENABLE_DEBUG"
@@ -7017,42 +7010,42 @@ events:
       variable: "CMAKE_HAVE_PTHREADS_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-nc0goy'
+        Change Dir: 'C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-3iowcn'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_5a42a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_2d7d1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.19+164abd434 for .NET Framework
-        Build started 9/2/2025 3:29:34 AM.
+        Build started 9/2/2025 3:57:10 AM.
         
-        Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nc0goy\\cmTC_5a42a.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3iowcn\\cmTC_2d7d1.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_5a42a.dir\\Debug\\".
+          Creating directory "cmTC_2d7d1.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nc0goy\\Debug\\".
-          Creating directory "cmTC_5a42a.dir\\Debug\\cmTC_5a42a.tlog\\".
+          Creating directory "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3iowcn\\Debug\\".
+          Creating directory "cmTC_2d7d1.dir\\Debug\\cmTC_2d7d1.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_5a42a.dir\\Debug\\cmTC_5a42a.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_5a42a.dir\\Debug\\cmTC_5a42a.tlog\\unsuccessfulbuild".
+          Creating "cmTC_2d7d1.dir\\Debug\\cmTC_2d7d1.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_2d7d1.dir\\Debug\\cmTC_2d7d1.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /openmp /Fo"cmTC_5a42a.dir\\Debug\\\\" /Fd"cmTC_5a42a.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TC /wd4668 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nc0goy\\CheckFunctionExists.c"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /openmp /Fo"cmTC_2d7d1.dir\\Debug\\\\" /Fd"cmTC_2d7d1.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TC /wd4668 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3iowcn\\CheckFunctionExists.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.42.34444 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /openmp /Fo"cmTC_5a42a.dir\\Debug\\\\" /Fd"cmTC_5a42a.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TC /wd4668 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nc0goy\\CheckFunctionExists.c"
+          cl /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /openmp /Fo"cmTC_2d7d1.dir\\Debug\\\\" /Fd"cmTC_2d7d1.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TC /wd4668 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3iowcn\\CheckFunctionExists.c"
           CheckFunctionExists.c
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nc0goy\\Debug\\cmTC_5a42a.exe" /INCREMENTAL /ILK:"cmTC_5a42a.dir\\Debug\\cmTC_5a42a.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-nc0goy/Debug/cmTC_5a42a.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-nc0goy/Debug/cmTC_5a42a.lib" /MACHINE:X64  /machine:x64 cmTC_5a42a.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nc0goy\\cmTC_5a42a.vcxproj]
-        Done Building Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nc0goy\\cmTC_5a42a.vcxproj" (default targets) -- FAILED.
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3iowcn\\Debug\\cmTC_2d7d1.exe" /INCREMENTAL /ILK:"cmTC_2d7d1.dir\\Debug\\cmTC_2d7d1.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-3iowcn/Debug/cmTC_2d7d1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-3iowcn/Debug/cmTC_2d7d1.lib" /MACHINE:X64  /machine:x64 cmTC_2d7d1.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3iowcn\\cmTC_2d7d1.vcxproj]
+        Done Building Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3iowcn\\cmTC_2d7d1.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nc0goy\\cmTC_5a42a.vcxproj" (default target) (1) ->
+        "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3iowcn\\cmTC_2d7d1.vcxproj" (default target) (1) ->
         (Link target) -> 
-          LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nc0goy\\cmTC_5a42a.vcxproj]
+          LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3iowcn\\cmTC_2d7d1.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.42
+        Time Elapsed 00:00:00.39
         
       exitCode: 1
   -
@@ -7066,8 +7059,8 @@ events:
     checks:
       - "Looking for pthread_create in pthread"
     directories:
-      source: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-9imgey"
-      binary: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-9imgey"
+      source: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-l2jxz8"
+      binary: "C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-l2jxz8"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W4 /wd4668 /wd4996 -openmp"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1 /DENABLE_DEBUG"
@@ -7076,37 +7069,37 @@ events:
       variable: "CMAKE_HAVE_PTHREAD_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-9imgey'
+        Change Dir: 'C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-l2jxz8'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_32f10.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_131ba.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.19+164abd434 for .NET Framework
-        Build started 9/2/2025 3:29:35 AM.
+        Build started 9/2/2025 3:57:11 AM.
         
-        Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9imgey\\cmTC_32f10.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-l2jxz8\\cmTC_131ba.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_32f10.dir\\Debug\\".
+          Creating directory "cmTC_131ba.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9imgey\\Debug\\".
-          Creating directory "cmTC_32f10.dir\\Debug\\cmTC_32f10.tlog\\".
+          Creating directory "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-l2jxz8\\Debug\\".
+          Creating directory "cmTC_131ba.dir\\Debug\\cmTC_131ba.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_32f10.dir\\Debug\\cmTC_32f10.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_32f10.dir\\Debug\\cmTC_32f10.tlog\\unsuccessfulbuild".
+          Creating "cmTC_131ba.dir\\Debug\\cmTC_131ba.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_131ba.dir\\Debug\\cmTC_131ba.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /openmp /Fo"cmTC_32f10.dir\\Debug\\\\" /Fd"cmTC_32f10.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TC /wd4668 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9imgey\\CheckFunctionExists.c"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\CL.exe /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /openmp /Fo"cmTC_131ba.dir\\Debug\\\\" /Fd"cmTC_131ba.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TC /wd4668 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-l2jxz8\\CheckFunctionExists.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.42.34444 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /openmp /Fo"cmTC_32f10.dir\\Debug\\\\" /Fd"cmTC_32f10.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TC /wd4668 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9imgey\\CheckFunctionExists.c"
+          cl /c /Zi /W4 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D ENABLE_DEBUG /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /openmp /Fo"cmTC_131ba.dir\\Debug\\\\" /Fd"cmTC_131ba.dir\\Debug\\vc143.pdb" /external:W4 /Gd /TC /wd4668 /wd4996 /errorReport:queue "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-l2jxz8\\CheckFunctionExists.c"
           CheckFunctionExists.c
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9imgey\\Debug\\cmTC_32f10.exe" /INCREMENTAL /ILK:"cmTC_32f10.dir\\Debug\\cmTC_32f10.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-9imgey/Debug/cmTC_32f10.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-9imgey/Debug/cmTC_32f10.lib" /MACHINE:X64  /machine:x64 cmTC_32f10.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9imgey\\cmTC_32f10.vcxproj]
-        Done Building Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9imgey\\cmTC_32f10.vcxproj" (default targets) -- FAILED.
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.42.34433\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-l2jxz8\\Debug\\cmTC_131ba.exe" /INCREMENTAL /ILK:"cmTC_131ba.dir\\Debug\\cmTC_131ba.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-l2jxz8/Debug/cmTC_131ba.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/sapta/oneCCL/build/CMakeFiles/CMakeScratch/TryCompile-l2jxz8/Debug/cmTC_131ba.lib" /MACHINE:X64  /machine:x64 cmTC_131ba.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-l2jxz8\\cmTC_131ba.vcxproj]
+        Done Building Project "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-l2jxz8\\cmTC_131ba.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9imgey\\cmTC_32f10.vcxproj" (default target) (1) ->
+        "C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-l2jxz8\\cmTC_131ba.vcxproj" (default target) (1) ->
         (Link target) -> 
-          LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9imgey\\cmTC_32f10.vcxproj]
+          LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\sapta\\oneCCL\\build\\CMakeFiles\\CMakeScratch\\TryCompile-l2jxz8\\cmTC_131ba.vcxproj]
         
             0 Warning(s)
             1 Error(s)
