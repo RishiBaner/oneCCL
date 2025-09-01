@@ -15,73 +15,35 @@
 */
 #pragma once
 
+
 #include <cstdint>
-#include <cstring>
-#include <sstream>
-#include <string>
+
+
+#if defined(_MSC_VER)
+#pragma pack(push, 1)
+#endif
+
 
 namespace ccl {
-
 namespace v1 {
 
+
 struct float16 {
-    constexpr float16() : data(0) {}
-    constexpr float16(std::uint16_t v) : data(v) {}
+uint16_t data;
+};
 
-    friend bool operator==(const float16& v1, const float16& v2) {
-        return (v1.data == v2.data) ? true : false;
-    }
-
-    friend bool operator!=(const float16& v1, const float16& v2) {
-        return !(v1 == v2);
-    }
-
-    std::uint16_t get_data() const {
-        return data;
-    }
-
-private:
-    std::uint16_t data;
-
-}
-#if defined(_MSC_VER)
-;
-#else
-__attribute__((packed));
-#endif
 
 struct bfloat16 {
-    constexpr bfloat16() : data(0) {}
-    constexpr bfloat16(std::uint16_t v) : data(v) {}
+uint16_t data;
+};
 
-    friend bool operator==(const bfloat16& v1, const bfloat16& v2) {
-        return (v1.data == v2.data) ? true : false;
-    }
 
-    friend bool operator!=(const bfloat16& v1, const bfloat16& v2) {
-        return !(v1 == v2);
-    }
+} // namespace v1
+} // namespace ccl
 
-    std::uint16_t get_data() const {
-        return data;
-    }
-
-private:
-    std::uint16_t data;
-
-}
-#if defined(_MSC_VER)
-;
-#else
-__attribute__((packed));
-#endif
 
 #if defined(_MSC_VER)
 #pragma pack(pop)
+#else
+__attribute__((packed))
 #endif
-} // namespace v1
-
-using v1::float16;
-using v1::bfloat16;
-
-} // namespace ccl
