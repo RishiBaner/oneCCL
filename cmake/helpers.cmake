@@ -28,7 +28,9 @@ function(set_lp_env)
     execute_process(COMMAND ld -v
             OUTPUT_VARIABLE BINUTILS_VERSION_RAW
             OUTPUT_STRIP_TRAILING_WHITESPACE)
-    string(REGEX MATCH "([0-9]+)\\.([0-9]+)" BINUTILS_VERSION ${BINUTILS_VERSION_RAW})
+    if(DEFINED CMAKE_C_COMPILER)
+  string(REGEX MATCH ".*gcc.*" IS_GCC ${CMAKE_C_COMPILER})
+endif()
     message(STATUS "binutils version: " "${BINUTILS_VERSION}")
 
     if (((${CMAKE_C_COMPILER_ID} STREQUAL "Intel"

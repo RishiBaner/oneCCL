@@ -1,0 +1,17 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/sapta/oneCCL/build/cmake_install.cmake",
+		"C:/Users/sapta/oneCCL/build/src/cmake_install.cmake",
+		"C:/Users/sapta/oneCCL/build/src/ext/cmake_install.cmake",
+		"C:/Users/sapta/oneCCL/build/examples/benchmark/cmake_install.cmake",
+		"C:/Users/sapta/oneCCL/build/examples/common/cmake_install.cmake",
+		"C:/Users/sapta/oneCCL/build/examples/cpu/cmake_install.cmake",
+		"C:/Users/sapta/oneCCL/build/examples/pt2pt/cmake_install.cmake",
+		"C:/Users/sapta/oneCCL/build/examples/external_launcher/cmake_install.cmake",
+		"C:/Users/sapta/oneCCL/build/tests/functional/cmake_install.cmake",
+		"C:/Users/sapta/oneCCL/build/tests/functional/gtest_build/cmake_install.cmake",
+		"C:/Users/sapta/oneCCL/build/tests/functional/gtest_build/googletest/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

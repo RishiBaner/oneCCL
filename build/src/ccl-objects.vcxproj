@@ -1,0 +1,463 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{85A88771-DA74-35C4-AE58-BB1AFB53570D}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ccl-objects</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ccl-objects.dir\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ccl-objects.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ccl-objects</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ccl-objects.dir\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ccl-objects.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ccl-objects</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">ccl-objects.dir\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">ccl-objects.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">ccl-objects</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">ccl-objects.dir\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">ccl-objects.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">ccl-objects</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\include;C:\Users\sapta\oneCCL\src;C:\Users\sapta\oneCCL\src\atl;C:\Users\sapta\oneCCL\deps\level_zero\include;C:\Users\sapta\oneCCL\deps\ofi\include;C:\Users\sapta\oneCCL\deps\hwloc\include;C:\Users\sapta\oneCCL\deps\itt\include;C:\Users\sapta\oneCCL\deps\pmix\include;C:\Users\sapta\oneCCL\deps\umf\include;C:\Users\sapta\oneCCL\deps\mpi\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Wall /WX -O0 -g</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;_FORTIFY_SOURCE=2;CCL_ENABLE_MPI;ENABLE_DEBUG;CCL_C_COMPILER="MSVC 19.42.34444.0";CCL_CXX_COMPILER="MSVC 19.42.34444.0";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;_FORTIFY_SOURCE=2;CCL_ENABLE_MPI;ENABLE_DEBUG;CCL_C_COMPILER=\"MSVC 19.42.34444.0\";CCL_CXX_COMPILER=\"MSVC 19.42.34444.0\";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\include;C:\Users\sapta\oneCCL\src;C:\Users\sapta\oneCCL\src\atl;C:\Users\sapta\oneCCL\deps\level_zero\include;C:\Users\sapta\oneCCL\deps\ofi\include;C:\Users\sapta\oneCCL\deps\hwloc\include;C:\Users\sapta\oneCCL\deps\itt\include;C:\Users\sapta\oneCCL\deps\pmix\include;C:\Users\sapta\oneCCL\deps\umf\include;C:\Users\sapta\oneCCL\deps\mpi\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\include;C:\Users\sapta\oneCCL\src;C:\Users\sapta\oneCCL\src\atl;C:\Users\sapta\oneCCL\deps\level_zero\include;C:\Users\sapta\oneCCL\deps\ofi\include;C:\Users\sapta\oneCCL\deps\hwloc\include;C:\Users\sapta\oneCCL\deps\itt\include;C:\Users\sapta\oneCCL\deps\pmix\include;C:\Users\sapta\oneCCL\deps\umf\include;C:\Users\sapta\oneCCL\deps\mpi\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\include;C:\Users\sapta\oneCCL\src;C:\Users\sapta\oneCCL\src\atl;C:\Users\sapta\oneCCL\deps\level_zero\include;C:\Users\sapta\oneCCL\deps\ofi\include;C:\Users\sapta\oneCCL\deps\hwloc\include;C:\Users\sapta\oneCCL\deps\itt\include;C:\Users\sapta\oneCCL\deps\pmix\include;C:\Users\sapta\oneCCL\deps\umf\include;C:\Users\sapta\oneCCL\deps\mpi\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Wall /WX -O3</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;_FORTIFY_SOURCE=2;CCL_ENABLE_MPI;NDEBUG;CCL_C_COMPILER="MSVC 19.42.34444.0";CCL_CXX_COMPILER="MSVC 19.42.34444.0";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;_FORTIFY_SOURCE=2;CCL_ENABLE_MPI;NDEBUG;CCL_C_COMPILER=\"MSVC 19.42.34444.0\";CCL_CXX_COMPILER=\"MSVC 19.42.34444.0\";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\include;C:\Users\sapta\oneCCL\src;C:\Users\sapta\oneCCL\src\atl;C:\Users\sapta\oneCCL\deps\level_zero\include;C:\Users\sapta\oneCCL\deps\ofi\include;C:\Users\sapta\oneCCL\deps\hwloc\include;C:\Users\sapta\oneCCL\deps\itt\include;C:\Users\sapta\oneCCL\deps\pmix\include;C:\Users\sapta\oneCCL\deps\umf\include;C:\Users\sapta\oneCCL\deps\mpi\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\include;C:\Users\sapta\oneCCL\src;C:\Users\sapta\oneCCL\src\atl;C:\Users\sapta\oneCCL\deps\level_zero\include;C:\Users\sapta\oneCCL\deps\ofi\include;C:\Users\sapta\oneCCL\deps\hwloc\include;C:\Users\sapta\oneCCL\deps\itt\include;C:\Users\sapta\oneCCL\deps\pmix\include;C:\Users\sapta\oneCCL\deps\umf\include;C:\Users\sapta\oneCCL\deps\mpi\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\include;C:\Users\sapta\oneCCL\src;C:\Users\sapta\oneCCL\src\atl;C:\Users\sapta\oneCCL\deps\level_zero\include;C:\Users\sapta\oneCCL\deps\ofi\include;C:\Users\sapta\oneCCL\deps\hwloc\include;C:\Users\sapta\oneCCL\deps\itt\include;C:\Users\sapta\oneCCL\deps\pmix\include;C:\Users\sapta\oneCCL\deps\umf\include;C:\Users\sapta\oneCCL\deps\mpi\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Wall /WX</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;_FORTIFY_SOURCE=2;CCL_ENABLE_MPI;NDEBUG;CCL_C_COMPILER="MSVC 19.42.34444.0";CCL_CXX_COMPILER="MSVC 19.42.34444.0";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;_FORTIFY_SOURCE=2;CCL_ENABLE_MPI;NDEBUG;CCL_C_COMPILER=\"MSVC 19.42.34444.0\";CCL_CXX_COMPILER=\"MSVC 19.42.34444.0\";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\include;C:\Users\sapta\oneCCL\src;C:\Users\sapta\oneCCL\src\atl;C:\Users\sapta\oneCCL\deps\level_zero\include;C:\Users\sapta\oneCCL\deps\ofi\include;C:\Users\sapta\oneCCL\deps\hwloc\include;C:\Users\sapta\oneCCL\deps\itt\include;C:\Users\sapta\oneCCL\deps\pmix\include;C:\Users\sapta\oneCCL\deps\umf\include;C:\Users\sapta\oneCCL\deps\mpi\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\include;C:\Users\sapta\oneCCL\src;C:\Users\sapta\oneCCL\src\atl;C:\Users\sapta\oneCCL\deps\level_zero\include;C:\Users\sapta\oneCCL\deps\ofi\include;C:\Users\sapta\oneCCL\deps\hwloc\include;C:\Users\sapta\oneCCL\deps\itt\include;C:\Users\sapta\oneCCL\deps\pmix\include;C:\Users\sapta\oneCCL\deps\umf\include;C:\Users\sapta\oneCCL\deps\mpi\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\include;C:\Users\sapta\oneCCL\src;C:\Users\sapta\oneCCL\src\atl;C:\Users\sapta\oneCCL\deps\level_zero\include;C:\Users\sapta\oneCCL\deps\ofi\include;C:\Users\sapta\oneCCL\deps\hwloc\include;C:\Users\sapta\oneCCL\deps\itt\include;C:\Users\sapta\oneCCL\deps\pmix\include;C:\Users\sapta\oneCCL\deps\umf\include;C:\Users\sapta\oneCCL\deps\mpi\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Wall /WX -g</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;_FORTIFY_SOURCE=2;CCL_ENABLE_MPI;NDEBUG;CCL_C_COMPILER="MSVC 19.42.34444.0";CCL_CXX_COMPILER="MSVC 19.42.34444.0";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;_FORTIFY_SOURCE=2;CCL_ENABLE_MPI;NDEBUG;CCL_C_COMPILER=\"MSVC 19.42.34444.0\";CCL_CXX_COMPILER=\"MSVC 19.42.34444.0\";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\include;C:\Users\sapta\oneCCL\src;C:\Users\sapta\oneCCL\src\atl;C:\Users\sapta\oneCCL\deps\level_zero\include;C:\Users\sapta\oneCCL\deps\ofi\include;C:\Users\sapta\oneCCL\deps\hwloc\include;C:\Users\sapta\oneCCL\deps\itt\include;C:\Users\sapta\oneCCL\deps\pmix\include;C:\Users\sapta\oneCCL\deps\umf\include;C:\Users\sapta\oneCCL\deps\mpi\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\include;C:\Users\sapta\oneCCL\src;C:\Users\sapta\oneCCL\src\atl;C:\Users\sapta\oneCCL\deps\level_zero\include;C:\Users\sapta\oneCCL\deps\ofi\include;C:\Users\sapta\oneCCL\deps\hwloc\include;C:\Users\sapta\oneCCL\deps\itt\include;C:\Users\sapta\oneCCL\deps\pmix\include;C:\Users\sapta\oneCCL\deps\umf\include;C:\Users\sapta\oneCCL\deps\mpi\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\sapta\oneCCL\src\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/sapta/oneCCL/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/sapta/oneCCL -BC:/Users/sapta/oneCCL/build --check-stamp-file C:/Users/sapta/oneCCL/build/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\sapta\oneCCL\build\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/sapta/oneCCL/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/sapta/oneCCL -BC:/Users/sapta/oneCCL/build --check-stamp-file C:/Users/sapta/oneCCL/build/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\sapta\oneCCL\build\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/sapta/oneCCL/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/sapta/oneCCL -BC:/Users/sapta/oneCCL/build --check-stamp-file C:/Users/sapta/oneCCL/build/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\sapta\oneCCL\build\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/sapta/oneCCL/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/sapta/oneCCL -BC:/Users/sapta/oneCCL/build --check-stamp-file C:/Users/sapta/oneCCL/build/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\sapta\oneCCL\build\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\comm\stub_comm.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\stub_kvs_impl.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\atl\atl_base_comm.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\atl\atl_base_transport.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\atl\atl_def.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\atl\mpi\atl_mpi.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\atl\mpi\atl_mpi_comm.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\atl\mpi\atl_mpi_ctx.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\atl\ofi\atl_ofi.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\atl\ofi\atl_ofi_comm.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\atl\ofi\atl_ofi_helper.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\atl\util\pm\pmi_resizable_rt\pmi_resizable_simple.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\atl\util\pm\pmi_resizable_rt\pmi_resizable_simple_internal.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\atl\util\pm\pmi_resizable_rt\pmi_resizable\kvs_keeper.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\atl\util\pm\pmi_resizable_rt\pmi_resizable\kvs\internal_kvs.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\atl\util\pm\pmi_resizable_rt\pmi_resizable\kvs\internal_kvs_server.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\atl\util\pm\pmi_resizable_rt\pmi_resizable\kvs\users_kvs.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\atl\util\pm\pmi_rt\pmi_simple.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\atl\util\pm\pmi_rt\pmi\simple_pmi.c" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\atl\util\pm\pmi_rt\pmi\simple_pmiutil.c" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\attr\ccl_common_op_attrs.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\attr\ccl_allgather_op_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\attr\ccl_allgatherv_op_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\attr\ccl_allreduce_op_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\attr\ccl_alltoall_op_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\attr\ccl_alltoallv_op_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\attr\ccl_barrier_op_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\attr\ccl_bcast_op_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\attr\ccl_pt2pt_op_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\attr\ccl_reduce_op_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\attr\ccl_reduce_scatter_op_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\coll_param.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\coll_util.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\algorithms\allgather.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\algorithms\allgatherv\allgatherv.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\algorithms\allreduce\allreduce.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\algorithms\allreduce\allreduce_rma.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\algorithms\algorithm_utils.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\algorithms\alltoall\alltoall.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\algorithms\alltoallv.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\algorithms\barrier\barrier.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\algorithms\broadcast\bcast.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\algorithms\broadcast\broadcast.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\algorithms\double_tree_ops.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\algorithms\recv\recv.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\algorithms\reduce.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\algorithms\reduce_scatter\reduce_scatter.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\algorithms\send\send.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\coll.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\coll_check.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\group\group.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\selection\selection.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\selection\selector_allgather.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\selection\selector_allgatherv.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\selection\selector_allreduce.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\selection\selector_alltoall.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\selection\selector_alltoallv.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\selection\selector_barrier.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\selection\selector_bcast.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\selection\selector_recv.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\selection\selector_reduce.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\selection\selector_reduce_scatter.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\coll\selection\selector_send.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\comm\atl_tag.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\comm\mt_comm.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\comm\comm.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\comm\comm_selector.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\context\context.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\datatype\datatype.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\device\device.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\env\env.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\env\env_parser.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\event\ccl_event.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\event\impls\host_event.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\event\impls\native_event.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\framework\framework.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\global\global.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\log\log.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\request\request.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\stream\stream.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\utils\exchange_utils.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\utils\fd_info.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\utils\memcpy.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\utils\profile.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\utils\spinlock.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\utils\utils.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\utils\version.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\utils\yield.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\utils\comm_profile.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\api_wrapper\api_wrapper.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\api_wrapper\mpi_api_wrapper.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\api_wrapper\ofi_api_wrapper.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\api_wrapper\pmix_api_wrapper.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\api_wrapper\umf_api_wrapper.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\common\api_wrapper\openmp_wrapper.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\comp\bf16\bf16.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\comp\bf16\bf16_intrisics.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\comp\comp.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\comp\fp16\fp16.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\comp\fp16\fp16_intrisics.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\exec\exec.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\exec\thread\base_thread.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\exec\thread\listener.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\exec\thread\service_worker.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\exec\thread\worker.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\fusion\fusion.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\hwloc\hwloc_wrapper.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\native_device_api\sycl\export.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\parallelizer\parallelizer.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\buffer\buffer_cache.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\buffer\buffer_manager.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\cache\cache.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\cache\key.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\cache\recycle_storage.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\entry\coll\coll_entry.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\entry\copy\copy_entry.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\entry\copy\copy_helper.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\entry\deps_entry.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\entry\entry.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\entry\factory\chunked_entry_factory.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\entry\recv_copy_entry.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\entry\reduce_local_entry.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\queue\flow_control.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\queue\queue.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\queue\strict_queue.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\sched.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\sched_base.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\sched_group.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\sched_restart_manager.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\sched\sched_timer.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\topology\mt_topo_manager.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\topology\topo_manager.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\unordered_coll\unordered_coll.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_api_functions.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_app_api_coll_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_app_api_comm_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_app_api_comm_split_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_app_api_datatype_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_app_api_event.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_app_api_init_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_app_api_kvs_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_cpp_communicator.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_cpp_context.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_cpp_device.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_cpp_environment.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_cpp_kvs.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_cpp_stream.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_cpp_utils.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_empty_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_empty_coll_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_empty_comm_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_empty_comm_split_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_empty_init_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_empty_kvs_attr.cpp" />
+    <ClCompile Include="C:\Users\sapta\oneCCL\src\ccl_empty_stream.cpp" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\sapta\oneCCL\build\ZERO_CHECK.vcxproj">
+      <Project>{CD2B2948-A67A-3E42-8EFB-A8576F9B4EF9}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

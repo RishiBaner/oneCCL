@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\sapta\oneCCL\build\CMakeFiles\0160966d062e6f50da4bf02f75895f08\RUN_TESTS_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{1ED743D5-325B-3674-AE22-C47D870546E7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
