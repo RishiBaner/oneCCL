@@ -393,6 +393,10 @@ set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${SRC_SHARED_LINKER_
 # special library that holds objects only
 add_library(ccl-objects OBJECT ${CCL_SRC})
 set_target_properties(ccl-objects PROPERTIES POSITION_INDEPENDENT_CODE 1)
+if(MSVC)
+    # Define CCL_EXPORTS when building the shared library on Windows
+    target_compile_definitions(ccl-objects PRIVATE CCL_EXPORTS)
+endif()
 target_include_directories(ccl-objects PRIVATE ${SRC_INCLUDE_DIRS})
 target_include_directories(ccl-objects SYSTEM PRIVATE ${SRC_SYSTEM_INCLUDE_DIRS})
 
@@ -403,10 +407,6 @@ endif()
 # shared library
 add_library(ccl SHARED $<TARGET_OBJECTS:ccl-objects>)
 target_include_directories(ccl PUBLIC ${SRC_INCLUDE_DIRS})
-if(MSVC)
-    # Define CCL_EXPORTS when building the shared library on Windows
-    target_compile_definitions(ccl PRIVATE CCL_EXPORTS)
-endif()
 target_link_libraries(ccl PRIVATE ${SRC_LINK_LIBS})
 
 set_target_properties(ccl PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CCL_BUILD_DIR})
