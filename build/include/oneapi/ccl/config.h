@@ -32,10 +32,10 @@
 
 #define CCL_MAJOR_VERSION           2021
 #define CCL_MINOR_VERSION           16
-#define CCL_UPDATE_VERSION          0
+#define CCL_UPDATE_VERSION          1
 #define CCL_PRODUCT_STATUS     "Gold"
-#define CCL_PRODUCT_BUILD_DATE "2025-09-02T 01:27:42Z"
-#define CCL_PRODUCT_FULL       "Gold-2021.16.0 2025-09-02T 01:27:42Z (master/3c79015)"
+#define CCL_PRODUCT_BUILD_DATE "2025-09-02T 01:43:11Z"
+#define CCL_PRODUCT_FULL       "Gold-2021.16.1 2025-09-02T 01:43:11Z (master/102bee4)"
 
 #if defined(SYCL_LANGUAGE_VERSION) && defined (__INTEL_LLVM_COMPILER)
 #define CCL_ENABLE_SYCL

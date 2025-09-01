@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-set(PACKAGE_VERSION 2021.16.0)
+set(PACKAGE_VERSION 2021.16.1)
 
 if ("${PACKAGE_VERSION}" VERSION_LESS "${PACKAGE_FIND_VERSION}")
     set(PACKAGE_VERSION_COMPATIBLE FALSE)
