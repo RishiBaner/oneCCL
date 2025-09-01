@@ -44,17 +44,18 @@ ccl::event reduce_scatter_sycl_single_node(sycl::queue& q,
 
     if (world == 1) {
         sycl::event sycl_e;
+        auto sycl_q = global_stream->get_native_stream();
         std::vector<sycl::event> dep_events = get_sycl_events(deps);
         if (send_buf != recv_buf) {
             LOG_DEBUG("single rank: out-of-place case, coll: reduce_scatter");
-            sycl_e = q.submit([=](sycl::handler& h) {
+            sycl_e = sycl_q.submit([=](sycl::handler& h) {
                 h.depends_on(dep_events);
                 h.memcpy(recv_buf, send_buf, recv_count * ccl_dtype.size());
             });
         }
         else {
             LOG_DEBUG("single rank: inplace case, coll: reduce_scatter");
-            sycl_e = submit_wait_on_events(q, dep_events);
+            sycl_e = submit_wait_on_events(sycl_q, dep_events);
         }
         return ccl::event::create_from_native(sycl_e);
     }
@@ -372,8 +373,17 @@ ccl::event reduce_scatter_sycl_multi_node(sycl::queue& q,
     if (node_comm->size() == 1) {
         sycl_reduce_scatter_tune_attr scaleout_tune_attr = reduce_scatter_select_tune_attr(
             recv_count * ccl_dtype.size() * r2r_comm->size(), r2r_comm->size(), ccl_dtype);
-        ev = reduce_scatter_scaleout_sycl(
-            q, send_buf, recv_buf, recv_count, dtype, reduction, comm, deps, true, scaleout_tune_attr, done);
+        ev = reduce_scatter_scaleout_sycl(q,
+                                          send_buf,
+                                          recv_buf,
+                                          recv_count,
+                                          dtype,
+                                          ccl::reduction::sum,
+                                          comm,
+                                          deps,
+                                          true,
+                                          scaleout_tune_attr,
+                                          done);
 
         if (reduction == ccl::reduction::avg) {
             // set dependencies

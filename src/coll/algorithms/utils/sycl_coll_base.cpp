@@ -34,7 +34,8 @@ size_t tmp_buf_size_per_rank = 0;
 
 std::pair<ccl_sched *, ze_handle_exchange_entry *> do_ipc_exchange(ccl_comm *comm,
                                                                    ccl_stream *stream,
-                                                                   std::vector<void *> ptrs) {
+                                                                   std::vector<void *> ptrs,
+                                                                   bool to_cache) {
     sycl::queue q = stream->get_native_stream();
     bool host_found = false;
     for (auto ptr : ptrs) {
@@ -46,10 +47,17 @@ std::pair<ccl_sched *, ze_handle_exchange_entry *> do_ipc_exchange(ccl_comm *com
     }
 
     int cache_status = -1;
-    if (host_found) {
+    // Only disable cache if to_cache is false
+    if (!to_cache) {
         cache_status = ccl::global_data::env().enable_ze_cache_get_ipc_handles;
         ccl::global_data::env().enable_ze_cache_get_ipc_handles = 0;
-        LOG_DEBUG("disabling ZE IPC cache because a host USM buffer was found.");
+        LOG_DEBUG("disabling ze_cache_get_ipc_handles for do_ipc_exchange");
+    }
+    // Also disable if host pointers are found but to_cache is true
+    else if (host_found) {
+        cache_status = ccl::global_data::env().enable_ze_cache_get_ipc_handles;
+        ccl::global_data::env().enable_ze_cache_get_ipc_handles = 0;
+        LOG_DEBUG("disabling ze_cache_get_ipc_handles for do_ipc_exchange (host pointers found)");
     }
 
     ccl_comm *node_comm = comm->get_node_comm().get();
@@ -75,7 +83,7 @@ std::pair<ccl_sched *, ze_handle_exchange_entry *> do_ipc_exchange(ccl_comm *com
         exchange_entry->update(); //    128us
     }
 
-    if (host_found) {
+    if (host_found || !to_cache) {
         // restore
         ccl::global_data::env().enable_ze_cache_get_ipc_handles = cache_status;
     }
@@ -288,7 +296,7 @@ void coll_init(ccl_comm *comm, ccl_stream *global_stream) {
             // WA : use smaller tmp buffer for client GPUs
             if (is_arc_card(ccl::ze::get_device_family(global_stream->get_ze_device())) &&
                 ccl::global_data::env().sycl_tmp_buf_size == 3 * 128 * 1024 * 1024) {
-                ccl::global_data::env().sycl_tmp_buf_size = 3 * 32 * 1024 * 1024;
+                ccl::global_data::env().sycl_tmp_buf_size = 3 * 16 * 1024 * 1024;
             }
             const size_t tmp_buf_size = ccl::global_data::env().sycl_tmp_buf_size / tmp_bufs_count;
             const size_t tmp_buf_size_per_rank_orig =
@@ -411,7 +419,8 @@ void coll_init(ccl_comm *comm, ccl_stream *global_stream) {
 #endif // CCL_ENABLE_UMF
 
             LOG_DEBUG("|SCHED|: do_ipc_exchange: with sched");
-            auto [sched, exchange_entry] = do_ipc_exchange(comm, global_stream, ipc_ptrs);
+            auto [sched, exchange_entry] =
+                do_ipc_exchange(comm, global_stream, ipc_ptrs, false /* to_cache */);
 
             // add comm_barrier sync pointers to each communicator
             size_t sub_comms_size = sub_comms.size();
@@ -530,7 +539,7 @@ void coll_initExt(ccl_comm *comm,
             // WA : use smaller tmp buffer for client GPUs
             if (is_arc_card(ccl::ze::get_device_family(global_stream->get_ze_device())) &&
                 ccl::global_data::env().sycl_tmp_buf_size == 3 * 128 * 1024 * 1024) {
-                ccl::global_data::env().sycl_tmp_buf_size = 3 * 32 * 1024 * 1024;
+                ccl::global_data::env().sycl_tmp_buf_size = 3 * 16 * 1024 * 1024;
             }
             const size_t tmp_buf_size = ccl::global_data::env().sycl_tmp_buf_size / tmp_bufs_count;
             const size_t tmp_buf_size_per_rank_orig =

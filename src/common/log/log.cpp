@@ -22,6 +22,7 @@
 
 ccl_log_level ccl_logger::level = ccl_log_level::warn;
 bool ccl_logger::abort_on_throw = false;
+int ccl_logger::global_idx = -1;
 ccl_logger logger;
 
 // TODO: add a label named profile?
@@ -97,6 +98,10 @@ CCL_API ccl_log_level ccl_logger::get_log_level() noexcept {
     return level;
 }
 
+CCL_API int ccl_logger::get_global_idx() noexcept {
+    return global_idx;
+}
+
 bool ccl_logger::is_root() {
     static thread_local bool rank_read = false;
     static thread_local int rank = ccl::utils::invalid_rank;
@@ -126,7 +131,12 @@ void ccl_logger::write_prefix(std::ostream& str) {
         strftime(time_buf, time_buf_size, "%Y:%m:%d-%H:%M:%S", &time_info);
         str << time_buf;
     }
-    str << ":(" << std::setw(tid_width) << gettid() << ") ";
+    //str << ":(" << std::setw(tid_width) << gettid() << ") ";
+    str << ":" << std::setw(tid_width) << gettid();
+    if (global_idx != -1)
+        str << ":[" << global_idx << "] ";
+    else
+        str << " ";
 }
 
 void ccl_logger::write_backtrace(std::ostream& str) {

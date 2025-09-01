@@ -137,6 +137,12 @@ public:
 
     static CCL_API ccl_log_level get_log_level() noexcept;
 
+    static void set_global_idx(int idx) {
+        global_idx = idx;
+    }
+
+    static CCL_API int get_global_idx() noexcept;
+
     static CCL_API ccl_logger& get_instance();
 
     static bool is_root();
@@ -210,6 +216,8 @@ public:
 private:
     static ccl_log_level level;
     static bool abort_on_throw;
+
+    static int global_idx;
 
     ccl_streambuf streambuf;
     std::ostream out_stream;
