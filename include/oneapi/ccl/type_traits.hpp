@@ -15,12 +15,9 @@
 */
 #pragma once
 
-
 #include <cstdint>
 
-
 namespace ccl {
-
 
 #ifdef _MSC_VER
 // MSVC-safe typedefs
@@ -44,11 +41,8 @@ using int64 = std::int64_t;
 using uint64 = std::uint64_t;
 #endif
 
-
-// Placeholder for the type_info template
-// Forward-declare and specialize elsewhere
+// Forward declaration of template class
 template <typename T>
 struct type_info;
 
-
-}
+} // namespace ccl

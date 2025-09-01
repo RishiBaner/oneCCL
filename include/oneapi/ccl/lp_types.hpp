@@ -15,32 +15,25 @@
 */
 #pragma once
 
-
 #include <cstdint>
-
 
 #if defined(_MSC_VER)
 #pragma pack(push, 1)
 #endif
 
-
 namespace ccl {
 namespace v1 {
 
-
 struct float16 {
-uint16_t data;
+    uint16_t data;
 };
-
 
 struct bfloat16 {
-uint16_t data;
+    uint16_t data;
 };
-
 
 } // namespace v1
 } // namespace ccl
-
 
 #if defined(_MSC_VER)
 #pragma pack(pop)
