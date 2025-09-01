@@ -186,26 +186,42 @@ if (${CMAKE_C_COMPILER_ID} STREQUAL "Clang" AND ${CMAKE_CXX_COMPILER_ID} STREQUA
     set(EXTRA_WARN_FLAGS "-Wshadow")
 endif()
 
-set(COMPILER_WARN_FLAGS "-Wall -Wextra -Wno-unused-parameter -Werror ${EXTRA_WARN_FLAGS}")
+if(MSVC)
+    # MSVC-specific warning flags
+    # /W4 is a high warning level
+    # /wdXXXX disables specific warnings that are noisy for this project
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4 /wd4668 /wd4251 /wd4275 /wd4996")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /W4 /wd4668 /wd4996")
+    # In MSVC, symbols are private by default. We use __declspec(dllexport) to export.
+elseif(UNIX)
+    # GCC/Clang-specific warning and visibility flags
+    set(COMPILER_WARN_FLAGS "-Wall -Wextra -Wno-unused-parameter -Werror ${EXTRA_WARN_FLAGS}")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${C_COMPILER_FLAGS} ${COMPILER_WARN_FLAGS} -D_GNU_SOURCE -fvisibility=internal")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CXX_COMPILER_FLAGS} ${COMPILER_WARN_FLAGS} -D_GNU_SOURCE -fvisibility=internal")
+endif()
 
-# common release/debug compilation settings
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${C_COMPILER_FLAGS} ${COMPILER_WARN_FLAGS} -D_GNU_SOURCE -fvisibility=internal")
-set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} ${C_COMPILER_FLAGS} -O0 -g -DENABLE_DEBUG")
-set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} ${C_COMPILER_FLAGS} -O3")
-set(CMAKE_C_FLAGS_RELWITHDEBINFO "${CMAKE_C_FLAGS_RELWITHDEBINFO} ${C_COMPILER_FLAGS} -O2 -g")
+if(NOT MSVC)
+    # Common release/debug compilation settings for GCC/Clang
+    set(CMAKE_C_FLAGS_DEBUG          "${CMAKE_C_FLAGS_DEBUG} -O0 -g -DENABLE_DEBUG")
+    set(CMAKE_C_FLAGS_RELEASE        "${CMAKE_C_FLAGS_RELEASE} -O3")
+    set(CMAKE_C_FLAGS_RELWITHDEBINFO "${CMAKE_C_FLAGS_RELWITHDEBINFO} -O2 -g")
+    set(CMAKE_CXX_FLAGS_DEBUG          "${CMAKE_CXX_FLAGS_DEBUG} -O0 -g -DENABLE_DEBUG")
+    set(CMAKE_CXX_FLAGS_RELEASE        "${CMAKE_CXX_FLAGS_RELEASE} -O3")
+    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -O2 -g")
+else()
+    # For MSVC, optimization and debug flags are set by the generator.
+    # We just add the custom debug definition, using the MSVC-style /D flag.
+    set(CMAKE_C_FLAGS_DEBUG   "${CMAKE_C_FLAGS_DEBUG} /DENABLE_DEBUG")
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /DENABLE_DEBUG")
+endif()
+
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CXX_COMPILER_FLAGS} ${COMPILER_WARN_FLAGS} -D_GNU_SOURCE -fvisibility=internal")
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} ${CXX_COMPILER_FLAGS} -O0 -g -DENABLE_DEBUG")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} ${CXX_COMPILER_FLAGS} -O3")
-set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} ${CXX_COMPILER_FLAGS} -O2 -g")
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-if (NOT ${CMAKE_CXX_COMPILER_ID} STREQUAL "Intel")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-implicit-fallthrough")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-implicit-fallthrough")
+if (${CMAKE_CXX_COMPILER_ID} MATCHES "Clang|GNU|IntelLLVM")
+    add_compile_options(-Wno-implicit-fallthrough)
 endif()
 
 set(COMMON_CMAKE_DIR ${PROJECT_SOURCE_DIR}/cmake)
@@ -270,7 +286,8 @@ endif()
 if (ENABLE_OMP)
     find_package(OpenMP)
     if (OPENMP_FOUND)
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DCCL_ENABLE_OMP=1")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS} -DCCL_ENABLE_OMP=1")
+        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
         message(STATUS "Enable openMP extension")
     endif()
 endif(ENABLE_OMP)
@@ -298,10 +315,18 @@ if (${CMAKE_GENERATOR} STREQUAL "Ninja")
 endif()
 
 if (WITH_ASAN AND ${CMAKE_BUILD_TYPE_CASE_INSENSITIVE} STREQUAL "debug")
-    message(STATUS "Compiling with address sanitizer")
-    set(CMAKE_CXX_FLAGS_DEBUG  "${CMAKE_CXX_FLAGS_DEBUG} -fsanitize=address -fno-omit-frame-pointer")
-    set(CMAKE_C_FLAGS_DEBUG  "${CMAKE_C_FLAGS_DEBUG} -fsanitize=address -fno-omit-frame-pointer")
-    set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -lasan")
+    if (MSVC)
+        message(STATUS "Compiling with address sanitizer for MSVC")
+        set(CMAKE_CXX_FLAGS_DEBUG  "${CMAKE_CXX_FLAGS_DEBUG} /fsanitize=address")
+        set(CMAKE_C_FLAGS_DEBUG  "${CMAKE_C_FLAGS_DEBUG} /fsanitize=address")
+    elseif (CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU|IntelLLVM")
+        message(STATUS "Compiling with address sanitizer for GCC/Clang")
+        set(CMAKE_CXX_FLAGS_DEBUG  "${CMAKE_CXX_FLAGS_DEBUG} -fsanitize=address -fno-omit-frame-pointer")
+        set(CMAKE_C_FLAGS_DEBUG  "${CMAKE_C_FLAGS_DEBUG} -fsanitize=address -fno-omit-frame-pointer")
+        set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -lasan")
+    else()
+        message(WARNING "Address sanitizer is not supported for ${CMAKE_CXX_COMPILER_ID} compiler")
+    endif()
 endif()
 
 set_lp_env()

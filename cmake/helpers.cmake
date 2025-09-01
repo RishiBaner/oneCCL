@@ -11,12 +11,17 @@ function(set_lp_env)
     set(CLANG_BF16_MIN_SUPPORTED "9.0.0")
     set(CLANG_BF16_AVX512BF_MIN_SUPPORTED "9.3.0")
 
+    set(MSVC_BF16_MIN_SUPPORTED "19.36") # VS 2022 17.6
+    set(MSVC_BF16_AVX512BF_MIN_SUPPORTED "19.36") # VS 2022 17.6
+
     if (${CMAKE_C_COMPILER_ID} STREQUAL "Intel"
         OR (${CMAKE_C_COMPILER_ID} STREQUAL "IntelLLVM")
         OR (${CMAKE_C_COMPILER_ID} STREQUAL "Clang"
             AND NOT ${CMAKE_C_COMPILER_VERSION} VERSION_LESS ${CLANG_BF16_MIN_SUPPORTED})
         OR (${CMAKE_C_COMPILER_ID} STREQUAL "GNU"
             AND NOT ${CMAKE_C_COMPILER_VERSION} VERSION_LESS ${GCC_BF16_MIN_SUPPORTED})
+        OR (${CMAKE_C_COMPILER_ID} STREQUAL "MSVC"
+            AND NOT ${CMAKE_C_COMPILER_VERSION} VERSION_LESS ${MSVC_BF16_MIN_SUPPORTED})
         )
         add_definitions(-DCCL_BF16_COMPILER)
         set(CCL_BF16_COMPILER ON)
@@ -25,13 +30,19 @@ function(set_lp_env)
     endif()
     message(STATUS "BF16 AVX512F compiler: ${CCL_BF16_COMPILER}")
 
-    execute_process(COMMAND ld -v
-            OUTPUT_VARIABLE BINUTILS_VERSION_RAW
-            OUTPUT_STRIP_TRAILING_WHITESPACE)
-    if(DEFINED CMAKE_C_COMPILER)
-  string(REGEX MATCH ".*gcc.*" IS_GCC ${CMAKE_C_COMPILER})
-endif()
-    message(STATUS "binutils version: " "${BINUTILS_VERSION}")
+    set(BINUTILS_VERSION "0.0") # Default to a version that supports nothing extra
+    if(UNIX)
+        # On UNIX, check binutils version for full BF16/FP16 support.
+        # This command is not applicable on Windows.
+        execute_process(COMMAND ld -v
+                OUTPUT_VARIABLE BINUTILS_VERSION_RAW
+                OUTPUT_STRIP_TRAILING_WHITESPACE
+                RESULT_VARIABLE LD_RESULT)
+        if(LD_RESULT EQUAL 0 AND BINUTILS_VERSION_RAW)
+            string(REGEX MATCH "[0-9]+\\.[0-9]+" BINUTILS_VERSION "${BINUTILS_VERSION_RAW}")
+        endif()
+        message(STATUS "binutils version: ${BINUTILS_VERSION}")
+    endif()
 
     if (((${CMAKE_C_COMPILER_ID} STREQUAL "Intel"
         OR ${CMAKE_C_COMPILER_ID} STREQUAL "IntelLLVM")
@@ -41,6 +52,8 @@ endif()
         OR (${CMAKE_C_COMPILER_ID} STREQUAL "GNU"
             AND NOT ${CMAKE_C_COMPILER_VERSION} VERSION_LESS ${GCC_BF16_AVX512BF_MIN_SUPPORTED}
             AND NOT ${BINUTILS_VERSION} VERSION_LESS ${GCC_BF16_AVX512BF_BINUTILS_MIN_SUPPORTED})
+        OR (${CMAKE_C_COMPILER_ID} STREQUAL "MSVC"
+            AND NOT ${CMAKE_C_COMPILER_VERSION} VERSION_LESS ${MSVC_BF16_AVX512BF_MIN_SUPPORTED})
         )
         add_definitions(-DCCL_BF16_AVX512BF_COMPILER)
         set(CCL_BF16_AVX512BF_COMPILER ON)
@@ -74,12 +87,17 @@ endif()
     set(CLANG_FP16_MIN_SUPPORTED "9.0.0")
     set(CLANG_FP16_AVX512FP16_MIN_SUPPORTED "14.0.0")
 
+    set(MSVC_FP16_MIN_SUPPORTED "19.35") # VS 2022 17.5
+    set(MSVC_FP16_AVX512FP16_MIN_SUPPORTED "19.35") # VS 2022 17.5
+
     if (${CMAKE_C_COMPILER_ID} STREQUAL "Intel"
         OR (${CMAKE_C_COMPILER_ID} STREQUAL "IntelLLVM")
         OR (${CMAKE_C_COMPILER_ID} STREQUAL "Clang"
             AND NOT ${CMAKE_C_COMPILER_VERSION} VERSION_LESS ${CLANG_FP16_MIN_SUPPORTED})
         OR (${CMAKE_C_COMPILER_ID} STREQUAL "GNU"
             AND NOT ${CMAKE_C_COMPILER_VERSION} VERSION_LESS ${GCC_FP16_MIN_SUPPORTED})
+        OR (${CMAKE_C_COMPILER_ID} STREQUAL "MSVC"
+            AND NOT ${CMAKE_C_COMPILER_VERSION} VERSION_LESS ${MSVC_FP16_MIN_SUPPORTED})
         )
         add_definitions(-DCCL_FP16_COMPILER)
         set(CCL_FP16_COMPILER ON)
@@ -94,7 +112,9 @@ endif()
             AND NOT ${CMAKE_C_COMPILER_VERSION} VERSION_LESS ${CLANG_FP16_AVX512FP16_MIN_SUPPORTED})
         OR (${CMAKE_C_COMPILER_ID} STREQUAL "GNU"
             AND NOT ${CMAKE_C_COMPILER_VERSION} VERSION_LESS ${GCC_FP16_AVX512FP16_MIN_SUPPORTED}
-	    AND NOT ${BINUTILS_VERSION} VERSION_LESS ${GCC_FP16_AVX512FP16_BINUTILS_MIN_SUPPORTED})
+	        AND NOT ${BINUTILS_VERSION} VERSION_LESS ${GCC_FP16_AVX512FP16_BINUTILS_MIN_SUPPORTED})
+        OR (${CMAKE_C_COMPILER_ID} STREQUAL "MSVC"
+            AND NOT ${CMAKE_C_COMPILER_VERSION} VERSION_LESS ${MSVC_FP16_AVX512FP16_MIN_SUPPORTED})
         )
         add_definitions(-DCCL_FP16_AVX512FP16_COMPILER)
         set(CCL_FP16_AVX512FP16_COMPILER ON)
@@ -164,6 +184,7 @@ function(set_avx_env)
     set(CLANG_AVX_MIN_SUPPORTED "9.0.0")
 
     if (${CMAKE_C_COMPILER_ID} STREQUAL "Intel"
+        OR ${CMAKE_C_COMPILER_ID} STREQUAL "MSVC"
         OR ${CMAKE_C_COMPILER_ID} STREQUAL "IntelLLVM"
         OR (${CMAKE_C_COMPILER_ID} STREQUAL "Clang"
             AND NOT ${CMAKE_C_COMPILER_VERSION} VERSION_LESS ${CLANG_AVX_MIN_SUPPORTED})
@@ -196,6 +217,7 @@ function(check_compiler_version)
     set(GCC_MIN_SUPPORTED "4.8")
     set(ICC_MIN_SUPPORTED "15.0")
     set(CLANG_MIN_SUPPORTED "9.0")
+    set(MSVC_MIN_SUPPORTED "19.0") # Visual Studio 2015
 
     if(${CMAKE_C_COMPILER_ID} STREQUAL "GNU")
         if(${CMAKE_C_COMPILER_VERSION} VERSION_LESS ${GCC_MIN_SUPPORTED})
@@ -212,6 +234,10 @@ function(check_compiler_version)
     elseif(${CMAKE_C_COMPILER_ID} STREQUAL "IntelLLVM")
         if(${CMAKE_C_COMPILER_VERSION} VERSION_LESS ${ICC_MIN_SUPPORTED})
             message(FATAL_ERROR "icc min supported version is ${ICC_MIN_SUPPORTED}, current version ${CMAKE_C_COMPILER_VERSION}")
+        endif()
+    elseif(${CMAKE_C_COMPILER_ID} STREQUAL "MSVC")
+        if(${CMAKE_C_COMPILER_VERSION} VERSION_LESS ${MSVC_MIN_SUPPORTED})
+            message(FATAL_ERROR "MSVC min supported version is ${MSVC_MIN_SUPPORTED} (Visual Studio 2015), current version ${CMAKE_C_COMPILER_VERSION}")
         endif()
     else()
         message(WARNING "Compilation with ${CMAKE_C_COMPILER_ID} was not tested, no warranty")
@@ -278,12 +304,9 @@ function(activate_compute_backend MODULES_PATH COMPUTE_BACKEND)
     get_target_property(COMPUTE_BACKEND_LIBRARIES_LOCAL
                         ${COMPUTE_BACKEND_TARGET_NAME} INTERFACE_LINK_LIBRARIES)
 
-    # When we use dpcpp compiler(dpcpp backends), use c++17 to be aligned with compiler
+    # When using the dpcpp backend, upgrade the C++ standard to 17.
     if (${COMPUTE_BACKEND_TARGET_NAME} MATCHES "^Intel::SYCL.*")
         set(CMAKE_CXX_STANDARD 17 PARENT_SCOPE)
-    # And use c++11 for all other cases
-    else()
-        set(CMAKE_CXX_STANDARD 11 PARENT_SCOPE)
     endif()
 
     # set output variables in the parent scope:
@@ -311,14 +334,9 @@ endfunction(define_compute_backend)
 function(set_compute_backend COMMON_CMAKE_DIR)
     activate_compute_backend("${COMMON_CMAKE_DIR}" ${COMPUTE_BACKEND})
 
-    # When we use dpcpp compiler(dpcpp backends), use c++17 to be aligned with compiler
-    # Although the same thing is done in activate_compute_backend we need to set the variable here as
-    # well bacause both set_compute_backend and activate_compute_backend can be called directly
+    # When using the dpcpp backend, ensure the C++ standard is upgraded to 17.
     if (${COMPUTE_BACKEND_TARGET_NAME} MATCHES "^Intel::SYCL.*")
         set(CMAKE_CXX_STANDARD 17 PARENT_SCOPE)
-    # And use c++11 for all other cases
-    else()
-        set(CMAKE_CXX_STANDARD 11 PARENT_SCOPE)
     endif()
 
     if (NOT COMPUTE_BACKEND_TARGET_NAME)

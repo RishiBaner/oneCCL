@@ -9,6 +9,9 @@ C:/Users/sapta/oneCCL/build/src/CMakeFiles/RUN_TESTS.dir
 C:/Users/sapta/oneCCL/build/src/CMakeFiles/INSTALL.dir
 C:/Users/sapta/oneCCL/build/src/ext/CMakeFiles/RUN_TESTS.dir
 C:/Users/sapta/oneCCL/build/src/ext/CMakeFiles/INSTALL.dir
+C:/Users/sapta/oneCCL/build/src/ext/openmp/CMakeFiles/ccl_openmp.dir
+C:/Users/sapta/oneCCL/build/src/ext/openmp/CMakeFiles/RUN_TESTS.dir
+C:/Users/sapta/oneCCL/build/src/ext/openmp/CMakeFiles/INSTALL.dir
 C:/Users/sapta/oneCCL/build/examples/benchmark/CMakeFiles/benchmark.dir
 C:/Users/sapta/oneCCL/build/examples/benchmark/CMakeFiles/RUN_TESTS.dir
 C:/Users/sapta/oneCCL/build/examples/benchmark/CMakeFiles/INSTALL.dir

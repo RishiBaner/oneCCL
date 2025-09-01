@@ -79,16 +79,17 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\tests\googletest-release-1.8.1\googletest\include;C:\Users\sapta\oneCCL\tests\googletest-release-1.8.1\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -Wextra -Wno-unused-parameter -Werror -fvisibility=internal -Wno-implicit-fallthrough -O0 -g -J</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) -J</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <BufferSecurityCheck>true</BufferSecurityCheck>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <DisableSpecificWarnings>4251;4275;4702</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4668;4251;4275;4996;4251;4275;4702</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <MinimalRebuild></MinimalRebuild>
+      <OpenMPSupport>true</OpenMPSupport>
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
@@ -99,12 +100,12 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;ENABLE_DEBUG;_UNICODE;UNICODE;_WIN32;STRICT;WIN32_LEAN_AND_MEAN;GTEST_HAS_PTHREAD=0;_HAS_EXCEPTIONS=1;CCL_C_COMPILER="MSVC 19.42.34444.0";CCL_CXX_COMPILER="MSVC 19.42.34444.0";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_OMP=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;ENABLE_DEBUG;_UNICODE;UNICODE;_WIN32;STRICT;WIN32_LEAN_AND_MEAN;GTEST_HAS_PTHREAD=0;_HAS_EXCEPTIONS=1;CCL_C_COMPILER="MSVC 19.42.34444.0";CCL_CXX_COMPILER="MSVC 19.42.34444.0";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;ENABLE_DEBUG;_UNICODE;UNICODE;_WIN32;STRICT;WIN32_LEAN_AND_MEAN;GTEST_HAS_PTHREAD=0;_HAS_EXCEPTIONS=1;CCL_C_COMPILER=\"MSVC 19.42.34444.0\";CCL_CXX_COMPILER=\"MSVC 19.42.34444.0\";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_OMP=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;ENABLE_DEBUG;_UNICODE;UNICODE;_WIN32;STRICT;WIN32_LEAN_AND_MEAN;GTEST_HAS_PTHREAD=0;_HAS_EXCEPTIONS=1;CCL_C_COMPILER=\"MSVC 19.42.34444.0\";CCL_CXX_COMPILER=\"MSVC 19.42.34444.0\";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\tests\googletest-release-1.8.1\googletest\include;C:\Users\sapta\oneCCL\tests\googletest-release-1.8.1\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
@@ -122,16 +123,17 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\tests\googletest-release-1.8.1\googletest\include;C:\Users\sapta\oneCCL\tests\googletest-release-1.8.1\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -Wextra -Wno-unused-parameter -Werror -fvisibility=internal -Wno-implicit-fallthrough -O3 -J</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) -J</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck>true</BufferSecurityCheck>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <DisableSpecificWarnings>4251;4275;4702</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4668;4251;4275;4996;4251;4275;4702</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <MinimalRebuild></MinimalRebuild>
+      <OpenMPSupport>true</OpenMPSupport>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
@@ -142,12 +144,12 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;_UNICODE;UNICODE;_WIN32;STRICT;WIN32_LEAN_AND_MEAN;GTEST_HAS_PTHREAD=0;_HAS_EXCEPTIONS=1;CCL_C_COMPILER="MSVC 19.42.34444.0";CCL_CXX_COMPILER="MSVC 19.42.34444.0";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_OMP=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;_UNICODE;UNICODE;_WIN32;STRICT;WIN32_LEAN_AND_MEAN;GTEST_HAS_PTHREAD=0;_HAS_EXCEPTIONS=1;CCL_C_COMPILER="MSVC 19.42.34444.0";CCL_CXX_COMPILER="MSVC 19.42.34444.0";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;_UNICODE;UNICODE;_WIN32;STRICT;WIN32_LEAN_AND_MEAN;GTEST_HAS_PTHREAD=0;_HAS_EXCEPTIONS=1;CCL_C_COMPILER=\"MSVC 19.42.34444.0\";CCL_CXX_COMPILER=\"MSVC 19.42.34444.0\";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_OMP=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;_UNICODE;UNICODE;_WIN32;STRICT;WIN32_LEAN_AND_MEAN;GTEST_HAS_PTHREAD=0;_HAS_EXCEPTIONS=1;CCL_C_COMPILER=\"MSVC 19.42.34444.0\";CCL_CXX_COMPILER=\"MSVC 19.42.34444.0\";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\tests\googletest-release-1.8.1\googletest\include;C:\Users\sapta\oneCCL\tests\googletest-release-1.8.1\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
@@ -165,16 +167,17 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\tests\googletest-release-1.8.1\googletest\include;C:\Users\sapta\oneCCL\tests\googletest-release-1.8.1\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -Wextra -Wno-unused-parameter -Werror -fvisibility=internal -Wno-implicit-fallthrough -J</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) -J</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck>true</BufferSecurityCheck>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <DisableSpecificWarnings>4251;4275;4702</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4668;4251;4275;4996;4251;4275;4702</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <MinimalRebuild></MinimalRebuild>
+      <OpenMPSupport>true</OpenMPSupport>
       <Optimization>MinSpace</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
@@ -185,12 +188,12 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;_UNICODE;UNICODE;_WIN32;STRICT;WIN32_LEAN_AND_MEAN;GTEST_HAS_PTHREAD=0;_HAS_EXCEPTIONS=1;CCL_C_COMPILER="MSVC 19.42.34444.0";CCL_CXX_COMPILER="MSVC 19.42.34444.0";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_OMP=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;_UNICODE;UNICODE;_WIN32;STRICT;WIN32_LEAN_AND_MEAN;GTEST_HAS_PTHREAD=0;_HAS_EXCEPTIONS=1;CCL_C_COMPILER="MSVC 19.42.34444.0";CCL_CXX_COMPILER="MSVC 19.42.34444.0";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;_UNICODE;UNICODE;_WIN32;STRICT;WIN32_LEAN_AND_MEAN;GTEST_HAS_PTHREAD=0;_HAS_EXCEPTIONS=1;CCL_C_COMPILER=\"MSVC 19.42.34444.0\";CCL_CXX_COMPILER=\"MSVC 19.42.34444.0\";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_OMP=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;_UNICODE;UNICODE;_WIN32;STRICT;WIN32_LEAN_AND_MEAN;GTEST_HAS_PTHREAD=0;_HAS_EXCEPTIONS=1;CCL_C_COMPILER=\"MSVC 19.42.34444.0\";CCL_CXX_COMPILER=\"MSVC 19.42.34444.0\";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\tests\googletest-release-1.8.1\googletest\include;C:\Users\sapta\oneCCL\tests\googletest-release-1.8.1\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
@@ -208,16 +211,17 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\tests\googletest-release-1.8.1\googletest\include;C:\Users\sapta\oneCCL\tests\googletest-release-1.8.1\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -Wextra -Wno-unused-parameter -Werror -fvisibility=internal -Wno-implicit-fallthrough -g -J</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) -J</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck>true</BufferSecurityCheck>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <DisableSpecificWarnings>4251;4275;4702</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4668;4251;4275;4996;4251;4275;4702</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <MinimalRebuild></MinimalRebuild>
+      <OpenMPSupport>true</OpenMPSupport>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
@@ -228,12 +232,12 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;_UNICODE;UNICODE;_WIN32;STRICT;WIN32_LEAN_AND_MEAN;GTEST_HAS_PTHREAD=0;_HAS_EXCEPTIONS=1;CCL_C_COMPILER="MSVC 19.42.34444.0";CCL_CXX_COMPILER="MSVC 19.42.34444.0";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_OMP=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;_UNICODE;UNICODE;_WIN32;STRICT;WIN32_LEAN_AND_MEAN;GTEST_HAS_PTHREAD=0;_HAS_EXCEPTIONS=1;CCL_C_COMPILER="MSVC 19.42.34444.0";CCL_CXX_COMPILER="MSVC 19.42.34444.0";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;_UNICODE;UNICODE;_WIN32;STRICT;WIN32_LEAN_AND_MEAN;GTEST_HAS_PTHREAD=0;_HAS_EXCEPTIONS=1;CCL_C_COMPILER=\"MSVC 19.42.34444.0\";CCL_CXX_COMPILER=\"MSVC 19.42.34444.0\";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_OMP=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;_UNICODE;UNICODE;_WIN32;STRICT;WIN32_LEAN_AND_MEAN;GTEST_HAS_PTHREAD=0;_HAS_EXCEPTIONS=1;CCL_C_COMPILER=\"MSVC 19.42.34444.0\";CCL_CXX_COMPILER=\"MSVC 19.42.34444.0\";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\tests\googletest-release-1.8.1\googletest\include;C:\Users\sapta\oneCCL\tests\googletest-release-1.8.1\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>

@@ -1,41 +1,44 @@
 #pragma once
 
 #ifdef _MSC_VER
-#   define CCL_FORCEINLINE __forceinline
-#   define CCL_FORCENOINLINE __declspec(noinline)
-#   define CCL_DEPRECATED __declspec(deprecated)
-#   define CCL_DEPRECATED_ENUM_FIELD __declspec(deprecated)
-#else // for __GNUC__ and __clang__
-#   define CCL_FORCEINLINE   inline __attribute__((always_inline))
-#   define CCL_FORCENOINLINE __attribute__((noinline))
-#   if (__GNUC__ >= 6) || defined(__clang__)
-#       define CCL_DEPRECATED_ENUM_FIELD __attribute__((deprecated))
-#   else
-#       define CCL_DEPRECATED_ENUM_FIELD
-#   endif
+#define CCL_FORCEINLINE   __forceinline
+#define CCL_FORCENOINLINE __declspec(noinline)
+#else
+#define CCL_FORCEINLINE   inline __attribute__((always_inline))
+#define CCL_FORCENOINLINE __attribute__((noinline))
+#endif
 
-#   if defined(__GNUC__) || defined(__clang__)
-#       define CCL_DEPRECATED __attribute__((deprecated))
-#   else
-#       define CCL_DEPRECATED
-#   endif
+#if defined(_MSC_VER)
+#   define CCL_DEPRECATED_ENUM_FIELD __declspec(deprecated)
+#elif (__GNUC__ >= 6) || defined(__clang__)
+#   define CCL_DEPRECATED_ENUM_FIELD __attribute__((deprecated))
+#else
+#   define CCL_DEPRECATED_ENUM_FIELD
+#endif
+
+#if defined(_MSC_VER)
+#   define CCL_DEPRECATED __declspec(deprecated)
+#elif defined(__GNUC__)
+#   define CCL_DEPRECATED __attribute__((deprecated))
+#else
+#   define CCL_DEPRECATED
 #endif
 
 /* All symbols shall be internal unless marked as CCL_API */
-#if defined(__linux__)
+#ifdef __linux__
 #   if __GNUC__ >= 4
 #       define CCL_HELPER_DLL_EXPORT __attribute__ ((visibility ("default")))
 #   else
 #       define CCL_HELPER_DLL_EXPORT
 #   endif
 #elif defined(_WIN32)
-#   if defined(CCL_DLL_EXPORTS)
+#   ifdef CCL_EXPORTS
 #       define CCL_HELPER_DLL_EXPORT __declspec(dllexport)
 #   else
 #       define CCL_HELPER_DLL_EXPORT __declspec(dllimport)
 #   endif
-#else // Other OSes
-#   define CCL_HELPER_DLL_EXPORT
+#else
+#error "unexpected OS"
 #endif
 
 #define CCL_API CCL_HELPER_DLL_EXPORT
@@ -46,8 +49,8 @@
 #define CCL_MINOR_VERSION           16
 #define CCL_UPDATE_VERSION          0
 #define CCL_PRODUCT_STATUS     "Gold"
-#define CCL_PRODUCT_BUILD_DATE "2025-09-01T 03:04:03Z"
-#define CCL_PRODUCT_FULL       "Gold-2021.16.0 2025-09-01T 03:04:03Z (master/b5a4144)"
+#define CCL_PRODUCT_BUILD_DATE "2025-09-02T 01:27:42Z"
+#define CCL_PRODUCT_FULL       "Gold-2021.16.0 2025-09-02T 01:27:42Z (master/3c79015)"
 
 #if defined(SYCL_LANGUAGE_VERSION) && defined (__INTEL_LLVM_COMPILER)
 #define CCL_ENABLE_SYCL

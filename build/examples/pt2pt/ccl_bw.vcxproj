@@ -87,14 +87,15 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\examples\pt2pt\include;C:\Users\sapta\oneCCL\examples\pt2pt\src;C:\Users\sapta\oneCCL\include;C:\Users\sapta\oneCCL\examples\include;C:\Users\sapta\oneCCL\deps\mpi\include;C:\Users\sapta\oneCCL\src;C:\Users\sapta\oneCCL\src\atl;C:\Users\sapta\oneCCL\deps\level_zero\include;C:\Users\sapta\oneCCL\deps\ofi\include;C:\Users\sapta\oneCCL\deps\hwloc\include;C:\Users\sapta\oneCCL\deps\itt\include;C:\Users\sapta\oneCCL\deps\pmix\include;C:\Users\sapta\oneCCL\deps\umf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -Wextra -Wno-unused-parameter -Werror -fvisibility=internal -Wno-implicit-fallthrough -O0 -g</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4668;4251;4275;4996</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <MinimalRebuild></MinimalRebuild>
+      <OpenMPSupport>true</OpenMPSupport>
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
@@ -102,13 +103,13 @@
       <SupportJustMyCode></SupportJustMyCode>
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
-      <WarningLevel>EnableAllWarnings</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;ENABLE_DEBUG;CCL_C_COMPILER="MSVC 19.42.34444.0";CCL_CXX_COMPILER="MSVC 19.42.34444.0";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_OMP=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;ENABLE_DEBUG;CCL_C_COMPILER="MSVC 19.42.34444.0";CCL_CXX_COMPILER="MSVC 19.42.34444.0";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;ENABLE_DEBUG;CCL_C_COMPILER=\"MSVC 19.42.34444.0\";CCL_CXX_COMPILER=\"MSVC 19.42.34444.0\";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_OMP=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;ENABLE_DEBUG;CCL_C_COMPILER=\"MSVC 19.42.34444.0\";CCL_CXX_COMPILER=\"MSVC 19.42.34444.0\";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\examples\pt2pt\include;C:\Users\sapta\oneCCL\examples\pt2pt\src;C:\Users\sapta\oneCCL\include;C:\Users\sapta\oneCCL\examples\include;C:\Users\sapta\oneCCL\deps\mpi\include;C:\Users\sapta\oneCCL\src;C:\Users\sapta\oneCCL\src\atl;C:\Users\sapta\oneCCL\deps\level_zero\include;C:\Users\sapta\oneCCL\deps\ofi\include;C:\Users\sapta\oneCCL\deps\hwloc\include;C:\Users\sapta\oneCCL\deps\itt\include;C:\Users\sapta\oneCCL\deps\pmix\include;C:\Users\sapta\oneCCL\deps\umf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
@@ -140,13 +141,14 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\examples\pt2pt\include;C:\Users\sapta\oneCCL\examples\pt2pt\src;C:\Users\sapta\oneCCL\include;C:\Users\sapta\oneCCL\examples\include;C:\Users\sapta\oneCCL\deps\mpi\include;C:\Users\sapta\oneCCL\src;C:\Users\sapta\oneCCL\src\atl;C:\Users\sapta\oneCCL\deps\level_zero\include;C:\Users\sapta\oneCCL\deps\ofi\include;C:\Users\sapta\oneCCL\deps\hwloc\include;C:\Users\sapta\oneCCL\deps\itt\include;C:\Users\sapta\oneCCL\deps\pmix\include;C:\Users\sapta\oneCCL\deps\umf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -Wextra -Wno-unused-parameter -Werror -fvisibility=internal -Wno-implicit-fallthrough -O3</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DisableSpecificWarnings>4668;4251;4275;4996</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <MinimalRebuild></MinimalRebuild>
+      <OpenMPSupport>true</OpenMPSupport>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
@@ -154,15 +156,15 @@
       <SupportJustMyCode></SupportJustMyCode>
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
-      <WarningLevel>EnableAllWarnings</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;CCL_C_COMPILER="MSVC 19.42.34444.0";CCL_CXX_COMPILER="MSVC 19.42.34444.0";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_OMP=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;CCL_C_COMPILER="MSVC 19.42.34444.0";CCL_CXX_COMPILER="MSVC 19.42.34444.0";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;CCL_C_COMPILER=\"MSVC 19.42.34444.0\";CCL_CXX_COMPILER=\"MSVC 19.42.34444.0\";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_OMP=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;CCL_C_COMPILER=\"MSVC 19.42.34444.0\";CCL_CXX_COMPILER=\"MSVC 19.42.34444.0\";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\examples\pt2pt\include;C:\Users\sapta\oneCCL\examples\pt2pt\src;C:\Users\sapta\oneCCL\include;C:\Users\sapta\oneCCL\examples\include;C:\Users\sapta\oneCCL\deps\mpi\include;C:\Users\sapta\oneCCL\src;C:\Users\sapta\oneCCL\src\atl;C:\Users\sapta\oneCCL\deps\level_zero\include;C:\Users\sapta\oneCCL\deps\ofi\include;C:\Users\sapta\oneCCL\deps\hwloc\include;C:\Users\sapta\oneCCL\deps\itt\include;C:\Users\sapta\oneCCL\deps\pmix\include;C:\Users\sapta\oneCCL\deps\umf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
@@ -194,13 +196,14 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\examples\pt2pt\include;C:\Users\sapta\oneCCL\examples\pt2pt\src;C:\Users\sapta\oneCCL\include;C:\Users\sapta\oneCCL\examples\include;C:\Users\sapta\oneCCL\deps\mpi\include;C:\Users\sapta\oneCCL\src;C:\Users\sapta\oneCCL\src\atl;C:\Users\sapta\oneCCL\deps\level_zero\include;C:\Users\sapta\oneCCL\deps\ofi\include;C:\Users\sapta\oneCCL\deps\hwloc\include;C:\Users\sapta\oneCCL\deps\itt\include;C:\Users\sapta\oneCCL\deps\pmix\include;C:\Users\sapta\oneCCL\deps\umf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -Wextra -Wno-unused-parameter -Werror -fvisibility=internal -Wno-implicit-fallthrough</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DisableSpecificWarnings>4668;4251;4275;4996</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <MinimalRebuild></MinimalRebuild>
+      <OpenMPSupport>true</OpenMPSupport>
       <Optimization>MinSpace</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
@@ -208,15 +211,15 @@
       <SupportJustMyCode></SupportJustMyCode>
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
-      <WarningLevel>EnableAllWarnings</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;CCL_C_COMPILER="MSVC 19.42.34444.0";CCL_CXX_COMPILER="MSVC 19.42.34444.0";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_OMP=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;CCL_C_COMPILER="MSVC 19.42.34444.0";CCL_CXX_COMPILER="MSVC 19.42.34444.0";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;CCL_C_COMPILER=\"MSVC 19.42.34444.0\";CCL_CXX_COMPILER=\"MSVC 19.42.34444.0\";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_OMP=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;CCL_C_COMPILER=\"MSVC 19.42.34444.0\";CCL_CXX_COMPILER=\"MSVC 19.42.34444.0\";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\examples\pt2pt\include;C:\Users\sapta\oneCCL\examples\pt2pt\src;C:\Users\sapta\oneCCL\include;C:\Users\sapta\oneCCL\examples\include;C:\Users\sapta\oneCCL\deps\mpi\include;C:\Users\sapta\oneCCL\src;C:\Users\sapta\oneCCL\src\atl;C:\Users\sapta\oneCCL\deps\level_zero\include;C:\Users\sapta\oneCCL\deps\ofi\include;C:\Users\sapta\oneCCL\deps\hwloc\include;C:\Users\sapta\oneCCL\deps\itt\include;C:\Users\sapta\oneCCL\deps\pmix\include;C:\Users\sapta\oneCCL\deps\umf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
@@ -248,14 +251,15 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\examples\pt2pt\include;C:\Users\sapta\oneCCL\examples\pt2pt\src;C:\Users\sapta\oneCCL\include;C:\Users\sapta\oneCCL\examples\include;C:\Users\sapta\oneCCL\deps\mpi\include;C:\Users\sapta\oneCCL\src;C:\Users\sapta\oneCCL\src\atl;C:\Users\sapta\oneCCL\deps\level_zero\include;C:\Users\sapta\oneCCL\deps\ofi\include;C:\Users\sapta\oneCCL\deps\hwloc\include;C:\Users\sapta\oneCCL\deps\itt\include;C:\Users\sapta\oneCCL\deps\pmix\include;C:\Users\sapta\oneCCL\deps\umf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -Wextra -Wno-unused-parameter -Werror -fvisibility=internal -Wno-implicit-fallthrough -g</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4668;4251;4275;4996</DisableSpecificWarnings>
       <ExceptionHandling>Sync</ExceptionHandling>
       <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <MinimalRebuild></MinimalRebuild>
+      <OpenMPSupport>true</OpenMPSupport>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
@@ -263,13 +267,13 @@
       <SupportJustMyCode></SupportJustMyCode>
       <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
       <UseFullPaths>false</UseFullPaths>
-      <WarningLevel>EnableAllWarnings</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;CCL_C_COMPILER="MSVC 19.42.34444.0";CCL_CXX_COMPILER="MSVC 19.42.34444.0";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_OMP=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;CCL_C_COMPILER="MSVC 19.42.34444.0";CCL_CXX_COMPILER="MSVC 19.42.34444.0";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_GNU_SOURCE;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;CCL_C_COMPILER=\"MSVC 19.42.34444.0\";CCL_CXX_COMPILER=\"MSVC 19.42.34444.0\";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CCL_ENABLE_ITT=1;CCL_ENABLE_PROFILING=1;CCL_ENABLE_PMIX=1;CCL_ENABLE_UMF=1;CCL_ENABLE_STUB_BACKEND=1;CCL_ENABLE_OMP=1;CCL_ENABLE_SYCL_INTEROP_EVENT=1;NDEBUG;CCL_C_COMPILER=\"MSVC 19.42.34444.0\";CCL_CXX_COMPILER=\"MSVC 19.42.34444.0\";CCL_SYCL_VEC_SUPPORT_FP16;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\Users\sapta\oneCCL\build\include;C:\Users\sapta\oneCCL\examples\pt2pt\include;C:\Users\sapta\oneCCL\examples\pt2pt\src;C:\Users\sapta\oneCCL\include;C:\Users\sapta\oneCCL\examples\include;C:\Users\sapta\oneCCL\deps\mpi\include;C:\Users\sapta\oneCCL\src;C:\Users\sapta\oneCCL\src\atl;C:\Users\sapta\oneCCL\deps\level_zero\include;C:\Users\sapta\oneCCL\deps\ofi\include;C:\Users\sapta\oneCCL\deps\hwloc\include;C:\Users\sapta\oneCCL\deps\itt\include;C:\Users\sapta\oneCCL\deps\pmix\include;C:\Users\sapta\oneCCL\deps\umf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>

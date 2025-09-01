@@ -300,23 +300,26 @@ set(SRC_INCLUDE_DIRS)
 set(SRC_LINK_DIRS)
 set(SRC_LINK_LIBS)
 
-if (USE_SECURITY_FLAGS)
-    set(SRC_C_FLAGS "${SRC_C_FLAGS} -Wformat -Wformat-security -D_FORTIFY_SOURCE=2 -fstack-protector")
-    set(SRC_CXX_FLAGS "${SRC_CXX_FLAGS} -Wformat -Wformat-security -D_FORTIFY_SOURCE=2 -fstack-protector")
-    set(SRC_SHARED_LINKER_FLAGS "${SRC_SHARED_LINKER_FLAGS} -fPIE -fPIC -z noexecstack -z relro -z now")
-    if (${CMAKE_C_COMPILER_ID} STREQUAL "GNU" AND ${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
-        if(NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS 4.9)
-            set(SRC_C_FLAGS "${SRC_C_FLAGS} -fstack-protector-strong")
-            set(SRC_CXX_FLAGS "${SRC_CXX_FLAGS} -fstack-protector-strong")
+if(NOT MSVC)
+    if (USE_SECURITY_FLAGS)
+        set(SRC_C_FLAGS "${SRC_C_FLAGS} -Wformat -Wformat-security -D_FORTIFY_SOURCE=2 -fstack-protector")
+        set(SRC_CXX_FLAGS "${SRC_CXX_FLAGS} -Wformat -Wformat-security -D_FORTIFY_SOURCE=2 -fstack-protector")
+        set(SRC_SHARED_LINKER_FLAGS "${SRC_SHARED_LINKER_FLAGS} -fPIE -fPIC -z noexecstack -z relro -z now")
+        if (${CMAKE_C_COMPILER_ID} STREQUAL "GNU" AND ${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
+            if(NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS 4.9)
+                set(SRC_C_FLAGS "${SRC_C_FLAGS} -fstack-protector-strong")
+                set(SRC_CXX_FLAGS "${SRC_CXX_FLAGS} -fstack-protector-strong")
+            endif()
         endif()
     endif()
-endif()
 
-if (ENABLE_LINKER_RUNPATH)
-    set(SRC_SHARED_LINKER_FLAGS "${SRC_SHARED_LINKER_FLAGS} -Wl,--enable-new-dtags -Wl,-rpath='$ORIGIN'")
-endif()
+    if (ENABLE_LINKER_RUNPATH)
+        set(SRC_SHARED_LINKER_FLAGS "${SRC_SHARED_LINKER_FLAGS} -Wl,--enable-new-dtags -Wl,-rpath='$ORIGIN'")
+    endif()
 
-set(SRC_SHARED_LINKER_FLAGS "${SRC_SHARED_LINKER_FLAGS} -Wl,--version-script=${PROJECT_SOURCE_DIR}/ccl.map")
+    # Use a version script for symbol visibility on Linux
+    set(SRC_SHARED_LINKER_FLAGS "${SRC_SHARED_LINKER_FLAGS} -Wl,--version-script=${PROJECT_SOURCE_DIR}/ccl.map")
+endif()
 
 if (${CMAKE_C_COMPILER_ID} STREQUAL "Intel" OR ${CMAKE_CXX_COMPILER_ID} STREQUAL "Intel")
     # To suppress for 'offsetof applied to non-POD (Plain Old Data) types is nonstandar'
@@ -357,12 +360,14 @@ if (ENABLE_UMF)
          ${UMF_INCLUDE_DIR})
 endif()
 
-list(APPEND SRC_LINK_LIBS
-     dl
-     pthread
-     ${EXTERNAL_LIBS}
-     ${HWLOC_LIB_DIR}/libhwloc.a
-     ${ITT_LIB_DIR}/libittnotify.a)
+list(APPEND SRC_LINK_LIBS ${EXTERNAL_LIBS} ${HWLOC_LIB_DIR}/libhwloc.a ${ITT_LIB_DIR}/libittnotify.a)
+
+if(NOT MSVC)
+    # Link against dl and pthread on non-Windows platforms
+    list(APPEND SRC_LINK_LIBS
+         dl
+         pthread)
+endif()
 
 if (ENABLE_MPI)
     set(SRC_C_FLAGS "${SRC_C_FLAGS} -DCCL_ENABLE_MPI")
@@ -372,8 +377,13 @@ endif()
 
 link_directories(${SRC_LINK_DIRS})
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${SRC_C_FLAGS} -pthread")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${SRC_CXX_FLAGS} -pthread")
+if(NOT MSVC)
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${SRC_C_FLAGS} -pthread")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${SRC_CXX_FLAGS} -pthread")
+else()
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${SRC_C_FLAGS}")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${SRC_CXX_FLAGS}")
+endif()
 set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${SRC_SHARED_LINKER_FLAGS}")
 
 # special library that holds objects only
@@ -389,6 +399,10 @@ endif()
 # shared library
 add_library(ccl SHARED $<TARGET_OBJECTS:ccl-objects>)
 target_include_directories(ccl PUBLIC ${SRC_INCLUDE_DIRS})
+if(MSVC)
+    # Define CCL_DLL_EXPORTS when building the shared library on Windows
+    target_compile_definitions(ccl PRIVATE CCL_DLL_EXPORTS)
+endif()
 target_link_libraries(ccl PRIVATE ${SRC_LINK_LIBS})
 
 set_target_properties(ccl PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CCL_BUILD_DIR})

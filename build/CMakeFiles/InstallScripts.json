@@ -4,6 +4,7 @@
 		"C:/Users/sapta/oneCCL/build/cmake_install.cmake",
 		"C:/Users/sapta/oneCCL/build/src/cmake_install.cmake",
 		"C:/Users/sapta/oneCCL/build/src/ext/cmake_install.cmake",
+		"C:/Users/sapta/oneCCL/build/src/ext/openmp/cmake_install.cmake",
 		"C:/Users/sapta/oneCCL/build/examples/benchmark/cmake_install.cmake",
 		"C:/Users/sapta/oneCCL/build/examples/common/cmake_install.cmake",
 		"C:/Users/sapta/oneCCL/build/examples/cpu/cmake_install.cmake",
