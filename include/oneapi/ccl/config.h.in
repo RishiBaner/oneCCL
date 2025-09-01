@@ -15,7 +15,7 @@
 
 
 // === File: helpers.cmake ===
-# Helper cmake module (partial excerpt)
+//# Helper cmake module (partial excerpt)
 
 
 if (MSVC)
