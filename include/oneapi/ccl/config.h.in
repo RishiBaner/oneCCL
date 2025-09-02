@@ -1,5 +1,6 @@
 #pragma once
 
+/* ================================================================================================== */
 /* CMake-configured feature macros */
 #cmakedefine01 CCL_ENABLE_ZE
 #cmakedefine01 CCL_ENABLE_SYCL
@@ -17,13 +18,14 @@
   #define CCL_PLATFORM_POSIX
 #endif
 
+/* ================================================================================================== */
 /* Compiler macros */
-#if defined(_MSC_VER)
-  #define CCL_COMPILER_MSVC
-#elif defined(__clang__)
+#if defined(__clang__)
   #define CCL_COMPILER_CLANG
 #elif defined(__GNUC__)
   #define CCL_COMPILER_GCC
+#elif defined(_MSC_VER)
+  #define CCL_COMPILER_MSVC
 #else
   #error "Unsupported compiler"
 #endif
@@ -37,6 +39,24 @@
     #error "C++11 or higher is required"
 #endif
 
+/* ================================================================================================== */
+/* API visibility control */
+
+#if defined(CCL_PLATFORM_WINDOWS)
+  #ifdef CCL_STATIC_BUILD
+    #define CCL_API
+  #else /* Shared library (DLL) */
+    #ifdef CCL_EXPORTS /* Building the DLL */
+      #define CCL_API __declspec(dllexport)
+    #else /* Using the DLL */
+      #define CCL_API __declspec(dllimport)
+    #endif
+  #endif
+#else /* Non-Windows platforms */
+  #define CCL_API __attribute__((visibility("default")))
+#endif
+
+/* ================================================================================================== */
 /* Debug mode */
 #ifndef NDEBUG
   #define CCL_DEBUG_MODE

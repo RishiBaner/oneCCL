@@ -28,6 +28,26 @@ namespace ccl {
 
 namespace v1 {
 
+// Template method definitions
+template <comm_split_attr_id attrId, class Value>
+Value comm_split_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<comm_split_attr_id, attrId>{});
+}
+
+template <comm_split_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<comm_split_attr_id, attrId>::return_type&
+comm_split_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<comm_split_attr_id, attrId>{});
+}
+
+template <comm_split_attr_id attrId>
+bool comm_split_attr::is_valid() const noexcept {
+    return get_impl()->is_valid(
+        detail::ccl_api_type_attr_traits<comm_split_attr_id, attrId>{});
+}
+
 #define API_FORCE_INSTANTIATION(class_name, IN_attrId, IN_Value, OUT_Traits_Value) \
     template CCL_API IN_Value class_name::set<IN_attrId, IN_Value>(const IN_Value& v); \
 \

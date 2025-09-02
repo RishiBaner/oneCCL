@@ -30,6 +30,13 @@
 #include "coll/algorithms/broadcast/mpi_bcast_invoke.hpp"
 namespace ccl {
 
+#if defined(_MSC_VER)
+#define CCL_FUNCTION_NAME __FUNCSIG__
+#else
+#define CCL_FUNCTION_NAME __PRETTY_FUNCTION__
+#endif
+
+
 namespace v1 {
 
 /**
@@ -140,7 +147,7 @@ void group_end() {
     do { \
         if (!deps.empty()) { \
             throw ccl::exception( \
-                std::string(__PRETTY_FUNCTION__) + \
+                std::string(CCL_FUNCTION_NAME) + \
                 " - handling a vector of events that the operation should depend on is not implemented"); \
         } \
     } while (0)
@@ -182,8 +189,8 @@ event allgather(const void* send_buf,
     return disp(comm)->allgather(send_buf, recv_buf, count, dtype, disp(op_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event allgather(const BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API allgather(const BufferType* send_buf,
                 BufferType* recv_buf,
                 size_t count,
                 const communicator& comm,
@@ -194,8 +201,8 @@ event allgather(const BufferType* send_buf,
     return disp(comm)->allgather(send_buf, recv_buf, count, disp(op_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event allgather(const BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API allgather(const BufferType* send_buf,
                 BufferType* recv_buf,
                 size_t count,
                 const communicator& comm,
@@ -205,8 +212,8 @@ event allgather(const BufferType* send_buf,
     return disp(comm)->allgather(send_buf, recv_buf, count, disp(default_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event allgather(const BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API allgather(const BufferType* send_buf,
                 vector_class<BufferType*>& recv_buf,
                 size_t count,
                 const communicator& comm,
@@ -217,8 +224,8 @@ event allgather(const BufferType* send_buf,
     return disp(comm)->allgather(send_buf, recv_buf, count, disp(op_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event allgather(const BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API allgather(const BufferType* send_buf,
                 vector_class<BufferType*>& recv_buf,
                 size_t count,
                 const communicator& comm,
@@ -228,8 +235,8 @@ event allgather(const BufferType* send_buf,
     return disp(comm)->allgather(send_buf, recv_buf, count, disp(default_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event allgather(const BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API allgather(const BufferObjectType& send_buf,
                 BufferObjectType& recv_buf,
                 size_t count,
                 const communicator& comm,
@@ -240,8 +247,8 @@ event allgather(const BufferObjectType& send_buf,
     return disp(comm)->allgather(send_buf, recv_buf, count, disp(op_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event allgather(const BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API allgather(const BufferObjectType& send_buf,
                 BufferObjectType& recv_buf,
                 size_t count,
                 const communicator& comm,
@@ -251,8 +258,8 @@ event allgather(const BufferObjectType& send_buf,
     return disp(comm)->allgather(send_buf, recv_buf, count, disp(default_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event allgather(const BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API allgather(const BufferObjectType& send_buf,
                 vector_class<reference_wrapper_class<BufferObjectType>>& recv_buf,
                 size_t count,
                 const communicator& comm,
@@ -263,8 +270,8 @@ event allgather(const BufferObjectType& send_buf,
     return disp(comm)->allgather(send_buf, recv_buf, count, disp(op_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event allgather(const BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API allgather(const BufferObjectType& send_buf,
                 vector_class<reference_wrapper_class<BufferObjectType>>& recv_buf,
                 size_t count,
                 const communicator& comm,
@@ -329,8 +336,8 @@ event allgatherv(const void* send_buf,
         send_buf, send_count, recv_bufs, recv_counts, dtype, disp(default_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event allgatherv(const BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API allgatherv(const BufferType* send_buf,
                  size_t send_count,
                  BufferType* recv_buf,
                  const vector_class<size_t>& recv_counts,
@@ -343,8 +350,8 @@ event allgatherv(const BufferType* send_buf,
         send_buf, send_count, recv_buf, recv_counts, disp(op_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event allgatherv(const BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API allgatherv(const BufferType* send_buf,
                  size_t send_count,
                  BufferType* recv_buf,
                  const vector_class<size_t>& recv_counts,
@@ -356,8 +363,8 @@ event allgatherv(const BufferType* send_buf,
         send_buf, send_count, recv_buf, recv_counts, disp(default_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event allgatherv(const BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API allgatherv(const BufferType* send_buf,
                  size_t send_count,
                  vector_class<BufferType*>& recv_bufs,
                  const vector_class<size_t>& recv_counts,
@@ -370,8 +377,8 @@ event allgatherv(const BufferType* send_buf,
         send_buf, send_count, recv_bufs, recv_counts, disp(op_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event allgatherv(const BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API allgatherv(const BufferType* send_buf,
                  size_t send_count,
                  vector_class<BufferType*>& recv_bufs,
                  const vector_class<size_t>& recv_counts,
@@ -383,8 +390,8 @@ event allgatherv(const BufferType* send_buf,
         send_buf, send_count, recv_bufs, recv_counts, disp(default_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event allgatherv(const BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API allgatherv(const BufferObjectType& send_buf,
                  size_t send_count,
                  BufferObjectType& recv_buf,
                  const vector_class<size_t>& recv_counts,
@@ -397,8 +404,8 @@ event allgatherv(const BufferObjectType& send_buf,
         send_buf, send_count, recv_buf, recv_counts, disp(op_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event allgatherv(const BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API allgatherv(const BufferObjectType& send_buf,
                  size_t send_count,
                  BufferObjectType& recv_buf,
                  const vector_class<size_t>& recv_counts,
@@ -410,8 +417,8 @@ event allgatherv(const BufferObjectType& send_buf,
         send_buf, send_count, recv_buf, recv_counts, disp(default_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event allgatherv(const BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API allgatherv(const BufferObjectType& send_buf,
                  size_t send_count,
                  vector_class<ccl::reference_wrapper_class<BufferObjectType>>& recv_bufs,
                  const vector_class<size_t>& recv_counts,
@@ -424,8 +431,8 @@ event allgatherv(const BufferObjectType& send_buf,
         send_buf, send_count, recv_bufs, recv_counts, disp(op_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event allgatherv(const BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API allgatherv(const BufferObjectType& send_buf,
                  size_t send_count,
                  vector_class<ccl::reference_wrapper_class<BufferObjectType>>& recv_bufs,
                  const vector_class<size_t>& recv_counts,
@@ -465,8 +472,8 @@ event allreduce(const void* send_buf,
         send_buf, recv_buf, count, dtype, reduction, disp(default_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event allreduce(const BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API allreduce(const BufferType* send_buf,
                 BufferType* recv_buf,
                 size_t count,
                 reduction reduction,
@@ -478,8 +485,8 @@ event allreduce(const BufferType* send_buf,
     return disp(comm)->allreduce(send_buf, recv_buf, count, reduction, disp(op_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event allreduce(const BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API allreduce(const BufferType* send_buf,
                 BufferType* recv_buf,
                 size_t count,
                 reduction reduction,
@@ -491,8 +498,8 @@ event allreduce(const BufferType* send_buf,
         send_buf, recv_buf, count, reduction, disp(default_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event allreduce(const BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API allreduce(const BufferObjectType& send_buf,
                 BufferObjectType& recv_buf,
                 size_t count,
                 reduction reduction,
@@ -504,8 +511,8 @@ event allreduce(const BufferObjectType& send_buf,
     return disp(comm)->allreduce(send_buf, recv_buf, count, reduction, disp(op_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event allreduce(const BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API allreduce(const BufferObjectType& send_buf,
                 BufferObjectType& recv_buf,
                 size_t count,
                 reduction reduction,
@@ -553,8 +560,8 @@ event alltoall(const vector_class<void*>& send_buf,
     return disp(comm)->alltoall(send_buf, recv_buf, count, dtype, disp(op_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event alltoall(const BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API alltoall(const BufferType* send_buf,
                BufferType* recv_buf,
                size_t count,
                const communicator& comm,
@@ -565,8 +572,8 @@ event alltoall(const BufferType* send_buf,
     return disp(comm)->alltoall(send_buf, recv_buf, count, disp(op_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event alltoall(const BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API alltoall(const BufferType* send_buf,
                BufferType* recv_buf,
                size_t count,
                const communicator& comm,
@@ -576,8 +583,8 @@ event alltoall(const BufferType* send_buf,
     return disp(comm)->alltoall(send_buf, recv_buf, count, disp(default_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event alltoall(const vector_class<BufferType*>& send_buf,
+template <class BufferType, class>
+event CCL_API alltoall(const vector_class<BufferType*>& send_buf,
                const vector_class<BufferType*>& recv_buf,
                size_t count,
                const communicator& comm,
@@ -588,8 +595,8 @@ event alltoall(const vector_class<BufferType*>& send_buf,
     return disp(comm)->alltoall(send_buf, recv_buf, count, disp(op_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event alltoall(const vector_class<BufferType*>& send_buf,
+template <class BufferType, class>
+event CCL_API alltoall(const vector_class<BufferType*>& send_buf,
                const vector_class<BufferType*>& recv_buf,
                size_t count,
                const communicator& comm,
@@ -599,8 +606,8 @@ event alltoall(const vector_class<BufferType*>& send_buf,
     return disp(comm)->alltoall(send_buf, recv_buf, count, disp(default_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event alltoall(const BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API alltoall(const BufferObjectType& send_buf,
                BufferObjectType& recv_buf,
                size_t count,
                const communicator& comm,
@@ -611,8 +618,8 @@ event alltoall(const BufferObjectType& send_buf,
     return disp(comm)->alltoall(send_buf, recv_buf, count, disp(op_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event alltoall(const BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API alltoall(const BufferObjectType& send_buf,
                BufferObjectType& recv_buf,
                size_t count,
                const communicator& comm,
@@ -622,8 +629,8 @@ event alltoall(const BufferObjectType& send_buf,
     return disp(comm)->alltoall(send_buf, recv_buf, count, disp(default_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event alltoall(const vector_class<reference_wrapper_class<BufferObjectType>>& send_buf,
+template <class BufferObjectType, class>
+event CCL_API alltoall(const vector_class<reference_wrapper_class<BufferObjectType>>& send_buf,
                const vector_class<reference_wrapper_class<BufferObjectType>>& recv_buf,
                size_t count,
                const communicator& comm,
@@ -634,8 +641,8 @@ event alltoall(const vector_class<reference_wrapper_class<BufferObjectType>>& se
     return disp(comm)->alltoall(send_buf, recv_buf, count, disp(op_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event alltoall(const vector_class<reference_wrapper_class<BufferObjectType>>& send_buf,
+template <class BufferObjectType, class>
+event CCL_API alltoall(const vector_class<reference_wrapper_class<BufferObjectType>>& send_buf,
                const vector_class<reference_wrapper_class<BufferObjectType>>& recv_buf,
                size_t count,
                const communicator& comm,
@@ -700,8 +707,8 @@ event alltoallv(const vector_class<void*>& send_bufs,
         send_bufs, send_counts, recv_bufs, recv_counts, dtype, disp(default_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event alltoallv(const BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API alltoallv(const BufferType* send_buf,
                 const vector_class<size_t>& send_counts,
                 BufferType* recv_buf,
                 const vector_class<size_t>& recv_counts,
@@ -714,8 +721,8 @@ event alltoallv(const BufferType* send_buf,
         send_buf, send_counts, recv_buf, recv_counts, disp(op_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event alltoallv(const BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API alltoallv(const BufferType* send_buf,
                 const vector_class<size_t>& send_counts,
                 BufferType* recv_buf,
                 const vector_class<size_t>& recv_counts,
@@ -727,8 +734,8 @@ event alltoallv(const BufferType* send_buf,
         send_buf, send_counts, recv_buf, recv_counts, disp(default_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event alltoallv(const vector_class<BufferType*>& send_bufs,
+template <class BufferType, class>
+event CCL_API alltoallv(const vector_class<BufferType*>& send_bufs,
                 const vector_class<size_t>& send_counts,
                 const vector_class<BufferType*>& recv_bufs,
                 const vector_class<size_t>& recv_counts,
@@ -741,8 +748,8 @@ event alltoallv(const vector_class<BufferType*>& send_bufs,
         send_bufs, send_counts, recv_bufs, recv_counts, disp(op_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event alltoallv(const vector_class<BufferType*>& send_bufs,
+template <class BufferType, class>
+event CCL_API alltoallv(const vector_class<BufferType*>& send_bufs,
                 const vector_class<size_t>& send_counts,
                 const vector_class<BufferType*>& recv_bufs,
                 const vector_class<size_t>& recv_counts,
@@ -754,8 +761,8 @@ event alltoallv(const vector_class<BufferType*>& send_bufs,
         send_bufs, send_counts, recv_bufs, recv_counts, disp(default_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event alltoallv(const BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API alltoallv(const BufferObjectType& send_buf,
                 const vector_class<size_t>& send_counts,
                 BufferObjectType& recv_buf,
                 const vector_class<size_t>& recv_counts,
@@ -768,8 +775,8 @@ event alltoallv(const BufferObjectType& send_buf,
         send_buf, send_counts, recv_buf, recv_counts, disp(op_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event alltoallv(const BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API alltoallv(const BufferObjectType& send_buf,
                 const vector_class<size_t>& send_counts,
                 BufferObjectType& recv_buf,
                 const vector_class<size_t>& recv_counts,
@@ -781,8 +788,8 @@ event alltoallv(const BufferObjectType& send_buf,
         send_buf, send_counts, recv_buf, recv_counts, disp(default_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event alltoallv(const vector_class<reference_wrapper_class<BufferObjectType>>& send_bufs,
+template <class BufferObjectType, class>
+event CCL_API alltoallv(const vector_class<reference_wrapper_class<BufferObjectType>>& send_bufs,
                 const vector_class<size_t>& send_counts,
                 const vector_class<reference_wrapper_class<BufferObjectType>>& recv_bufs,
                 const vector_class<size_t>& recv_counts,
@@ -795,8 +802,8 @@ event alltoallv(const vector_class<reference_wrapper_class<BufferObjectType>>& s
         send_bufs, send_counts, recv_bufs, recv_counts, disp(op_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event alltoallv(const vector_class<reference_wrapper_class<BufferObjectType>>& send_bufs,
+template <class BufferObjectType, class>
+event CCL_API alltoallv(const vector_class<reference_wrapper_class<BufferObjectType>>& send_bufs,
                 const vector_class<size_t>& send_counts,
                 const vector_class<reference_wrapper_class<BufferObjectType>>& recv_bufs,
                 const vector_class<size_t>& recv_counts,
@@ -850,8 +857,8 @@ event broadcast(void* buf,
     return disp(comm)->bcast(buf, count, dtype, root, disp(default_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event broadcast(BufferType* buf,
+template <class BufferType, class>
+event CCL_API broadcast(BufferType* buf,
                 size_t count,
                 int root,
                 const communicator& comm,
@@ -864,8 +871,8 @@ event broadcast(BufferType* buf,
     return disp(comm)->bcast(buf, count, root, disp(op_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event broadcast(BufferType* buf,
+template <class BufferType, class>
+event CCL_API broadcast(BufferType* buf,
                 size_t count,
                 int root,
                 const communicator& comm,
@@ -877,8 +884,8 @@ event broadcast(BufferType* buf,
     return disp(comm)->bcast(buf, count, root, disp(default_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event broadcast(BufferObjectType& buf,
+template <class BufferObjectType, class>
+event CCL_API broadcast(BufferObjectType& buf,
                 size_t count,
                 int root,
                 const communicator& comm,
@@ -889,8 +896,8 @@ event broadcast(BufferObjectType& buf,
     return disp(comm)->bcast(buf, count, root, disp(op_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event broadcast(BufferObjectType& buf,
+template <class BufferObjectType, class>
+event CCL_API broadcast(BufferObjectType& buf,
                 size_t count,
                 int root,
                 const communicator& comm,
@@ -928,8 +935,8 @@ event broadcast(void* send_buf,
         send_buf, recv_buf, count, dtype, root, disp(default_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event broadcast(BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API broadcast(BufferType* send_buf,
                 BufferType* recv_buf,
                 size_t count,
                 int root,
@@ -943,8 +950,8 @@ event broadcast(BufferType* send_buf,
     return disp(comm)->broadcast(send_buf, recv_buf, count, root, disp(op_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event broadcast(BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API broadcast(BufferType* send_buf,
                 BufferType* recv_buf,
                 size_t count,
                 int root,
@@ -957,8 +964,8 @@ event broadcast(BufferType* send_buf,
     return disp(comm)->broadcast(send_buf, recv_buf, count, root, disp(default_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event broadcast(BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API broadcast(BufferObjectType& send_buf,
                 BufferObjectType& recv_buf,
                 size_t count,
                 int root,
@@ -970,8 +977,8 @@ event broadcast(BufferObjectType& send_buf,
     return disp(comm)->broadcast(send_buf, recv_buf, count, root, disp(op_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event broadcast(BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API broadcast(BufferObjectType& send_buf,
                 BufferObjectType& recv_buf,
                 size_t count,
                 int root,
@@ -1012,8 +1019,8 @@ event reduce(const void* send_buf,
         send_buf, recv_buf, count, dtype, reduction, root, disp(default_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event reduce(const BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API reduce(const BufferType* send_buf,
              BufferType* recv_buf,
              size_t count,
              reduction reduction,
@@ -1027,8 +1034,8 @@ event reduce(const BufferType* send_buf,
         send_buf, recv_buf, count, reduction, root, disp(op_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event reduce(const BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API reduce(const BufferType* send_buf,
              BufferType* recv_buf,
              size_t count,
              reduction reduction,
@@ -1041,8 +1048,8 @@ event reduce(const BufferType* send_buf,
         send_buf, recv_buf, count, reduction, root, disp(default_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event reduce(const BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API reduce(const BufferObjectType& send_buf,
              BufferObjectType& recv_buf,
              size_t count,
              reduction reduction,
@@ -1056,8 +1063,8 @@ event reduce(const BufferObjectType& send_buf,
         send_buf, recv_buf, count, reduction, root, disp(op_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event reduce(const BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API reduce(const BufferObjectType& send_buf,
              BufferObjectType& recv_buf,
              size_t count,
              reduction reduction,
@@ -1098,8 +1105,8 @@ event reduce_scatter(const void* send_buf,
         send_buf, recv_buf, recv_count, dtype, reduction, disp(default_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event reduce_scatter(const BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API reduce_scatter(const BufferType* send_buf,
                      BufferType* recv_buf,
                      size_t recv_count,
                      reduction reduction,
@@ -1112,8 +1119,8 @@ event reduce_scatter(const BufferType* send_buf,
         send_buf, recv_buf, recv_count, reduction, disp(op_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event reduce_scatter(const BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API reduce_scatter(const BufferType* send_buf,
                      BufferType* recv_buf,
                      size_t recv_count,
                      reduction reduction,
@@ -1125,8 +1132,8 @@ event reduce_scatter(const BufferType* send_buf,
         send_buf, recv_buf, recv_count, reduction, disp(default_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event reduce_scatter(const BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API reduce_scatter(const BufferObjectType& send_buf,
                      BufferObjectType& recv_buf,
                      size_t recv_count,
                      reduction reduction,
@@ -1139,8 +1146,8 @@ event reduce_scatter(const BufferObjectType& send_buf,
         send_buf, recv_buf, recv_count, reduction, disp(op_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event reduce_scatter(const BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API reduce_scatter(const BufferObjectType& send_buf,
                      BufferObjectType& recv_buf,
                      size_t recv_count,
                      reduction reduction,
@@ -1176,8 +1183,8 @@ event recv(void* recv_buf,
     return disp(comm)->recv(recv_buf, recv_count, dtype, peer, disp(default_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event recv(BufferType* recv_buf,
+template <class BufferType, class>
+event CCL_API recv(BufferType* recv_buf,
            size_t recv_count,
            int peer,
            const communicator& comm,
@@ -1188,8 +1195,8 @@ event recv(BufferType* recv_buf,
     return disp(comm)->recv(recv_buf, recv_count, peer, disp(op_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event recv(BufferType* recv_buf,
+template <class BufferType, class>
+event CCL_API recv(BufferType* recv_buf,
            size_t recv_count,
            int peer,
            const communicator& comm,
@@ -1199,8 +1206,8 @@ event recv(BufferType* recv_buf,
     return disp(comm)->recv(recv_buf, recv_count, peer, disp(default_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event recv(BufferObjectType& recv_buf,
+template <class BufferObjectType, class>
+event CCL_API recv(BufferObjectType& recv_buf,
            size_t recv_count,
            int peer,
            const communicator& comm,
@@ -1211,8 +1218,8 @@ event recv(BufferObjectType& recv_buf,
     return disp(comm)->recv(recv_buf, recv_count, peer, disp(op_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event recv(BufferObjectType& recv_buf,
+template <class BufferObjectType, class>
+event CCL_API recv(BufferObjectType& recv_buf,
            size_t recv_count,
            int peer,
            const communicator& comm,
@@ -1246,8 +1253,8 @@ event send(void* send_buf,
     return disp(comm)->send(send_buf, send_count, dtype, peer, disp(default_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event send(BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API send(BufferType* send_buf,
            size_t send_count,
            int peer,
            const communicator& comm,
@@ -1258,8 +1265,8 @@ event send(BufferType* send_buf,
     return disp(comm)->send(send_buf, send_count, peer, disp(op_stream), attr, deps);
 }
 
-template <class BufferType, typename T>
-event send(BufferType* send_buf,
+template <class BufferType, class>
+event CCL_API send(BufferType* send_buf,
            size_t send_count,
            int peer,
            const communicator& comm,
@@ -1269,8 +1276,8 @@ event send(BufferType* send_buf,
     return disp(comm)->send(send_buf, send_count, peer, disp(default_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event send(BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API send(BufferObjectType& send_buf,
            size_t send_count,
            int peer,
            const communicator& comm,
@@ -1281,8 +1288,8 @@ event send(BufferObjectType& send_buf,
     return disp(comm)->send(send_buf, send_count, peer, disp(op_stream), attr, deps);
 }
 
-template <class BufferObjectType, typename T>
-event send(BufferObjectType& send_buf,
+template <class BufferObjectType, class>
+event CCL_API send(BufferObjectType& send_buf,
            size_t send_count,
            int peer,
            const communicator& comm,

@@ -24,15 +24,8 @@ project(oneCCL LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Detect MSVC and apply Windows-specific settings
-if (MSVC)
-    message(STATUS "Building with MSVC on Windows")
-    add_definitions(-D_CRT_SECURE_NO_WARNINGS)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj")
-else()
-    message(STATUS "Building on Unix-like OS")
-    add_compile_options(-Wall -Wextra -Wno-implicit-fallthrough)
-endif()
+# Include build helpers for compiler flags and other utilities
+include(cmake/helpers.cmake)
 
 # Set output directories
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -55,8 +48,20 @@ file(GLOB_RECURSE CCL_SRC
 
 add_library(ccl_objects STATIC ${CCL_SRC})
 
+# Setup API visibility macros (e.g., dllexport/dllimport) for the target
+setup_api_visibility(ccl_objects)
+
 # If you need to link against other libraries:
 # target_link_libraries(ccl_objects some_external_lib)
+
+# Optional definitions (controlled by config.h.in)
+option(CCL_ENABLE_ZE "Enable Level Zero" OFF)
+option(CCL_ENABLE_SYCL "Enable SYCL" OFF)
+
+configure_file(${PROJECT_SOURCE_DIR}/include/oneapi/ccl/config.h.in
+               ${PROJECT_BINARY_DIR}/include/oneapi/ccl/config.h)
+
+include_directories(${PROJECT_BINARY_DIR}/include)
 
 # Install rules
 install(TARGETS ccl_objects
@@ -67,11 +72,5 @@ install(TARGETS ccl_objects
 
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/ DESTINATION include)
 
-# Optional definitions (controlled by config.h.in)
-option(CCL_ENABLE_ZE "Enable Level Zero" OFF)
-option(CCL_ENABLE_SYCL "Enable SYCL" OFF)
-
-configure_file(${PROJECT_SOURCE_DIR}/include/oneapi/ccl/config.h.in
-               ${PROJECT_BINARY_DIR}/include/oneapi/ccl/config.h)
-
-include_directories(${PROJECT_BINARY_DIR}/include)
+install(FILES ${PROJECT_BINARY_DIR}/include/oneapi/ccl/config.h
+        DESTINATION include/oneapi/ccl)

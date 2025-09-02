@@ -21,7 +21,6 @@
 #include "oneapi/ccl/coll_attr.hpp"
 
 // Core file with PIMPL implementation
-#include "coll_attr_impl.hpp"
 #include "coll/attr/ccl_attrs.hpp"
 
 namespace ccl {
@@ -57,6 +56,298 @@ namespace v1 {
     API_FORCE_INSTANTIATION(class_name, operation_attr_id, operation_attr_id::to_cache, bool) \
     API_FORCE_INSTANTIATION( \
         class_name, operation_attr_id, operation_attr_id::match_id, ccl::string_class)
+
+// Template method definitions
+
+// allgather_attr
+template <allgather_attr_id attrId, class Value>
+typename detail::ccl_api_type_attr_traits<allgather_attr_id, attrId>::return_type
+allgather_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<allgather_attr_id, attrId>{});
+}
+
+template <operation_attr_id attrId, class Value>
+typename detail::ccl_api_type_attr_traits<operation_attr_id, attrId>::return_type
+allgather_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<operation_attr_id, attrId>{});
+}
+
+template <allgather_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<allgather_attr_id, attrId>::return_type&
+allgather_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<allgather_attr_id, attrId>{});
+}
+
+template <operation_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<operation_attr_id, attrId>::return_type&
+allgather_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<operation_attr_id, attrId>{});
+}
+
+// allgatherv_attr
+template <allgatherv_attr_id attrId, class Value>
+typename detail::ccl_api_type_attr_traits<allgatherv_attr_id, attrId>::return_type
+allgatherv_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<allgatherv_attr_id, attrId>{});
+}
+
+template <operation_attr_id attrId, class Value>
+typename detail::ccl_api_type_attr_traits<operation_attr_id, attrId>::return_type
+allgatherv_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<operation_attr_id, attrId>{});
+}
+
+template <allgatherv_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<allgatherv_attr_id, attrId>::return_type&
+allgatherv_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<allgatherv_attr_id, attrId>{});
+}
+
+template <operation_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<operation_attr_id, attrId>::return_type&
+allgatherv_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<operation_attr_id, attrId>{});
+}
+
+// allreduce_attr
+template <allreduce_attr_id attrId, class Value>
+typename detail::ccl_api_type_attr_traits<allreduce_attr_id, attrId>::return_type
+allreduce_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<allreduce_attr_id, attrId>{});
+}
+
+template <operation_attr_id attrId, class Value>
+typename detail::ccl_api_type_attr_traits<operation_attr_id, attrId>::return_type
+allreduce_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<operation_attr_id, attrId>{});
+}
+
+template <allreduce_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<allreduce_attr_id, attrId>::return_type&
+allreduce_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<allreduce_attr_id, attrId>{});
+}
+
+template <operation_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<operation_attr_id, attrId>::return_type&
+allreduce_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<operation_attr_id, attrId>{});
+}
+
+// alltoall_attr
+template <alltoall_attr_id attrId, class Value>
+typename detail::ccl_api_type_attr_traits<alltoall_attr_id, attrId>::return_type
+alltoall_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<alltoall_attr_id, attrId>{});
+}
+
+template <operation_attr_id attrId, class Value>
+typename detail::ccl_api_type_attr_traits<operation_attr_id, attrId>::return_type
+alltoall_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<operation_attr_id, attrId>{});
+}
+
+template <alltoall_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<alltoall_attr_id, attrId>::return_type&
+alltoall_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<alltoall_attr_id, attrId>{});
+}
+
+template <operation_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<operation_attr_id, attrId>::return_type&
+alltoall_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<operation_attr_id, attrId>{});
+}
+
+// alltoallv_attr
+template <alltoallv_attr_id attrId, class Value>
+typename detail::ccl_api_type_attr_traits<alltoallv_attr_id, attrId>::return_type
+alltoallv_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<alltoallv_attr_id, attrId>{});
+}
+
+template <operation_attr_id attrId, class Value>
+typename detail::ccl_api_type_attr_traits<operation_attr_id, attrId>::return_type
+alltoallv_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<operation_attr_id, attrId>{});
+}
+
+template <alltoallv_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<alltoallv_attr_id, attrId>::return_type&
+alltoallv_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<alltoallv_attr_id, attrId>{});
+}
+
+template <operation_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<operation_attr_id, attrId>::return_type&
+alltoallv_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<operation_attr_id, attrId>{});
+}
+
+// barrier_attr
+template <barrier_attr_id attrId, class Value>
+typename detail::ccl_api_type_attr_traits<barrier_attr_id, attrId>::return_type
+barrier_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<barrier_attr_id, attrId>{});
+}
+
+template <operation_attr_id attrId, class Value>
+typename detail::ccl_api_type_attr_traits<operation_attr_id, attrId>::return_type
+barrier_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<operation_attr_id, attrId>{});
+}
+
+template <barrier_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<barrier_attr_id, attrId>::return_type&
+barrier_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<barrier_attr_id, attrId>{});
+}
+
+template <operation_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<operation_attr_id, attrId>::return_type&
+barrier_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<operation_attr_id, attrId>{});
+}
+
+// broadcast_attr
+template <broadcast_attr_id attrId, class Value>
+typename detail::ccl_api_type_attr_traits<broadcast_attr_id, attrId>::return_type
+broadcast_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<broadcast_attr_id, attrId>{});
+}
+
+template <operation_attr_id attrId, class Value>
+typename detail::ccl_api_type_attr_traits<operation_attr_id, attrId>::return_type
+broadcast_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<operation_attr_id, attrId>{});
+}
+
+template <broadcast_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<broadcast_attr_id, attrId>::return_type&
+broadcast_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<broadcast_attr_id, attrId>{});
+}
+
+template <operation_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<operation_attr_id, attrId>::return_type&
+broadcast_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<operation_attr_id, attrId>{});
+}
+
+// pt2pt_attr
+template <pt2pt_attr_id attrId, class Value>
+typename detail::ccl_api_type_attr_traits<pt2pt_attr_id, attrId>::return_type
+pt2pt_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<pt2pt_attr_id, attrId>{});
+}
+
+template <operation_attr_id attrId, class Value>
+typename detail::ccl_api_type_attr_traits<operation_attr_id, attrId>::return_type
+pt2pt_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<operation_attr_id, attrId>{});
+}
+
+template <pt2pt_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<pt2pt_attr_id, attrId>::return_type&
+pt2pt_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<pt2pt_attr_id, attrId>{});
+}
+
+template <operation_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<operation_attr_id, attrId>::return_type&
+pt2pt_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<operation_attr_id, attrId>{});
+}
+
+// reduce_attr
+template <reduce_attr_id attrId, class Value>
+typename detail::ccl_api_type_attr_traits<reduce_attr_id, attrId>::return_type
+reduce_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<reduce_attr_id, attrId>{});
+}
+
+template <operation_attr_id attrId, class Value>
+typename detail::ccl_api_type_attr_traits<operation_attr_id, attrId>::return_type
+reduce_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<operation_attr_id, attrId>{});
+}
+
+template <reduce_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<reduce_attr_id, attrId>::return_type&
+reduce_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<reduce_attr_id, attrId>{});
+}
+
+template <operation_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<operation_attr_id, attrId>::return_type&
+reduce_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<operation_attr_id, attrId>{});
+}
+
+// reduce_scatter_attr
+template <reduce_scatter_attr_id attrId, class Value>
+typename detail::ccl_api_type_attr_traits<reduce_scatter_attr_id, attrId>::return_type
+reduce_scatter_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<reduce_scatter_attr_id, attrId>{});
+}
+
+template <operation_attr_id attrId, class Value>
+typename detail::ccl_api_type_attr_traits<operation_attr_id, attrId>::return_type
+reduce_scatter_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<operation_attr_id, attrId>{});
+}
+
+template <reduce_scatter_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<reduce_scatter_attr_id, attrId>::return_type&
+reduce_scatter_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<reduce_scatter_attr_id, attrId>{});
+}
+
+template <operation_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<operation_attr_id, attrId>::return_type&
+reduce_scatter_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<operation_attr_id, attrId>{});
+}
 
 /**
  * allgather coll attributes

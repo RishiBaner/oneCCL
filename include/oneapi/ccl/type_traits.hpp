@@ -16,6 +16,8 @@
 #pragma once
 
 #include <cstdint>
+#include "oneapi/ccl/types.hpp"
+#include "oneapi/ccl/lp_types.hpp"
 
 namespace ccl {
 
@@ -32,5 +34,59 @@ using uint64 = std::uint64_t;
 // Forward declaration of template class
 template <typename T>
 struct type_info;
+
+// Base template for unsupported types
+template <typename T>
+struct type_info : ccl_type_info_export<T, 0, datatype::int8, false, false> {};
+
+// Specializations for supported types
+template <>
+struct type_info<ccl::int8>
+        : ccl_type_info_export<ccl::int8, sizeof(ccl::int8), datatype::int8, false, true> {};
+template <>
+struct type_info<ccl::uint8>
+        : ccl_type_info_export<ccl::uint8, sizeof(ccl::uint8), datatype::uint8, false, true> {};
+template <>
+struct type_info<ccl::int16>
+        : ccl_type_info_export<ccl::int16, sizeof(ccl::int16), datatype::int16, false, true> {};
+template <>
+struct type_info<ccl::uint16>
+        : ccl_type_info_export<ccl::uint16, sizeof(ccl::uint16), datatype::uint16, false, true> {};
+template <>
+struct type_info<ccl::int32>
+        : ccl_type_info_export<ccl::int32, sizeof(ccl::int32), datatype::int32, false, true> {};
+template <>
+struct type_info<ccl::uint32>
+        : ccl_type_info_export<ccl::uint32, sizeof(ccl::uint32), datatype::uint32, false, true> {};
+template <>
+struct type_info<ccl::int64>
+        : ccl_type_info_export<ccl::int64, sizeof(ccl::int64), datatype::int64, false, true> {};
+template <>
+struct type_info<ccl::uint64>
+        : ccl_type_info_export<ccl::uint64, sizeof(ccl::uint64), datatype::uint64, false, true> {};
+
+template <>
+struct type_info<float> : ccl_type_info_export<float, sizeof(float), datatype::float32, false, true> {};
+template <>
+struct type_info<double>
+        : ccl_type_info_export<double, sizeof(double), datatype::float64, false, true> {};
+
+template <>
+struct type_info<ccl::v1::float16>
+        : ccl_type_info_export<ccl::v1::float16, sizeof(ccl::v1::float16), datatype::float16, true, true> {};
+template <>
+struct type_info<ccl::v1::bfloat16>
+        : ccl_type_info_export<ccl::v1::bfloat16, sizeof(ccl::v1::bfloat16), datatype::bfloat16, true, true> {};
+
+// Type support checkers
+template <class T>
+constexpr bool is_native_type_supported() {
+    return type_info<T>::is_supported && !type_info<T>::is_class;
+}
+
+template <class T>
+constexpr bool is_class_supported() {
+    return type_info<T>::is_supported && type_info<T>::is_class;
+}
 
 } // namespace ccl
