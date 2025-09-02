@@ -17,9 +17,8 @@
 
 #include <cstdint>
 
-#if defined(_MSC_VER)
+// Use #pragma pack, which is supported by MSVC, GCC, and Clang for portability.
 #pragma pack(push, 1)
-#endif
 
 namespace ccl {
 namespace v1 {
@@ -35,8 +34,4 @@ struct bfloat16 {
 } // namespace v1
 } // namespace ccl
 
-#if defined(_MSC_VER)
 #pragma pack(pop)
-#else
-__attribute__((packed))
-#endif

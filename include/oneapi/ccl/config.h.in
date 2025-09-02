@@ -7,6 +7,12 @@
 /* Platform macros */
 #if defined(_WIN32) || defined(_WIN64)
   #define CCL_PLATFORM_WINDOWS
+#elif defined(__APPLE__)
+  #include <TargetConditionals.h>
+  #define CCL_PLATFORM_POSIX
+  #if TARGET_OS_MAC
+    #define CCL_PLATFORM_MACOS
+  #endif
 #else
   #define CCL_PLATFORM_POSIX
 #endif
@@ -23,14 +29,17 @@
 #endif
 
 /* C++ version check */
-#if __cplusplus < 201103L
-  #error "C++11 or higher is required"
+#if defined(_MSC_VER) && !defined(__clang__)
+  #if _MSVC_LANG < 201103L
+    #error "C++11 or higher is required"
+  #endif
+#elif __cplusplus < 201103L
+    #error "C++11 or higher is required"
 #endif
 
 /* Debug mode */
-#ifdef _DEBUG
+#ifndef NDEBUG
   #define CCL_DEBUG_MODE
-#endif
-#ifdef NDEBUG
+#else
   #define CCL_RELEASE_MODE
 #endif

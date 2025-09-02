@@ -19,18 +19,7 @@
 
 namespace ccl {
 
-#ifdef _MSC_VER
-// MSVC-safe typedefs
-using int8 = int8_t;
-using uint8 = uint8_t;
-using int16 = int16_t;
-using uint16 = uint16_t;
-using int32 = int32_t;
-using uint32 = uint32_t;
-using int64 = int64_t;
-using uint64 = uint64_t;
-#else
-// GNU-safe typedefs
+// C++11 and later guarantee these types are in the std namespace via <cstdint>
 using int8 = std::int8_t;
 using uint8 = std::uint8_t;
 using int16 = std::int16_t;
@@ -39,7 +28,6 @@ using int32 = std::int32_t;
 using uint32 = std::uint32_t;
 using int64 = std::int64_t;
 using uint64 = std::uint64_t;
-#endif
 
 // Forward declaration of template class
 template <typename T>
