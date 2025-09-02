@@ -28,6 +28,20 @@ namespace ccl {
 
 namespace v1 {
 
+// Template method definitions
+template <datatype_attr_id attrId, class Value>
+Value datatype_attr::set(const Value& v) {
+    return get_impl()->set_attribute_value(
+        v, detail::ccl_api_type_attr_traits<datatype_attr_id, attrId>{});
+}
+
+template <datatype_attr_id attrId>
+const typename detail::ccl_api_type_attr_traits<datatype_attr_id, attrId>::return_type&
+datatype_attr::get() const {
+    return get_impl()->get_attribute_value(
+        detail::ccl_api_type_attr_traits<datatype_attr_id, attrId>{});
+}
+
 #define API_FORCE_SETTER_INSTANTIATION(class_name, IN_attrId, IN_Value, OUT_Traits_Value) \
     template CCL_API IN_Value class_name::set<IN_attrId, IN_Value>(const IN_Value& v);
 
